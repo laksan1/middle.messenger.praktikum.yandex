@@ -6,5 +6,5 @@ const PORT = 3000;
 app.use(express.static(`${__dirname}/dist/`));
 
 app.listen(PORT, function () {
-    console.log(`Web-chat-js-app listening on port ${PORT}!`); // T asds
+    console.log(`Web-chat-js-app listening on port ${PORT}!`);
 });
