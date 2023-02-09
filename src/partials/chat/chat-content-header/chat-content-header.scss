@@ -1,0 +1,22 @@
+.chat-header {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  justify-content: space-between;
+
+  .participant {
+    margin-left: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    justify-items: center;
+    h1{
+      color: var(--app-base-03);
+    }
+
+  }
+
+  border-bottom: 3px solid var(--app-base-01);
+}
+
+

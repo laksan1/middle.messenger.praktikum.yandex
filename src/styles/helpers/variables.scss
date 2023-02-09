@@ -1,0 +1,32 @@
+:root {
+    --app-element-height: 40px;
+    --app-element-width-small: 170px;
+    --app-element-width-medium: 250px;
+    --app-element-width-large: 345px;
+
+    --app-border-radius: 5px;
+    --app-box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+
+    --app-z-high-primary: 1001;
+    --app-z-high-secondary: 1000;
+    --app-z-low-primary: 2;
+    --app-z-low-secondary: 1;
+    --app-z-low-minus-secondary: -1;
+
+    --app-base-01: #ec4b54;
+    --app-base-01-hover: #993d46;
+    --app-base-02: #fff;
+    --app-base-02-hover: #F3F3F3;
+    --app-base-03: #d5a16f;
+    --app-base-03-hover: #F59870;
+    --app-base-04: #BEBDBD;
+    --app-base-04-hover: #DEDEDE;
+    --app-success: #168246;
+    --app-warning: #F59870;
+    --app-danger: #C21807;
+    --app-background-dark: #DEDEDE;
+    --app-background-medium: #F3F3F3;
+    --app-background-light: #fff;
+    --app-text-base-01: #D94F5CFF;
+    --app-text-base-02: #BEBDBD;
+}

@@ -1,0 +1,15 @@
+.settings_items-container {
+  display: flex;
+  border-bottom: 1px solid var(--app-base-04);
+  justify-content: space-between;
+  width: 400px;
+}
+
+  .settings_item-label {
+    color: var(--app-base-04);
+  }
+
+  .settings_item-value {
+    color: var(--app-text-base-01);
+    @include template-text-bold ;
+  }

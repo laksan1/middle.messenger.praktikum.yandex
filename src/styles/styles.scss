@@ -1,0 +1,96 @@
+@import 'helpers/templates.scss';
+@import 'helpers/variables.scss';
+@import 'helpers/elements.scss';
+
+
+// Partials
+@import '../partials/input/input.scss';
+@import '../partials/button/button.scss';
+@import '../partials/settings-user-item/settings-user-item';
+@import '../partials/settings-user-avatar/settings-user-avatar';
+@import '../partials/chat/chat-user-avatar/chat-user-avatar';
+@import '../partials/settings-action/settings-action';
+@import '../partials/logout-button/logout-button';
+@import '../partials/settings-user-input/settings-user-input';
+@import '../partials/search-input/search-input';
+@import '../partials/dots-menu/dots-menu';
+@import '../partials/settings-sidebar/settings-sidebar';
+@import '../partials/float-button/float-button';
+
+
+// Chat
+@import '../partials/chat/chat-dialog/chat-dialog';
+@import '../partials/chat/chat-sidebar/chat-sidebar';
+@import '../partials/chat/chat-content/chat-content';
+@import '../partials/chat/chat-content-header/chat-content-header';
+@import '../partials/chat/chat-console/chat-console';
+@import '../partials/chat/chat-attach-button/chat-attach-button';
+@import '../partials/chat/chat-message-input/chat-message-input';
+@import '../partials/chat/chat-send-button/chat-send-button';
+@import '../partials/chat/chat-messages/chat-messages';
+
+
+// Pages
+@import '../pages/login/login';
+@import '../pages/registration/registration';
+@import '../pages/chat/chat';
+@import '../pages/settings/settings';
+@import '../pages/settings-change-info/settings-change-info';
+@import '../pages/settings-change-password/settings-change-password';
+
+
+// layouts
+@import '../layouts/auth/auth-layout';
+@import '../layouts/notification/notification-layout';
+@import '../layouts/settings/settings-layout';
+@import '../layouts/chat/chat-layout';
+
+
+body{
+  background-color: var(--app-background-medium);
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 100vh;
+  list-style: none;
+}
+
+.menu li {
+  width: 125px;
+  height: 50px;
+  transition: background-position-x 0.9s linear;
+  text-align: center;
+
+  a {
+    font-size: 22px;
+    color: #777;
+    text-decoration: none;
+    transition: all 1s;
+  }
+
+  &:hover {
+    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEi%0D%0AIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhs%0D%0AaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB3aWR0%0D%0AaD0iMzkwcHgiIGhlaWdodD0iNTBweCIgdmlld0JveD0iMCAwIDM5MCA1MCIgZW5hYmxlLWJhY2tn%0D%0Acm91bmQ9Im5ldyAwIDAgMzkwIDUwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHBhdGggZmlsbD0i%0D%0Abm9uZSIgc3Ryb2tlPSIjZDk0ZjVjIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLW1pdGVybGlt%0D%0AaXQ9IjEwIiBkPSJNMCw0Ny41ODVjMCwwLDk3LjUsMCwxMzAsMAoJYzEzLjc1LDAsMjguNzQtMzgu%0D%0ANzc4LDQ2LjE2OC0xOS40MTZDMTkyLjY2OSw0Ni41LDI0My42MDMsNDcuNTg1LDI2MCw0Ny41ODVj%0D%0AMzEuODIxLDAsMTMwLDAsMTMwLDAiLz4KPC9zdmc+Cg==");
+    animation: line 1s;
+  }
+
+  &:hover a {
+    color: #D94F5CFF;
+  }
+
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+@keyframes line {
+  0% {
+    background-position-x: 290px;
+  }
+}
+
+
+
