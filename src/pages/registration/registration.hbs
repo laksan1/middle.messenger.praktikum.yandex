@@ -1,0 +1,28 @@
+{{!< auth/auth-layout}}
+
+<div class="inputs-container">
+    <label class="label">Регистрация</label>
+
+    {{> "input/input" inputName="email" label="Почта" value="pochta@yandex.ru" }}
+
+    {{> "input/input" inputName="login" label="Логин" value="ivanivanov" }}
+
+    {{> "input/input" inputName="first_name" label="Имя" value="Иван" }}
+
+    {{> "input/input" inputName="second_name" label="Фамилия" value="Иванов" }}
+
+    {{> "input/input" inputName="phone" label="Телефон" value="+7(909)9673030" }}
+
+    {{> "input/input" inputName="password" label="Пароль" value="*****" }}
+
+    {{> "input/input" inputName="repeat_password" label="Пароль еще раз" value="*****" }}
+
+    <div class="registration-button-container">
+        {{> "button/button" label= "Создать профиль"}}
+    </div>
+    <a class="prompt" href="../login/login.hbs" >Войти</a>
+</div>
+
+
+
+

@@ -1,0 +1,8 @@
+.chat-console {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  justify-items: center;
+  height: 5%;
+  border-top: 3px solid var(--app-base-01);
+}

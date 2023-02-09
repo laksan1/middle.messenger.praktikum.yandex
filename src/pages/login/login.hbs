@@ -1,0 +1,19 @@
+{{!< auth/auth-layout}}
+
+<div class="inputs-container">
+    <label class="label">Вход</label>
+    {{> "input/input" inputName="login" label="Логин" value="ivan@mail.ru" }}
+
+    {{> "input/input" inputName="password" label="Пароль" value="******" }}
+
+    <div class="login-button-container">
+        {{> "button/button" label= "Войти"}}
+    </div>
+
+    <a class="prompt" href="../registration/registration.hbs" >Создать аккаунт?</a>
+
+</div>
+
+
+
+

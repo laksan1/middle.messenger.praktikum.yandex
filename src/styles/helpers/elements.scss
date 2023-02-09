@@ -1,0 +1,18 @@
+button {
+  &:hover {
+    color: var(--app-base-02);
+    background-color: var(--app-base-03);
+    cursor: pointer;
+  }
+}
+
+input {
+  &::placeholder {
+    color: #6d7f8f;
+  }
+
+  &:focus {
+    outline: none;
+    color: var(--app-base-03);
+  }
+}
