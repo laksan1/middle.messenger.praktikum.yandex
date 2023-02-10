@@ -2,18 +2,19 @@
 
 <div class="inputs-container">
     <label class="label">Вход</label>
-    {{> "input/input" inputName="login" label="Логин" value="ivan@mail.ru" }}
 
-    {{> "input/input" inputName="password" label="Пароль" value="******" }}
+    <form>
+        <fieldset>
+            {{> "input/input" name="login" label="Логин" type="email" placeholder="ivan@mail.ru" }}
 
-    <div class="login-button-container">
-        {{> "button/button" label= "Войти"}}
-    </div>
+            {{> "input/input" name="password" label="Пароль" type="password" placeholder="******" }}
 
-    <a class="prompt" href="../registration/registration.hbs" >Создать аккаунт?</a>
+            <div class="login-button-container">
+                {{> "button/button" label= "Войти" type="submit"}}
+            </div>
+
+            <a class="prompt" href="../registration/registration.hbs">Создать аккаунт?</a>
+        </fieldset>
+    </form>
 
 </div>
-
-
-
-

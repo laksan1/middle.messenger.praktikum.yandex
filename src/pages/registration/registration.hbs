@@ -2,25 +2,28 @@
 
 <div class="inputs-container">
     <label class="label">Регистрация</label>
+    <form>
+        <fieldset>
+            {{> "input/input" name="email" type="email" label="Почта" placeholder="pochta@yandex.ru" }}
 
-    {{> "input/input" inputName="email" label="Почта" value="pochta@yandex.ru" }}
+            {{> "input/input" name="login"  type="text" label="Логин" placeholder="ivanivanov" }}
 
-    {{> "input/input" inputName="login" label="Логин" value="ivanivanov" }}
+            {{> "input/input" name="first_name" type="text" label="Имя" placeholder="Иван" }}
 
-    {{> "input/input" inputName="first_name" label="Имя" value="Иван" }}
+            {{> "input/input" name="second_name" type="text" label="Фамилия" placeholder="Иванов" }}
 
-    {{> "input/input" inputName="second_name" label="Фамилия" value="Иванов" }}
+            {{> "input/input" name="phone" type="tel" label="Телефон" placeholder="+7(909)9673030" }}
 
-    {{> "input/input" inputName="phone" label="Телефон" value="+7(909)9673030" }}
+            {{> "input/input" name="password" type="password" label="Пароль" placeholder="*****" }}
 
-    {{> "input/input" inputName="password" label="Пароль" value="*****" }}
+            {{> "input/input" name="repeat_password" type="password"  label="Пароль еще раз" placeholder="*****" }}
 
-    {{> "input/input" inputName="repeat_password" label="Пароль еще раз" value="*****" }}
-
-    <div class="registration-button-container">
-        {{> "button/button" label= "Создать профиль"}}
-    </div>
-    <a class="prompt" href="../login/login.hbs" >Войти</a>
+            <div class="registration-button-container">
+                {{> "button/button" label="Создать профиль" type="submit"}}
+            </div>
+            <a class="prompt" href="../login/login.hbs">Войти</a>
+        </fieldset>
+    </form>
 </div>
 
 
