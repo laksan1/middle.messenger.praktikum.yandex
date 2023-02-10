@@ -5,14 +5,20 @@
 
     <label class="label">Изменить данные</label>
 
-    {{> "settings-user-input/settings-user-input" inputName="email" label="Почта" value="potcha@yandex.ru" }}
-    {{> "settings-user-input/settings-user-input" inputName="login" label="Логин" value="Иванов" }}
-    {{> "settings-user-input/settings-user-input" inputName="first_name" label="Имя" value="Иванов" }}
-    {{> "settings-user-input/settings-user-input" inputName="second_name" label="Фамилия" value="Иванов" }}
-    {{> "settings-user-input/settings-user-input" inputName="display_name" label="Имя в чате" value="Иванов" }}
-    {{> "settings-user-input/settings-user-input" inputName="phone" label="Телефон" value="+7(909)9673030" }}
+    <form>
+        <fieldset>
+        {{> "settings-user-input/settings-user-input" name="email" type="email" label="Почта" placeholder="potcha@yandex.ru" }}
+        {{> "settings-user-input/settings-user-input" name="login" type="text" label="Логин" placeholder="Иванов" }}
+        {{> "settings-user-input/settings-user-input" name="first_name" type="text" label="Имя" placeholder="Иванов" }}
+        {{> "settings-user-input/settings-user-input" name="second_name" type="text" label="Фамилия" placeholder="Иванов" }}
+        {{> "settings-user-input/settings-user-input" name="display_name" type="text" label="Имя в чате" placeholder="Иванов" }}
+        {{> "settings-user-input/settings-user-input" name="phone" type="tel" label="Телефон" placeholder="+7(909)9673030" }}
 
-    <div class="action-container">
-        {{> "button/button" label="Сохранить" link="index.hbs"}} // test main branch
-    </div>
+        <div class="action-container">
+            {{> "button/button" label="Сохранить" type="submit" link="index.hbs"}}
+        </div>
+
+        </fieldset>
+    </form>
+
 </div>
