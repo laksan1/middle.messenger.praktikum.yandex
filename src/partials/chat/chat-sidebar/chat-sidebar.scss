@@ -1,0 +1,33 @@
+.chat-sidebar {
+  width: 25%;
+  background: var(--app-base-02);
+  border-right: #EAEAEA;
+  display: flex;
+  flex-direction: column;
+  padding: 21px 10px 0 10px;
+  height: 100%;
+
+  .chat-dialog {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .chat-sidebar_header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    justify-items: flex-end;
+    .page-link {
+      display: flex;
+      flex-direction: row;
+      @include template-text-bold;
+      margin-bottom: 7px;
+      margin-left: auto;
+      a{
+        text-decoration: none;
+        color: var(--app-base-01);
+      }
+    }
+  }
+}

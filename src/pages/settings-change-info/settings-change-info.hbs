@@ -1,0 +1,24 @@
+{{!< settings/settings-layout}}
+
+<div class="settings-form-container">
+    {{> "settings-user-avatar/settings-user-avatar"}}
+
+    <label class="label">Изменить данные</label>
+
+    <form>
+        <fieldset>
+        {{> "settings-user-input/settings-user-input" name="email" type="email" label="Почта" placeholder="potcha@yandex.ru" }}
+        {{> "settings-user-input/settings-user-input" name="login" type="text" label="Логин" placeholder="Иванов" }}
+        {{> "settings-user-input/settings-user-input" name="first_name" type="text" label="Имя" placeholder="Иванов" }}
+        {{> "settings-user-input/settings-user-input" name="second_name" type="text" label="Фамилия" placeholder="Иванов" }}
+        {{> "settings-user-input/settings-user-input" name="display_name" type="text" label="Имя в чате" placeholder="Иванов" }}
+        {{> "settings-user-input/settings-user-input" name="phone" type="tel" label="Телефон" placeholder="+7(909)9673030" }}
+
+        <div class="action-container">
+            {{> "button/button" label="Сохранить" type="submit" link="index.hbs"}}
+        </div>
+
+        </fieldset>
+    </form>
+
+</div>
