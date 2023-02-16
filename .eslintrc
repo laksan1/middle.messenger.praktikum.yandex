@@ -1,0 +1,30 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "airbnb "
+  ],
+  "rules": {
+    "filenames/no-index": "error",
+    "filenames/match-exported": ["error", "kebab"],
+    "jest/no-disabled-tests": "error",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/valid-expect": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "semi": false,
+        "tabWidth": 4,
+        "singleQuote": true
+      }
+    ]
+  }
+}
