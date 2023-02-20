@@ -4,30 +4,30 @@
 
 
 // Partials
-@import '../partials/input/input.scss';
-@import '../partials/button/button.scss';
-@import '../partials/settings-user-item/settings-user-item';
-@import '../partials/settings-user-avatar/settings-user-avatar';
-@import '../partials/chat/chat-user-avatar/chat-user-avatar';
-@import '../partials/settings-action/settings-action';
-@import '../partials/logout-button/logout-button';
-@import '../partials/settings-user-input/settings-user-input';
-@import '../partials/search-input/search-input';
-@import '../partials/dots-menu/dots-menu';
-@import '../partials/settings-sidebar/settings-sidebar';
-@import '../partials/float-button/float-button';
+@import '../components/input/input.scss';
+@import '../components/button/button.scss';
+@import '../components/settings-user-item/settings-user-item';
+@import '../components/settings-user-avatar/settings-user-avatar';
+@import '../components/chat/chat-user-avatar/chat-user-avatar';
+@import '../components/settings-action/settings-action';
+@import '../components/logout-button/logout-button';
+@import '../components/settings-user-input/settings-user-input';
+@import '../components/search-input/search-input';
+@import '../components/dots-menu/dots-menu';
+@import '../components/settings-sidebar/settings-sidebar';
+@import '../components/float-button/float-button';
 
 
 // Chat
-@import '../partials/chat/chat-dialog/chat-dialog';
-@import '../partials/chat/chat-sidebar/chat-sidebar';
-@import '../partials/chat/chat-content/chat-content';
-@import '../partials/chat/chat-content-header/chat-content-header';
-@import '../partials/chat/chat-console/chat-console';
-@import '../partials/chat/chat-attach-button/chat-attach-button';
-@import '../partials/chat/chat-message-input/chat-message-input';
-@import '../partials/chat/chat-send-button/chat-send-button';
-@import '../partials/chat/chat-messages/chat-messages';
+@import '../components/chat/chat-dialog/chat-dialog';
+@import '../components/chat/chat-sidebar/chat-sidebar';
+@import '../components/chat/chat-content/chat-content';
+@import '../components/chat/chat-content-header/chat-content-header';
+@import '../components/chat/chat-console/chat-console';
+@import '../components/chat/chat-attach-button/chat-attach-button';
+@import '../components/chat/chat-message-input/chat-message-input';
+@import '../components/chat/chat-send-button/chat-send-button';
+@import '../components/chat/chat-messages/chat-messages';
 
 
 // Pages
