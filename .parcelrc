@@ -1,8 +1,8 @@
-// .parcelrc
 {
   "extends": "@parcel/config-default",
   "transformers": {
-    "*.hbs": ["@anikin/parcel-transformer-handlebars"],
-      "*.{js}": ["@parcel/transformer-js"]
-  }
+    "*.hbs": ["@anikin/parcel-transformer-handlebars-precompile"],
+    "*.sass": ["@parcel/transformer-sass"]
+  },
+  "reporters":  ["...", "parcel-reporter-static-files-copy"]
 }

@@ -3,7 +3,7 @@
 @import 'helpers/elements.scss';
 
 
-// Partials
+// Components
 @import '../components/input/input.scss';
 @import '../components/button/button.scss';
 @import '../components/settings-user-item/settings-user-item';
@@ -41,7 +41,7 @@
 
 // layouts
 @import '../layouts/auth/auth-layout';
-@import '../layouts/notification/notification-layout';
+@import '../layouts/notification/notification-layout.module';
 @import '../layouts/settings/settings-layout';
 @import '../layouts/chat/chat-layout';
 
