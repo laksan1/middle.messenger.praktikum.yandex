@@ -1,0 +1,13 @@
+.settings-change-info-container{
+	&__label{
+		color: var(--app-base-01);
+		font-size: 20px;
+	}
+	&__actions{
+		margin-top: 50px;
+		 display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+}

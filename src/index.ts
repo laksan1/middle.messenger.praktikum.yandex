@@ -3,6 +3,7 @@ import errorPage from './pages/error/error'
 import notFoundPage from "./pages/not-found/not-found";
 import loginPage from "./pages/login/login";
 import registrationPage from "./pages/registration/registration";
+import settingsPage from "./pages/settings/settings";
 
 declare const window: any;
 
@@ -10,9 +11,10 @@ const pages = {
 	errorPage,
 	notFoundPage,
 	loginPage,
-	registrationPage
-};
-
+	registrationPage,
+	settingsPage,
+	// settingsChangePasswordModal
+}
 
 const renderHomePage = (page: keyof typeof pages): void =>  {
 	const main  = document.querySelector('#main')!;
@@ -26,5 +28,5 @@ const renderHomePage = (page: keyof typeof pages): void =>  {
 
 window.changePage = renderHomePage;
 window.addEventListener('DOMContentLoaded', () => {
-	renderHomePage('registrationPage');
+	renderHomePage('settingsPage');
 });

@@ -6,20 +6,23 @@
 @import '../components/input/input.module';
 @import '../components/button/button.module';
 @import '../components/settings-user-item/settings-user-item';
-@import '../components/settings-user-avatar/settings-user-avatar';
+@import '../components/settings-user-avatar/settings-user-avatar.module';
 @import '../components/chat/chat-user-avatar/chat-user-avatar';
-@import '../components/settings-action/settings-action';
-@import '../components/logout-button/logout-button';
+@import '../components/settings-action-link/settings-action-link.module';
+@import '../components/logout-button/logout-button.module';
 @import '../components/settings-user-input/settings-user-input';
 @import '../components/search-input/search-input';
 @import '../components/dots-menu/dots-menu';
-@import '../components/settings-sidebar/settings-sidebar';
-@import '../components/float-button/float-button';
+@import '../components/settings-sidebar/settings-sidebar.module';
+@import '../components/float-button/float-button.module';
 @import '../components/error-block/error-block.module';
 @import '../components/auth-layout-link/auth-layout-link.module';
 @import '../components/registration-block/registration-block.module';
 @import '../components/login-block/login-block.module';
 @import '../components/not-found-block/not-found-block.module';
+@import '../components/settings-block/settings-block.module';
+@import '../components/settings-change-password-block/settings-change-password-block.module';
+
 
 // Chat
 @import '../components/chat/chat-dialog/chat-dialog';
@@ -35,16 +38,15 @@
 
 // Pages
 @import '../pages/chat/chat';
-@import '../pages/settings/settings';
 @import '../pages/settings-change-info/settings-change-info';
-@import '../pages/settings-change-password/settings-change-password';
 
 
 // layouts
 @import '../layouts/auth/auth-layout.module';
 @import '../layouts/notification/notification-layout.module';
-@import '../layouts/settings/settings-layout';
+@import '../layouts/settings/settings-layout.module';
 @import '../layouts/chat/chat-layout';
+@import '../layouts/modal-window/modal-window-layout.module';
 
 
 body{
