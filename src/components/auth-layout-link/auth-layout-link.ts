@@ -1,16 +1,16 @@
 import Block from '../../utils/Block';
-import template from './notification-layout-link.hbs';
-import styles from './notification-layout-link.module.scss';
+import template from './auth-layout-link.hbs';
+import styles from './auth-layout-link.module.scss';
 
-type NotificationLayoutLinkProps = {
+type AuthLayoutLinkProps = {
 	label: string;
 	href: string;
 	additionalClasses?: string[];
 	styleClasses?: string[];
 	events?: Record<string, (e?: Event) => void>;
 }
-export class  NotificationLayoutLink extends Block<NotificationLayoutLinkProps> {
-	constructor(props: NotificationLayoutLinkProps) {
+export class AuthLayoutLink extends Block<AuthLayoutLinkProps> {
+	constructor(props: AuthLayoutLinkProps) {
 		super('a', props);
 		this.element?.classList.add(styles.prompt);
 	}

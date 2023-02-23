@@ -183,7 +183,6 @@ export default class Block<P extends Record<string, unknown> = {}> {
 		const temp = document.createElement('template'); // Содержится DocumentFragment
 
 		temp.innerHTML = html;
-		console.log('this.children', this.children)
 		Object.values(this.children).forEach((component) => {
 			const stub = temp.content.querySelector(`[data-id="${component.id}"]`);
 

@@ -1,0 +1,47 @@
+import Validator, {ValidatorTypes} from "../../utils/Validator";
+import Block from "../../utils/Block";
+import template from './input.hbs';
+
+type types = 'text' | 'email' | 'password' | 'tel';
+
+type InputProps = {
+	label: string;
+	name: string;
+	type: types;
+	placeholder: string;
+	value?: string;
+	disabled?: boolean;
+	error?: string;
+	validationType: ValidatorTypes;
+	events?: Record<string, (e?: Event) => void>;
+	styleClasses?: string[];
+	additionalClasses?: string[];
+}
+
+export class Input extends Block<InputProps> {
+	constructor(props: InputProps) {
+		super('label', props);
+		this.element!.addEventListener('focusin', this.validate.bind(this));
+	}
+
+	validate() {
+		const inputField = this.element!.querySelector('.initial-input__input');
+		if (!inputField) return;
+
+		inputField.addEventListener('blur', (e) => {
+			const target = e.target as HTMLInputElement;
+			const validator = new Validator(target, this.props.validationType);
+
+			validator.check();
+			this.setProps({error: validator.getError(), value: target!.value});
+
+		}, {once: true});
+	}
+
+	protected render(): DocumentFragment {
+
+
+		return this.compile(template, {...this.props})
+	}
+
+}

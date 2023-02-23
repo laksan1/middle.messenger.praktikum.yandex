@@ -1,12 +1,16 @@
 import './styles/styles.scss';
 import errorPage from './pages/error/error'
 import notFoundPage from "./pages/not-found/not-found";
+import loginPage from "./pages/login/login";
+import registrationPage from "./pages/registration/registration";
 
 declare const window: any;
 
 const pages = {
 	errorPage,
-	notFoundPage
+	notFoundPage,
+	loginPage,
+	registrationPage
 };
 
 
@@ -22,5 +26,5 @@ const renderHomePage = (page: keyof typeof pages): void =>  {
 
 window.changePage = renderHomePage;
 window.addEventListener('DOMContentLoaded', () => {
-	renderHomePage('notFoundPage');
+	renderHomePage('registrationPage');
 });
