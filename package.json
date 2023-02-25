@@ -6,7 +6,8 @@
 		"dev": "npm run && parcel src/index.html --no-cache",
 		"build": "npm run  && parcel build src/index.html --no-cache",
 		"start": " parcel build src/index.html &&  node server.js",
-		"lint": "eslint src/**/*.ts && stylelint **/*.scss"
+		"lint": "eslint src/**/*.ts",
+		"stylelint": " stylelint **/*.scss"
 	},
 	"staticFiles": {
 		"staticPath": "static"

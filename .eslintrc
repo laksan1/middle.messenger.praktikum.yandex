@@ -7,9 +7,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "airbnb "
+    "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
     "filenames/no-index": "error",
