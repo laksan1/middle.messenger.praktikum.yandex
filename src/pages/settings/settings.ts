@@ -67,7 +67,7 @@ const phone = new SettingsUserItem({
 
 const settingsChangeInfoButton = new SettingsActionLink({
 	label: 'Изменить данные',
-	href: '../settings-block-change-info/settings-block-change-info.hbs'
+	href: '#'
 });
 
 const modals = {

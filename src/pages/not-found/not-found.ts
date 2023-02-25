@@ -4,7 +4,7 @@ import {NotFoundBlock} from "../../blocks/not-found-block/not-found-block";
 
 const link = new NotificationLayoutLink({
 	label: 'Назад к чатам',
-	href: '../../pages/chat/chat.hbs',
+	href: '#',
 })
 const notFoundBlock = new NotFoundBlock({
 	label:  '404',

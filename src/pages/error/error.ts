@@ -4,7 +4,7 @@ import {NotificationLayoutLink} from "../../components/notification-layout-link/
 
 const link = new NotificationLayoutLink({
 	label: 'Назад к чатам',
-	href: '../../pages/chat/chat.hbs',
+	href: '#',
 })
 const errorBlock = new ErrorBlock({
 	label:  '500',

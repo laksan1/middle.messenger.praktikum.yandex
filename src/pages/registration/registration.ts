@@ -72,7 +72,7 @@ const submitButton = new Button({
 
 const authLayoutLink = new AuthLayoutLink({
 	label: 'Войти',
-	href: '../login/login.hbs',
+	href: '#',
 });
 
 const registrationBlock = new RegistrationBlock({

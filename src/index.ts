@@ -32,5 +32,5 @@ const renderHomePage = (page: keyof typeof pages): void =>  {
 
 window.changePage = renderHomePage;
 window.addEventListener('DOMContentLoaded', () => {
-	renderHomePage('loginPage');
+	renderHomePage('chatPage');
 });
