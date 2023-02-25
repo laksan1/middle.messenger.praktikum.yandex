@@ -1,4 +1,4 @@
-import template from "../../auth-layout-link/auth-layout-link.hbs";
+import template from "./chat-sidebar.hbs";
 import {SearchInput} from "../../search-input/search-input";
 import Block from "../../../utils/Block";
 

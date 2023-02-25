@@ -15,7 +15,7 @@ const user = {
 	login: 'Иванчик',
 	firstName: 'Иван',
 	lastName: 'Иванов',
-	src: './img/avatar.png',
+	src: '../img/avatar.png',
 	phone: '+7(909) 967 30 30',
 	email: 'potcha@yandex.ru',
 };

@@ -6,7 +6,7 @@
   border: none;
   padding: 10px 20px;
   color: var(--app-text-base-01);
-  @include template-text-bold;
+ // @include template-text-bold;
 }
 
 @media (min-width:  400px) {.chat-message-input {width: 150px;}}

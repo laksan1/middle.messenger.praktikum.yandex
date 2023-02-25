@@ -2,6 +2,16 @@
 @import 'helpers/variables.scss';
 @import 'helpers/elements.scss';
 
+// Blocks
+@import '../blocks/error-block/error-block.module';
+@import '../blocks/not-found-block/not-found-block.module';
+@import '../blocks/settings-block/settings-block.module';
+@import '../blocks/not-found-block/not-found-block.module';
+@import '../blocks/settings-change-info-block/settings-change-info-block.module';
+@import '../blocks/settings-change-password-block/settings-change-password-block.module';
+@import '../blocks/registration-block/registration-block.module';
+@import '../blocks/login-block/login-block.module';
+
 // Components
 @import '../components/input/input.module';
 @import '../components/button/button.module';
@@ -12,30 +22,22 @@
 @import '../components/logout-button/logout-button.module';
 @import '../components/settings-user-input/settings-user-input';
 @import '../components/search-input/search-input.module';
-@import '../components/dots-menu/dots-menu';
+@import '../components/dots-menu/dots-menu.module';
 @import '../components/settings-sidebar/settings-sidebar.module';
 @import '../components/float-button/float-button.module';
-@import '../blocks/error-block/error-block.module';
 @import '../components/auth-layout-link/auth-layout-link.module';
-@import '../blocks/registration-block/registration-block.module';
-@import '../blocks/login-block/login-block.module';
-@import '../blocks/not-found-block/not-found-block.module';
-@import '../blocks/settings-block/settings-block.module';
-@import '../blocks/not-found-block/not-found-block.module';
-@import '../blocks/settings-change-info-block/settings-change-info-block.module';
-@import '../blocks/settings-change-password-block/settings-change-password-block.module';
 
 
 // Chat
 @import '../components/chat/chat-dialog/chat-dialog';
 @import '../components/chat/chat-sidebar/chat-sidebar.module';
-@import '../components/chat/chat-content/chat-content';
+@import '../components/chat/chat-content/chat-content.module';
 @import '../components/chat/chat-content-header/chat-content-header';
 @import '../components/chat/chat-console/chat-console';
 @import '../components/chat/chat-attach-button/chat-attach-button';
 @import '../components/chat/chat-message-input/chat-message-input';
 @import '../components/chat/chat-send-button/chat-send-button';
-@import '../components/chat/chat-messages/chat-messages';
+@import '../components/chat/chat-messages/chat-messages.module';
 
 
 // layouts

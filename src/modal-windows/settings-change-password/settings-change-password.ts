@@ -9,7 +9,7 @@ import {closeModalWindow} from "../../utils/ModalWindow";
 const avatar = new SettingsUserAvatar({
 	name: 'avatar',
 	disabled: true,
-	src: './img/avatar.png',
+	src: '../img/avatar.png',
 	label: 'Поменять аватар',
 	accept: 'image/*',
 

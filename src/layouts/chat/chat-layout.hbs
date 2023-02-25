@@ -1,5 +1,11 @@
-<main class="chat-container">
-	{{{component}}}
-</main>
-
+<div class="chat-layout__left">
+	{{{ chatSidebar }}}
+</div>
+<div class="chat-layout__right">
+	{{#if chatContent}}
+		{{{ chatContent }}}
+	{{else}}
+		<span class="chat-layout__notion">У вас нет чатов</span>
+	{{/if}}
+</div>
 

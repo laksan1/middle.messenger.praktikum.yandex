@@ -1,5 +1,6 @@
 import Block from '../../utils/Block';
 import template from './notification-layout-link.hbs';
+import styles from "../auth-layout-link/auth-layout-link.module.scss";
 
 type NotificationLayoutLinkProps = {
 	label: string;
@@ -11,6 +12,7 @@ type NotificationLayoutLinkProps = {
 export class  NotificationLayoutLink extends Block<NotificationLayoutLinkProps> {
 	constructor(props: NotificationLayoutLinkProps) {
 		super('a', props);
+		this.element!.classList.add(styles.prompt);
 	}
 
 	protected render(): DocumentFragment {
