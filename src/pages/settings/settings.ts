@@ -3,7 +3,7 @@ import {SettingsUserItem} from "../../components/settings-user-item/settings-use
 import {LogoutButton} from "../../components/logout-button/logout-button";
 import {SettingsActionLink} from "../../components/settings-action-link/settings-action-link";
 import {Button} from "../../components/button/button";
-import {SettingsBlock} from "../../components/settings-block/settings-block";
+import {SettingsBlock} from "../../blocks/settings-block/settings-block";
 import {SettingsLayout} from "../../layouts/settings/settings-layout";
 import {SettingsSideBar} from "../../components/settings-sidebar/settings-sidebar";
 import {FloatButton} from "../../components/float-button/float-button";
@@ -15,7 +15,7 @@ const user = {
 	login: 'Иванчик',
 	firstName: 'Иван',
 	lastName: 'Иванов',
-	src: '../../assets/img/avatar.png',
+	src: './img/avatar.png',
 	phone: '+7(909) 967 30 30',
 	email: 'potcha@yandex.ru',
 };
@@ -88,7 +88,6 @@ const logoutButton = new LogoutButton({
 });
 
 const floatButton =  new FloatButton({
-	label: 'Выйти',
 	href: '#'
 })
 

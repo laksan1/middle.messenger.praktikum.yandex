@@ -2,7 +2,7 @@ import { Button } from "../../components/button/button";
 import {AuthLayoutLink} from "../../components/auth-layout-link/auth-layout-link";
 import {AuthLayout} from "../../layouts/auth/auth-layout";
 import {Input} from "../../components/input/input";
-import {RegistrationBlock} from "../../components/registration-block/registration-block";
+import {RegistrationBlock} from "../../blocks/registration-block/registration-block";
 import submit from "../../utils/FormActions";
 
 const emailInput = new Input({
@@ -17,7 +17,7 @@ const emailInput = new Input({
 const loginInput = new Input({
 	label: 'Логин',
 	type: 'text',
-	placeholder: 'ivanivanov',
+	placeholder: 'Иван',
 	name: 'login',
 	validationType: 'login',
 });

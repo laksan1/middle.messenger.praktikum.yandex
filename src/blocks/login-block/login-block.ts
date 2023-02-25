@@ -1,8 +1,8 @@
 import Block from "../../utils/Block";
 import template from "./login-block.hbs";
-import {AuthLayoutLink} from "../auth-layout-link/auth-layout-link";
-import {Button} from "../button/button";
-import {Input} from "../input/input";
+import {AuthLayoutLink} from "../../components/auth-layout-link/auth-layout-link";
+import {Button} from "../../components/button/button";
+import {Input} from "../../components/input/input";
 
 type LoginBlockProps = {
 	loginInput: Input;

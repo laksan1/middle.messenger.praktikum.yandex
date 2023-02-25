@@ -1,5 +1,5 @@
 import Block from "../../utils/Block";
-import template from "../login-block/login-block.hbs";
+import template from "./settings-sidebar.hbs";
 import {FloatButton} from "../float-button/float-button";
 
 type SettingsSideBarProps = {
@@ -10,6 +10,7 @@ type SettingsSideBarProps = {
 export class SettingsSideBar extends Block<SettingsSideBarProps> {
 	constructor(props: SettingsSideBarProps) {
 		super('div', props);
+		this.element!.classList.add('settings-sidebar')
 	}
 
 	render() {

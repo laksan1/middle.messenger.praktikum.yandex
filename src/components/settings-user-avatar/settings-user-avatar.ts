@@ -1,7 +1,5 @@
 import template from "./settings-user-avatar.hbs";
 import Block from "../../utils/Block";
-// import src from  '../../../assets/img/avatar.png';
-// template({ src })
 
 type SettingsUserAvatarProps = {
 	name: string;

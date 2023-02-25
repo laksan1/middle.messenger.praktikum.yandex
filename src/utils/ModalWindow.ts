@@ -15,8 +15,9 @@ function openModalWindow(modal: ModalWindowLayout): void {
 }
 
 function closeModalWindow() {
-	console.log('CLose modal')
+
 	const modalsContainer = document.querySelector('.modal-container');
+	console.log('CLose modal', modalsContainer)
 	if (!modalsContainer) return;
 
 	modalsContainer.innerHTML = '';

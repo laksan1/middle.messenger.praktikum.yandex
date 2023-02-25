@@ -1,8 +1,8 @@
 import Block from '../../utils/Block';
 import template from './auth-layout.hbs';
 import styles from './auth-layout.module.scss';
-import {LoginBlock} from "../../components/login-block/login-block";
-import {RegistrationBlock} from "../../components/registration-block/registration-block";
+import {LoginBlock} from "../../blocks/login-block/login-block";
+import {RegistrationBlock} from "../../blocks/registration-block/registration-block";
 
 type AuthLayoutProps = {
 	component: LoginBlock | RegistrationBlock

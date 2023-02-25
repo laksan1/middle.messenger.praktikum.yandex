@@ -1,5 +1,5 @@
 import {NotificationLayout} from "../../layouts/notification/notification-layout";
-import {ErrorBlock} from "../../components/error-block/error-block";
+import {ErrorBlock} from "../../blocks/error-block/error-block";
 import {NotificationLayoutLink} from "../../components/notification-layout-link/notification-layout-link";
 
 const link = new NotificationLayoutLink({

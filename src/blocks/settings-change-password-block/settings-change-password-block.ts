@@ -1,8 +1,8 @@
-import {Button} from "../button/button";
+import {Button} from "../../components/button/button";
 import Block from "../../utils/Block";
 import template from "./settings-change-password-block.hbs";
-import {Input} from "../input/input";
-import {SettingsUserAvatar} from "../settings-user-avatar/settings-user-avatar";
+import {Input} from "../../components/input/input";
+import {SettingsUserAvatar} from "../../components/settings-user-avatar/settings-user-avatar";
 
 type SettingsChangePasswordBlockProps = {
 	avatar: SettingsUserAvatar;

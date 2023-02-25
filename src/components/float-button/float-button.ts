@@ -2,13 +2,13 @@ import Block from "../../utils/Block";
 import template from "../notification-layout-link/notification-layout-link.hbs";
 
 type FloatButtonProps = {
-	label: string;
 	href: string;
 	events?: Record<string, (e?: Event) => void>;
 }
 export class  FloatButton extends Block<FloatButtonProps> {
 	constructor(props: FloatButtonProps) {
 		super('button', props);
+		this.element!.classList.add('float-button');
 	}
 
 	protected render(): DocumentFragment {

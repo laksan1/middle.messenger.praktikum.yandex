@@ -4,5 +4,5 @@
     "*.hbs": ["@anikin/parcel-transformer-handlebars-precompile"],
     "*.sass": ["@parcel/transformer-sass"]
   },
-  "reporters":  ["...", "parcel-reporter-static-files-copy"]
+  "reporters":  ["...", "parcel-reporter-static-files-copy"] // ,без этого пакета не отображается фото
 }
