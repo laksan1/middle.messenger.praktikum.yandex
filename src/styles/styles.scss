@@ -2,7 +2,6 @@
 @import 'helpers/variables.scss';
 @import 'helpers/elements.scss';
 
-// Blocks
 @import '../blocks/error-block/error-block.module';
 @import '../blocks/not-found-block/not-found-block.module';
 @import '../blocks/settings-block/settings-block.module';
@@ -12,7 +11,6 @@
 @import '../blocks/registration-block/registration-block.module';
 @import '../blocks/login-block/login-block.module';
 
-// Components
 @import '../components/input/input.module';
 @import '../components/button/button.module';
 @import '../components/settings-user-item/settings-user-item';
@@ -28,7 +26,6 @@
 @import '../components/auth-layout-link/auth-layout-link.module';
 
 
-// Chat
 @import '../components/chat/chat-dialog/chat-dialog';
 @import '../components/chat/chat-sidebar/chat-sidebar.module';
 @import '../components/chat/chat-content/chat-content.module';
@@ -40,7 +37,6 @@
 @import '../components/chat/chat-messages/chat-messages.module';
 
 
-// layouts
 @import '../layouts/auth/auth-layout.module';
 @import '../layouts/notification/notification-layout.module';
 @import '../layouts/settings/settings-layout.module';
