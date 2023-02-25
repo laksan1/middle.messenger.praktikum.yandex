@@ -1,6 +1,6 @@
 import Block from '../../utils/Block';
 import template from './auth-layout-link.hbs';
-import styles from './auth-layout-link.module.scss';
+import * as styles from './auth-layout-link.module.scss';
 
 type AuthLayoutLinkProps = {
 	label: string;

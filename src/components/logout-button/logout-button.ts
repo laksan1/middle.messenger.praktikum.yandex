@@ -1,6 +1,5 @@
 import Block from "../../utils/Block";
 import template from "../notification-layout-link/notification-layout-link.hbs";
-import styles from  "./logout-button.module.scss";
 
 type LogoutButtonProps = {
 	label: string;
@@ -10,7 +9,7 @@ type LogoutButtonProps = {
 export class  LogoutButton extends Block<LogoutButtonProps> {
 	constructor(props: LogoutButtonProps) {
 		super('button', props);
-		this.element!.classList.add(styles.logout__button);
+		this.element!.classList.add('logout__button');
 	}
 
 	protected render(): DocumentFragment {

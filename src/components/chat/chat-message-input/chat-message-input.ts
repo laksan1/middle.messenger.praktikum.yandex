@@ -1,5 +1,5 @@
 import Block from "../../../utils/Block";
-import styles from "./chat-message-input.scss";
+import * as styles from "./chat-message-input.scss";
 import template from "./chat-message-input.hbs";
 
 type ChatMessageInputProps = {

@@ -1,6 +1,6 @@
 import Block from "../../utils/Block";
 import template from "../auth-layout-link/auth-layout-link.hbs";
-import styles from "./settings-action-link.module.scss";
+import * as styles from "./settings-action-link.module.scss";
 
 type SettingsActionLinkProps = {
 	label: string;

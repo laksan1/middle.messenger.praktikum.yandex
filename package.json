@@ -35,8 +35,5 @@
 	"dependencies": {
 		"express": "4.18.2",
 		"nanoid": "^4.0.1"
-	},
-	"engines": {
-		"node": "16"
 	}
 }

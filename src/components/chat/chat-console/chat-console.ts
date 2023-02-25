@@ -1,5 +1,5 @@
 import Block from "../../../utils/Block";
-import styles from "./chat-console.scss";
+import * as styles from "./chat-console.scss";
 import template from "./chat-console.hbs";
 import {ChatAttachButton} from "../chat-attach-button/chat-attach-button";
 import {ChatMessageInput} from "../chat-message-input/chat-message-input";
