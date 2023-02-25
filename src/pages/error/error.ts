@@ -15,5 +15,5 @@ const errorBlock = new ErrorBlock({
 const errorPage = new NotificationLayout({
 	component:  errorBlock,
 })
-export default errorPage;
+export default errorPage; // test
 
