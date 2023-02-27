@@ -1,0 +1,17 @@
+.notfound-block{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	&__label{
+		color: var(--app-base-01);
+		font-size: 40px;
+	}
+
+	&__description{
+		color: var(--app-base-03);
+	}
+}
+
+

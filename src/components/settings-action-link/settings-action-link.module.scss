@@ -1,0 +1,13 @@
+.action__container {
+	display: flex;
+	border-bottom: 1px solid var(--app-base-04);
+	justify-content: space-between;
+	background-color: red;
+	width: 400px;
+
+	&__label {
+		color: var(--app-base-03);
+		text-decoration: none;
+	}
+}
+
