@@ -11,10 +11,10 @@ import settingsChangePasswordModal from "../../modal-windows/settings-change-pas
 import {openModalWindow} from "../../utils/ModalWindow";
 
 const user = {
-	chatName: 'Властелин',
+	displayName: 'Властелин',
 	login: 'Иванчик',
 	firstName: 'Иван',
-	lastName: 'Иванов',
+	secondName: 'Иванов',
 	src: '../img/avatar.png',
 	phone: '+7(909) 967 30 30',
 	email: 'potcha@yandex.ru',
@@ -48,14 +48,14 @@ const firstName = new SettingsUserItem({
 });
 
 
-const lastName = new SettingsUserItem({
+const secondName = new SettingsUserItem({
 	label: 'Фамилия',
-	value: user.lastName,
+	value: user.secondName,
 });
 
-const chatName = new SettingsUserItem({
+const displayName = new SettingsUserItem({
 	label: 'Имя в чате',
-	value: user.chatName,
+	value: user.displayName,
 });
 
 const phone = new SettingsUserItem({
@@ -63,11 +63,9 @@ const phone = new SettingsUserItem({
 	value: user.phone,
 });
 
-
-
 const settingsChangeInfoButton = new SettingsActionLink({
 	label: 'Изменить данные',
-	href: '#'
+	href: 'settingsChangeInfoPage',
 });
 
 const modals = {
@@ -76,7 +74,7 @@ const modals = {
 
 
 const settingsChangePasswordButton = new Button({
-	label: 'Изменить пароль', //../settings-block-change-password/settings-block-change-password.hbs
+	label: 'Изменить пароль',
 	events: {
 		click: () => openModalWindow(modals.settingsChangePasswordModal),
 	},
@@ -88,7 +86,7 @@ const logoutButton = new LogoutButton({
 });
 
 const floatButton =  new FloatButton({
-	href: '#'
+	href: '#',
 })
 
 const sidebar = new SettingsSideBar({
@@ -102,8 +100,8 @@ const settingsBlock = new SettingsBlock({
 	email,
 	login,
 	firstName,
-	lastName,
-	chatName,
+	secondName,
+	displayName,
 	phone,
 	settingsChangeInfoButton,
 	settingsChangePasswordButton,

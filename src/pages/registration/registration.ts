@@ -25,16 +25,16 @@ const loginInput = new Input({
 const firstNameInput = new Input({
 	label: 'Имя',
 	type: 'text',
-	placeholder: 'ivanivanov',
+	placeholder: 'Иван',
 	name: 'first_name',
 	validationType: 'name',
 });
 
-const lastNameInput = new Input({
+const secondNameInput = new Input({
 	label: 'Фамилия',
 	type: 'text',
 	placeholder: 'Иванов',
-	name: 'last_name',
+	name: 'second_name',
 	validationType: 'name',
 });
 
@@ -79,7 +79,7 @@ const registrationBlock = new RegistrationBlock({
 	emailInput,
 	loginInput,
 	firstNameInput,
-	lastNameInput,
+	secondNameInput,
 	phoneInput,
 	passwordInput,
 	repeatPasswordInput,
@@ -90,7 +90,7 @@ const registrationBlock = new RegistrationBlock({
 		reset: () => {
 			loginInput.setProps({ value: '' });
 			firstNameInput.setProps({ value: '' });
-			lastNameInput.setProps({ value: '' });
+			secondNameInput.setProps({ value: '' });
 			emailInput.setProps({ value: '' });
 			phoneInput.setProps({ value: '' });
 			passwordInput.setProps({ value: '' });

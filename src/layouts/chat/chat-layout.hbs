@@ -1,11 +1,12 @@
-<div class="chat-layout__left">
+<div class="chat-layout__sidebar">
 	{{{ chatSidebar }}}
+	<img src="../img/no_messages.svg"/>
 </div>
-<div class="chat-layout__right">
+<div class="chat-layout__content">
 	{{#if chatContent}}
 		{{{ chatContent }}}
 	{{else}}
-		<span class="chat-layout__notion">У вас нет чатов</span>
+		<img src="../img/no_messages.svg"/>
 	{{/if}}
 </div>
 

@@ -7,19 +7,19 @@ import {SettingsUserAvatar} from "../../components/settings-user-avatar/settings
 interface IUser {
 	login: string;
 	firstName: string;
-	lastName: string;
+	secondName: string;
 	src: string;
 	phone: string;
 	email: string;
-	chatName: string;
+	displayName: string;
 }
 
 type SettingsChangeInfoBlockProps = {
 	avatar: SettingsUserAvatar;
-	chatName: Input;
+	displayName: Input;
 	login: Input;
 	firstName: Input;
-	lastName: Input;
+	secondName: Input;
 	email: Input;
 	phone: Input;
 	submitButton: Button;

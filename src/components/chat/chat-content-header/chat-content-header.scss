@@ -5,7 +5,6 @@
   justify-content: space-between;
 
   .participant {
-    margin-left: 10px;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -17,6 +16,7 @@
 	  }
     h1{
       color: var(--app-base-03);
+		font-size: 30px;
     }
   }
   border-bottom: 3px solid var(--app-base-01);

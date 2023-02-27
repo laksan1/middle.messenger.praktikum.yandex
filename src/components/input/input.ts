@@ -14,14 +14,17 @@ type InputProps = {
 	error?: string;
 	validationType: ValidatorTypes;
 	events?: Record<string, (e?: Event) => void>;
-	styleClasses?: string[];
-	additionalClasses?: string[];
 }
 
 export class Input extends Block<InputProps> {
 	constructor(props: InputProps) {
 		super('label', props);
-		this.element!.addEventListener('focusin', this.validate.bind(this));
+		this.setProps({
+			events: {
+				...this.props.events,
+				focusin: this.validate.bind(this)
+			}
+		});
 	}
 
 	validate() {
@@ -38,10 +41,11 @@ export class Input extends Block<InputProps> {
 		}, {once: true});
 	}
 
+
+
 	protected render(): DocumentFragment {
-
-
 		return this.compile(template, {...this.props})
 	}
 
 }
+

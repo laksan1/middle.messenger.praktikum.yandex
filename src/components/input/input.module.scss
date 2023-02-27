@@ -1,7 +1,7 @@
 .initial-input {
 	display: flex;
 	flex-direction: column;
-
+	color: var(--app-base-04);
 
 	&__label {
 		display: block;
@@ -26,11 +26,12 @@
 	}
 
 	&__error {
-		color: var(--app-danger);
+		color: var(--app-base-03);
 		opacity: 1
 	}
 
 	&__input {
+		color: var(--app-danger);
 		background-color: transparent;
 		border-top: none;
 		border-left: none;

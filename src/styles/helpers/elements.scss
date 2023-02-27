@@ -8,7 +8,7 @@ button {
 
 input {
   &::placeholder {
-    color: #6d7f8f;
+    color: var(--app-base-03);;
   }
 
   &:focus {

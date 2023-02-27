@@ -5,8 +5,6 @@ import * as styles from './auth-layout-link.module.scss';
 type AuthLayoutLinkProps = {
 	label: string;
 	href: string;
-	additionalClasses?: string[];
-	styleClasses?: string[];
 	events?: Record<string, (e?: Event) => void>;
 }
 export class AuthLayoutLink extends Block<AuthLayoutLinkProps> {

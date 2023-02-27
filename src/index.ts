@@ -6,8 +6,11 @@ import registrationPage from "./pages/registration/registration";
 import settingsPage from "./pages/settings/settings";
 import settingsChangeInfoPage from "./pages/settings-change-info/settings-change-info";
 import chatPage from "./pages/chat/chat";
+import {MainBlock} from "./blocks/main-block/main-block";
 
 declare const window: any;
+
+const mainPage = new MainBlock({});
 
 const pages = {
 	errorPage,
@@ -16,8 +19,8 @@ const pages = {
 	registrationPage,
 	settingsPage,
 	settingsChangeInfoPage,
-	chatPage
-	// settingsChangePasswordModal
+	chatPage,
+	mainPage
 }
 
 const renderHomePage = (page: keyof typeof pages): void =>  {
@@ -29,6 +32,8 @@ const renderHomePage = (page: keyof typeof pages): void =>  {
 		addedPage.dispatchComponentDidMount();
 	}
 }
+
+
 
 window.changePage = renderHomePage;
 window.addEventListener('DOMContentLoaded', () => {

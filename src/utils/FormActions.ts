@@ -1,7 +1,6 @@
 import Validator, {ValidatorTypes} from "./Validator";
 
 export default function submit(e?: Event): void {
-	console.log('EVE', e)
 	if (!e) return;
 	e.preventDefault();
 
@@ -33,9 +32,7 @@ export default function submit(e?: Event): void {
 		formData.forEach((value, key) => {
 			formObj[key] = value;
 		});
-
-		// eslint-disable-next-line
-		console.log(formObj);
+		console.log('Form data',formObj);
 		form.reset();
 	}
 }

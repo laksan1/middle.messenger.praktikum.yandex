@@ -16,12 +16,12 @@ const chatsData = [
 		id: 1,
 		user: {
 			id: 11,
-			chatName: 'Рустам',
+			displayName: 'Рустам',
 			avatar: '../../img/avatar.png',
 		},
-		unreadMessages: 0,
+		unreadMessages: 25,
 		lastMessage: {
-			value: 'Внезапно, базовые сценарии поведения пользователей, инициированные исключительно синтетически, объективно рассмотрены соответствующими инстанциями.',
+			value: 'Как дела?',
 			date: '2022-12-04T11:10:34.368Z',
 			createdDate: '15:10',
 			senderId: 34,
@@ -31,15 +31,45 @@ const chatsData = [
 		id: 2,
 		user: {
 			id: 22,
-			chatName: 'Александр',
+			displayName: 'Александр',
 			avatar: '../../img/avatar.png',
 		},
-		unreadMessages: 4,
+		unreadMessages: 0,
 		lastMessage: {
-			value: 'Картельные сговоры не допускают ситуации, при которой многие известные личности разоблачены.',
+			value: 'Все отлчино.',
 			date: '2022-12-04T04:10:34.368Z',
 			createdDate: '09:10',
 			senderId: 12,
+		},
+	},
+	{
+		id: 3,
+		user: {
+			id: 33,
+			displayName: 'Илон Маск',
+			avatar: '../../img/elon.png',
+		},
+		unreadMessages: 10,
+		lastMessage: {
+			value: 'Запускаем',
+			date: '2022-12-04T04:10:34.368Z',
+			createdDate: '09:10',
+			senderId: 2,
+		},
+	},
+	{
+		id: 4,
+		user: {
+			id: 44,
+			displayName: 'Jeff bezos',
+			avatar: '../../img/bezos.png',
+		},
+		unreadMessages: 10,
+		lastMessage: {
+			value: 'Покупаем',
+			date: '2022-12-04T04:10:34.368Z',
+			createdDate: '09:10',
+			senderId: 2,
 		},
 	},
 ];
@@ -53,8 +83,6 @@ const chatSidebar = new ChatSidebar({
 	chatsData,
 	searchInput,
 });
-
-// -----------------
 
 const chatAttachButton = new ChatAttachButton({
 	src: '../img/scrap.svg'
@@ -74,9 +102,6 @@ const chatConsole = new ChatConsole({
 	chatSendButton,
 	chatMessageInput
 })
-
-
-// --------------------
 
 const avatar = new SettingsUserAvatar({
 	name: 'avatar',

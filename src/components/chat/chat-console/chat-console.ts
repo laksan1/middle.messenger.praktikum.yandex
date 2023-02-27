@@ -1,5 +1,4 @@
 import Block from "../../../utils/Block";
-import * as styles from "./chat-console.scss";
 import template from "./chat-console.hbs";
 import {ChatAttachButton} from "../chat-attach-button/chat-attach-button";
 import {ChatMessageInput} from "../chat-message-input/chat-message-input";
@@ -14,7 +13,7 @@ type ChatConsoleProps = {
 export class ChatConsole extends Block<ChatConsoleProps> {
 	constructor(props: ChatConsoleProps) {
 		super('form', props);
-		this.element!.classList.add(styles.chatConsole);
+		this.element!.classList.add('chat-console');
 	}
 
 	protected render(): DocumentFragment {

@@ -8,7 +8,7 @@ type RegistrationBlockProps = {
 	emailInput: Input;
 	loginInput: Input;
 	firstNameInput: Input;
-	lastNameInput: Input;
+	secondNameInput: Input;
 	phoneInput: Input;
 	passwordInput: Input;
 	repeatPasswordInput: Input;

@@ -12,14 +12,12 @@ export class ChatLayout extends Block<ChatLayoutProps> {
 	constructor(props: ChatLayoutProps) {
 		super('div', props);
 		this.element!.classList.add('chat-layout');
-
 	}
 
 	render() {
 		if (this.children.dialog) {
 			this.element!.classList.add('chats-layout_dialog');
 		}
-
 		return this.compile(template, { ...this.props });
 	}
 

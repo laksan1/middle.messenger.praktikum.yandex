@@ -10,19 +10,19 @@ import {SettingsActionLink} from "../../components/settings-action-link/settings
 interface IUser {
 	login: string;
 	firstName: string;
-	lastName: string;
+	secondName: string;
 	src: string;
 	phone: string;
 	email: string;
-	chatName: string;
+	displayName: string;
 }
 
 type SettingsBlockProps = {
 	avatar: SettingsUserAvatar;
-	chatName: SettingsUserItem;
+	displayName: SettingsUserItem;
 	login: SettingsUserItem;
 	firstName: SettingsUserItem;
-	lastName: SettingsUserItem;
+	secondName: SettingsUserItem;
 	email: SettingsUserItem;
 	phone: SettingsUserItem;
 	settingsChangeInfoButton: SettingsActionLink;

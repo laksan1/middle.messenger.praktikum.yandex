@@ -5,6 +5,8 @@ import template from "./chat-message-input.hbs";
 type ChatMessageInputProps = {
 	placeholder: string;
 	name: string;
+	error?: string;
+	value?: string;
 	events?: Record<string, (e?: Event) => void>;
 }
 export class ChatMessageInput extends Block<ChatMessageInputProps> {
@@ -16,4 +18,5 @@ export class ChatMessageInput extends Block<ChatMessageInputProps> {
 	protected render(): DocumentFragment {
 		return this.compile(template, {...this.props})
 	}
+
 }

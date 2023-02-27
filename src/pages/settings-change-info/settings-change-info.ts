@@ -7,10 +7,10 @@ import {FloatButton} from "../../components/float-button/float-button";
 import {SettingsSideBar} from "../../components/settings-sidebar/settings-sidebar";
 
 const user = {
-	chatName: 'Властелин',
+	displayName: 'Властелин',
 	login: 'Иванчик',
 	firstName: 'Иван',
-	lastName: 'Иванов',
+	secondName: 'Иванов',
 	src: '../img/avatar.png',
 	phone: '+7(909) 967 30 30',
 	email: 'potcha@yandex.ru',
@@ -23,7 +23,6 @@ const avatar = new SettingsUserAvatar({
 	src: user.src,
 	label: 'Поменять аватар',
 	accept: 'image/*',
-
 });
 
 const email = new Input({
@@ -53,21 +52,21 @@ const firstName = new Input({
 	validationType: 'name',
 });
 
-const lastName = new Input({
+const secondName = new Input({
 	label: 'Фамилия',
 	type: 'text',
 	placeholder: 'Иванов',
-	name: 'last_name',
-	value: user.lastName,
+	name: 'second_name',
+	value: user.secondName,
 	validationType: 'name',
 });
 
-const chatName = new Input({
-	label: 'Имя в чатк',
+const displayName = new Input({
+	label: 'Имя в чате',
 	type: 'text',
 	placeholder: 'Горшок',
-	name: 'chat_name',
-	value: user.chatName,
+	name: 'display_name',
+	value: user.displayName,
 	validationType: 'name',
 });
 
@@ -94,10 +93,10 @@ const settingsChangeInfoBlock = new SettingsChangeInfoBlock({
 	avatar,
 	login,
 	firstName,
-	lastName,
+	secondName,
 	phone,
 	email,
-	chatName,
+	displayName,
 	submitButton,
 	cancelButton,
 	user,
