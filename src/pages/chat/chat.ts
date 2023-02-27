@@ -109,7 +109,6 @@ const avatar = new SettingsUserAvatar({
 	src: '../img/avatar.png',
 	label: 'Поменять аватар',
 	accept: 'image/*',
-
 });
 
 const dotsMenu = new DotsMenu({
@@ -129,7 +128,7 @@ const chatContent = new ChatContent({
 	chatMessages
 })
 
-const  chatPage = new ChatLayout({
+const chatPage = new ChatLayout({
 	chatSidebar,
 	chatContent
 
