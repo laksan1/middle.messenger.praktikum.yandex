@@ -11,6 +11,8 @@
 @import '../blocks/registration-block/registration-block.module';
 @import '../blocks/login-block/login-block.module';
 
+@import '../blocks/main-block/main-block.module';
+
 @import '../components/input/input.module';
 @import '../components/button/button.module';
 @import '../components/settings-user-item/settings-user-item';
@@ -34,6 +36,7 @@
 @import '../components/chat/chat-message-input/chat-message-input';
 @import '../components/chat/chat-send-button/chat-send-button';
 @import '../components/chat/chat-messages/chat-messages.module';
+
 
 
 @import '../layouts/auth/auth-layout.module';
