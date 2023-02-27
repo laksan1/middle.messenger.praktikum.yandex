@@ -4,8 +4,8 @@
 	"description": "messenger made on cheats html + scss + js",
 	"scripts": {
 		"dev": "npm run && parcel src/index.html --no-cache",
-		"build": "npm run  && parcel build src/index.html --no-cache",
-		"start": " parcel build src/index.html &&  node server.js",
+		"build": "npm run && parcel build src/index.html --no-cache",
+		"start": "parcel build src/index.html && node server.js",
 		"lint": "eslint src/**/*.ts",
 		"stylelint": " stylelint **/*.scss"
 	},
