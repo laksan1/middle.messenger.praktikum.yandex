@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+	  "moduleResolution": "Node",
+    "target": "es2017",
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "sourceMap": true,
+    "strictNullChecks": true
+  }
+}

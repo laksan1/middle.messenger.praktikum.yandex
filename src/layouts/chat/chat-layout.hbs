@@ -1,6 +1,12 @@
-<link rel="stylesheet" href="../../styles/styles.scss">
-<main class="chat-container">
-    {{{body}}}
-</main>
-
+<div class="chat-layout__sidebar">
+	{{{ chatSidebar }}}
+	<img src="../img/no_messages.svg"/>
+</div>
+<div class="chat-layout__content">
+	{{#if chatContent}}
+		{{{ chatContent }}}
+	{{else}}
+		<img src="../img/no_messages.svg"/>
+	{{/if}}
+</div>
 

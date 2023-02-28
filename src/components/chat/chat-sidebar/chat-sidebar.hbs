@@ -1,0 +1,33 @@
+<div class="chat-sidebar">
+	<div class="chat-sidebar_header">
+		<div class="page-link">
+			<a onclick="changePage('settingsPage')">Профиль</a>
+		</div>
+		{{{ searchInput }}}
+	</div>
+
+	<div class="chats__body">
+		<ul class="chats-list">
+			{{#each chatsData}}
+				<li data-chat-id="{{ this.id }}" class="chats-item chats-list__item">
+					<div class="chats-item__avatar ">
+						<img class="avatar__image" src="{{ this.user.avatar }}"
+							 alt="{{this.user.name}} avatar">
+					</div>
+					<div class="chats-item__content">
+						<div class="chats-item__info">
+							<p class="chats-item__user">{{ this.user.displayName }}</p>
+							<span class="chats-item__time">{{ this.lastMessage.createdDate }}</span>
+						</div>
+						<p class="chats-item__message {{#if this.unreadMessages}}chats-item__message_unread{{/if}}"
+						   data-unread="{{ this.unreadMessages }}">{{ this.lastMessage.value }}
+						</p>
+					</div>
+				</li>
+			{{/each}}
+		</ul>
+</div>
+
+
+
+
