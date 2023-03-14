@@ -1,5 +1,5 @@
-import template from "./settings-user-avatar.hbs";
-import Block from "../../utils/Block";
+import template from './settings-user-avatar.hbs';
+import Block from '../../utils/Block';
 
 type SettingsUserAvatarProps = {
 	name: string;

@@ -1,6 +1,6 @@
-import template from "./chat-sidebar.hbs";
-import {SearchInput} from "../../search-input/search-input";
-import Block from "../../../utils/Block";
+import template from './chat-sidebar.hbs';
+import {SearchInput} from '../../search-input/search-input';
+import Block from '../../../utils/Block';
 
 type ChatSidebarProps = {
 	chatsData: object[];

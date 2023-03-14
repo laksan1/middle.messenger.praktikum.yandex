@@ -10,12 +10,9 @@
     "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
+	  "quotes": [2, "single", { "avoidEscape": true }],
     "filenames/no-index": "error",
     "filenames/match-exported": ["error", "kebab"],
-    "jest/no-disabled-tests": "error",
-    "jest/no-focused-tests": "error",
-    "jest/no-identical-title": "error",
-    "jest/valid-expect": "error",
     "prettier/prettier": [
       "error",
       {

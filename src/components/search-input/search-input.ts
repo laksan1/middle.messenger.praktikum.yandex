@@ -1,5 +1,5 @@
-import template from "./search-input.hbs";
-import Block from "../../utils/Block";
+import template from './search-input.hbs';
+import Block from '../../utils/Block';
 
 type SearchInputProps = {
 	name: string;
@@ -12,7 +12,7 @@ type SearchInputProps = {
 export class SearchInput extends Block<SearchInputProps> {
 	constructor(props: SearchInputProps) {
 		super('label', props);
-	};
+	}
 
 	render() {
 		return this.compile(template, { ...this.props });

@@ -1,5 +1,5 @@
-import Block from "../../utils/Block";
-import template from "./modal-window-layout.hbs";
+import Block from '../../utils/Block';
+import template from './modal-window-layout.hbs';
 
 type modalProps = {
 	modal: Partial<Block>;

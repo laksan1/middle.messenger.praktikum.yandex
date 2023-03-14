@@ -1,10 +1,10 @@
 import Block from '../../utils/Block';
 import template from './settings-layout.hbs';
 import * as styles from './settings-layout.module.scss';
-import {SettingsSideBar} from "../../components/settings-sidebar/settings-sidebar";
-import {SettingsBlock} from "../../blocks/settings-block/settings-block";
-import {SettingsChangePasswordBlock} from "../../blocks/settings-change-password-block/settings-change-password-block";
-import {SettingsChangeInfoBlock} from "../../blocks/settings-change-info-block/settings-change-info-block";
+import {SettingsSideBar} from '../../components/settings-sidebar/settings-sidebar';
+import {SettingsBlock} from '../../blocks/settings-block/settings-block';
+import {SettingsChangePasswordBlock} from '../../blocks/settings-change-password-block/settings-change-password-block';
+import {SettingsChangeInfoBlock} from '../../blocks/settings-change-info-block/settings-change-info-block';
 
 
 type SettingsLayoutProps = {

@@ -1,7 +1,7 @@
-import Block from "../../utils/Block";
+import Block from '../../utils/Block';
 import template from './chat-layout.hbs';
-import {ChatSidebar} from "../../components/chat/chat-sidebar/chat-sidebar";
-import {ChatContent} from "../../components/chat/chat-content/chat-content";
+import {ChatSidebar} from '../../components/chat/chat-sidebar/chat-sidebar';
+import {ChatContent} from '../../components/chat/chat-content/chat-content';
 
 type ChatLayoutProps = {
 	chatSidebar: ChatSidebar;

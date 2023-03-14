@@ -1,8 +1,8 @@
-import Block from "../../../utils/Block";
-import template from "./chat-console.hbs";
-import {ChatAttachButton} from "../chat-attach-button/chat-attach-button";
-import {ChatMessageInput} from "../chat-message-input/chat-message-input";
-import {ChatSendButton} from "../chat-send-button/chat-send-button";
+import Block from '../../../utils/Block';
+import template from './chat-console.hbs';
+import {ChatAttachButton} from '../chat-attach-button/chat-attach-button';
+import {ChatMessageInput} from '../chat-message-input/chat-message-input';
+import {ChatSendButton} from '../chat-send-button/chat-send-button';
 
 type ChatConsoleProps = {
 	chatAttachButton: ChatAttachButton;

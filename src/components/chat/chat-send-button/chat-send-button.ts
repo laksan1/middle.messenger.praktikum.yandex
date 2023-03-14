@@ -1,5 +1,5 @@
-import Block from "../../../utils/Block";
-import template from "./chat-send-button.hbs";
+import Block from '../../../utils/Block';
+import template from './chat-send-button.hbs';
 
 
 type ChatSendButtonProps = {

@@ -1,9 +1,9 @@
-import { Button } from "../../components/button/button";
-import {AuthLayoutLink} from "../../components/auth-layout-link/auth-layout-link";
-import {AuthLayout} from "../../layouts/auth/auth-layout";
-import {Input} from "../../components/input/input";
-import {RegistrationBlock} from "../../blocks/registration-block/registration-block";
-import submit from "../../utils/FormActions";
+import { Button } from '../../components/button/button';
+import {AuthLayoutLink} from '../../components/auth-layout-link/auth-layout-link';
+import {AuthLayout} from '../../layouts/auth/auth-layout';
+import {Input} from '../../components/input/input';
+import {RegistrationBlock} from '../../blocks/registration-block/registration-block';
+import submit from '../../utils/FormActions';
 
 const emailInput = new Input({
 	label: 'Почта',

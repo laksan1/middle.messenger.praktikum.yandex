@@ -1,10 +1,10 @@
-import {Input} from "../../components/input/input";
-import {Button} from "../../components/button/button";
-import {SettingsChangePasswordBlock} from "../../blocks/settings-change-password-block/settings-change-password-block";
-import submit from "../../utils/FormActions";
-import {SettingsUserAvatar} from "../../components/settings-user-avatar/settings-user-avatar";
-import {ModalWindowLayout} from "../../layouts/modal-window/modal-window-layout";
-import {closeModalWindow} from "../../utils/ModalWindow";
+import {Input} from '../../components/input/input';
+import {Button} from '../../components/button/button';
+import {SettingsChangePasswordBlock} from '../../blocks/settings-change-password-block/settings-change-password-block';
+import submit from '../../utils/FormActions';
+import {SettingsUserAvatar} from '../../components/settings-user-avatar/settings-user-avatar';
+import {ModalWindowLayout} from '../../layouts/modal-window/modal-window-layout';
+import {closeModalWindow} from '../../utils/ModalWindow';
 
 const avatar = new SettingsUserAvatar({
 	name: 'avatar',

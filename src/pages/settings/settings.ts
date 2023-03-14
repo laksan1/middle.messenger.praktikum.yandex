@@ -1,14 +1,14 @@
-import {SettingsUserAvatar} from "../../components/settings-user-avatar/settings-user-avatar";
-import {SettingsUserItem} from "../../components/settings-user-item/settings-user-item";
-import {LogoutButton} from "../../components/logout-button/logout-button";
-import {SettingsActionLink} from "../../components/settings-action-link/settings-action-link";
-import {Button} from "../../components/button/button";
-import {SettingsBlock} from "../../blocks/settings-block/settings-block";
-import {SettingsLayout} from "../../layouts/settings/settings-layout";
-import {SettingsSideBar} from "../../components/settings-sidebar/settings-sidebar";
-import {FloatButton} from "../../components/float-button/float-button";
-import settingsChangePasswordModal from "../../modal-windows/settings-change-password/settings-change-password";
-import {openModalWindow} from "../../utils/ModalWindow";
+import {SettingsUserAvatar} from '../../components/settings-user-avatar/settings-user-avatar';
+import {SettingsUserItem} from '../../components/settings-user-item/settings-user-item';
+import {LogoutButton} from '../../components/logout-button/logout-button';
+import {SettingsActionLink} from '../../components/settings-action-link/settings-action-link';
+import {Button} from '../../components/button/button';
+import {SettingsBlock} from '../../blocks/settings-block/settings-block';
+import {SettingsLayout} from '../../layouts/settings/settings-layout';
+import {SettingsSideBar} from '../../components/settings-sidebar/settings-sidebar';
+import {FloatButton} from '../../components/float-button/float-button';
+import settingsChangePasswordModal from '../../modal-windows/settings-change-password/settings-change-password';
+import {openModalWindow} from '../../utils/ModalWindow';
 
 const user = {
 	displayName: 'Властелин',

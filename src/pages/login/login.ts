@@ -1,9 +1,9 @@
-import { Button } from "../../components/button/button";
-import { LoginBlock } from "../../blocks/login-block/login-block";
-import {AuthLayoutLink} from "../../components/auth-layout-link/auth-layout-link";
-import {AuthLayout} from "../../layouts/auth/auth-layout";
-import {Input} from "../../components/input/input";
-import submit from "../../utils/FormActions";
+import { Button } from '../../components/button/button';
+import { LoginBlock } from '../../blocks/login-block/login-block';
+import {AuthLayoutLink} from '../../components/auth-layout-link/auth-layout-link';
+import {AuthLayout} from '../../layouts/auth/auth-layout';
+import {Input} from '../../components/input/input';
+import submit from '../../utils/FormActions';
 
 const loginInput = new Input({
 	label: 'Логин',

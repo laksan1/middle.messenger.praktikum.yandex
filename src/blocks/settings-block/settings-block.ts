@@ -1,10 +1,10 @@
-import Block from "../../utils/Block";
-import template from "./settings-block.hbs";
-import {Button} from "../../components/button/button";
-import {LogoutButton} from "../../components/logout-button/logout-button";
-import {SettingsUserAvatar} from "../../components/settings-user-avatar/settings-user-avatar";
-import {SettingsUserItem} from "../../components/settings-user-item/settings-user-item";
-import {SettingsActionLink} from "../../components/settings-action-link/settings-action-link";
+import Block from '../../utils/Block';
+import template from './settings-block.hbs';
+import {Button} from '../../components/button/button';
+import {LogoutButton} from '../../components/logout-button/logout-button';
+import {SettingsUserAvatar} from '../../components/settings-user-avatar/settings-user-avatar';
+import {SettingsUserItem} from '../../components/settings-user-item/settings-user-item';
+import {SettingsActionLink} from '../../components/settings-action-link/settings-action-link';
 
 
 interface IUser {

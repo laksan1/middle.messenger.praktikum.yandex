@@ -1,7 +1,7 @@
 import Block from '../../utils/Block';
 import template from './notification-layout.hbs';
 import * as styles from './notification-layout.module.scss';
-import {ErrorBlock} from "../../blocks/error-block/error-block";
+import {ErrorBlock} from '../../blocks/error-block/error-block';
 
 type NotificationLayoutProps = {
 	component: ErrorBlock;

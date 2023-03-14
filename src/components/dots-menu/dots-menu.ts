@@ -1,5 +1,5 @@
-import Block from "../../utils/Block";
-import template from "./dots-menu.hbs";
+import Block from '../../utils/Block';
+import template from './dots-menu.hbs';
 
 type DotsMenuProps = {
 	href: string;

@@ -1,4 +1,4 @@
-import {ModalWindowLayout} from "../layouts/modal-window/modal-window-layout";
+import {ModalWindowLayout} from '../layouts/modal-window/modal-window-layout';
 
 function openModalWindow(modal: ModalWindowLayout): void {
 	const root = document.querySelector('#main');

@@ -1,6 +1,6 @@
-import Block from "../../utils/Block";
-import template from "./error-block.hbs";
-import {NotificationLayoutLink} from "../../components/notification-layout-link/notification-layout-link";
+import Block from '../../utils/Block';
+import template from './error-block.hbs';
+import {NotificationLayoutLink} from '../../components/notification-layout-link/notification-layout-link';
 
 type ErrorBlockProps = {
 	label: string;

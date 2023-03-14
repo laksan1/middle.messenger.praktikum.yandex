@@ -1,12 +1,5 @@
 import Block from './Block';
-
-export interface BlockConstructable<P extends Record<string, any> = any> {
-	new(props: P): Block<P>;
-}
-
-function isEqual(lhs: string, rhs: string): boolean {
-	return lhs === rhs;
-}
+import { isEqualPrimitive } from './helpers'
 
 function render(query: string, block: Block) {
 	const root = document.querySelector(query);
@@ -18,6 +11,7 @@ function render(query: string, block: Block) {
 	root.innerHTML = '';
 
 	root.append(block.getContent()!);
+	block.dispatchComponentDidMount();
 
 	return root;
 }
@@ -27,7 +21,7 @@ class Route {
 
 	constructor(
 		private pathname: string,
-		private readonly blockClass: BlockConstructable,
+		private readonly blockClass: typeof Block,
 		private readonly query: string) {
 	}
 
@@ -36,24 +30,30 @@ class Route {
 	}
 
 	match(pathname: string) {
-		return isEqual(pathname, this.pathname);
+		return isEqualPrimitive(pathname, this.pathname);
+	}
+
+	getPathname() {
+		return this.pathname;
 	}
 
 	render() {
 		if (!this.block) {
-			this.block = new this.blockClass({});
+			this.block = new this.blockClass();
 
-			render(this.query, this.block);
+			render(this.query, this.block!);
 			return;
 		}
 	}
 }
 
-export class Router {
+class Router {
 	private static __instance: Router;
 	private routes: Route[] = [];
 	private currentRoute: Route | null = null;
 	private history = window.history;
+	private notFoundRoute: Route | undefined = undefined;
+	private beforeRouterGo: (to: Route, from: Route | null) => boolean | Promise<boolean> = () => true;
 
 	constructor(private readonly rootQuery: string) {
 		if (Router.__instance) {
@@ -65,11 +65,58 @@ export class Router {
 		Router.__instance = this;
 	}
 
-	public use(pathname: string, block: BlockConstructable) {
+	public use(pathname: string, block: typeof Block) {
 		const route = new Route(pathname, block, this.rootQuery);
 		this.routes.push(route);
 
 		return this;
+	}
+
+	public setNotFound(pathname: string, block: typeof Block) {
+		this.notFoundRoute = new Route(pathname, block, this.rootQuery);
+		return this;
+	}
+
+	public start() {
+		window.onpopstate = (event: PopStateEvent) => {
+			const target = event.currentTarget as Window;
+
+			this._onRoute(target.location.pathname);
+		};
+
+		this._onRoute(window.location.pathname);
+	}
+
+	onBeforeRouterGo(callback: (to: Route, from: Route | null) => boolean | Promise<boolean>) {
+		this.beforeRouterGo = callback;
+
+		return this;
+	}
+
+	private async _onRoute(pathname: string) {
+
+		const route = this.getRoute(pathname);
+
+		if (!route) {
+			if (this.notFoundRoute) {
+				this.currentRoute = this.notFoundRoute;
+				this.currentRoute.render();
+			}
+			return;
+		}
+
+		const canResolve = await this.beforeRouterGo(route, this.currentRoute);
+
+		if (!canResolve) {
+			return;
+		}
+
+		if (this.currentRoute && this.currentRoute !== route) {
+			this.currentRoute.leave();
+		}
+
+		this.currentRoute = route;
+		route.render();
 	}
 
 	public go(pathname: string) {
@@ -84,32 +131,6 @@ export class Router {
 
 	public forward() {
 		this.history.forward();
-	}
-
-	public start() {
-		window.onpopstate = (event: PopStateEvent) => {
-			const target = event.currentTarget as Window;
-
-			this._onRoute(target.location.pathname);
-		}
-
-		this._onRoute(window.location.pathname);
-	}
-
-	private _onRoute(pathname: string) {
-		const route = this.getRoute(pathname);
-
-		if (!route) {
-			return;
-		}
-
-		if (this.currentRoute && this.currentRoute !== route) {
-			this.currentRoute.leave();
-		}
-
-		this.currentRoute = route;
-
-		route.render();
 	}
 
 	private getRoute(pathname: string) {

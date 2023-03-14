@@ -1,8 +1,8 @@
-import {Button} from "../../components/button/button";
-import Block from "../../utils/Block";
-import template from "./settings-change-info-block.hbs";
-import {Input} from "../../components/input/input";
-import {SettingsUserAvatar} from "../../components/settings-user-avatar/settings-user-avatar";
+import {Button} from '../../components/button/button';
+import Block from '../../utils/Block';
+import template from './settings-change-info-block.hbs';
+import {Input} from '../../components/input/input';
+import {SettingsUserAvatar} from '../../components/settings-user-avatar/settings-user-avatar';
 
 interface IUser {
 	login: string;

@@ -1,5 +1,5 @@
-import Block from "../../../utils/Block";
-import template from "./chat-attach-button.hbs";
+import Block from '../../../utils/Block';
+import template from './chat-attach-button.hbs';
 
 type ChatAttachButtonProps = {
 	src: string;

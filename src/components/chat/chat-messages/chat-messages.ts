@@ -1,5 +1,5 @@
-import Block from "../../../utils/Block";
-import template from "./chat-messages.hbs";
+import Block from '../../../utils/Block';
+import template from './chat-messages.hbs';
 
 type ChatMessagesProps = {
 	events?: Record<string, (e?: Event) => void>;

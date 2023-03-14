@@ -1,4 +1,4 @@
-import Block from "../../utils/Block";
+import Block from '../../utils/Block';
 import template from './button.hbs';
 
 type ButtonProps = {
@@ -12,7 +12,7 @@ type ButtonProps = {
 export class Button extends Block<ButtonProps> {
 	constructor(props: ButtonProps) {
 		super('button', props);
-		this.element!.classList.add("submit__button")
+		this.element!.classList.add('submit__button')
 		if (this.props.type) {
 			this.element!.setAttribute('type', this.props.type)
 		}

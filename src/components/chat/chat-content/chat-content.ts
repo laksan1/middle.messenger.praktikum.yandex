@@ -1,8 +1,8 @@
-import Block from "../../../utils/Block";
-import template from "./chat-content.hbs";
-import {ChatContentHeader} from "../chat-content-header/chat-content-header";
-import {ChatMessages} from "../chat-messages/chat-messages";
-import {ChatConsole} from "../chat-console/chat-console";
+import Block from '../../../utils/Block';
+import template from './chat-content.hbs';
+import {ChatContentHeader} from '../chat-content-header/chat-content-header';
+import {ChatMessages} from '../chat-messages/chat-messages';
+import {ChatConsole} from '../chat-console/chat-console';
 
 type ChatContentProps = {
 	chatContentHeader: ChatContentHeader;

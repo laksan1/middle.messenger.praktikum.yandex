@@ -1,5 +1,5 @@
-import Validator, {ValidatorTypes} from "../../utils/Validator";
-import Block from "../../utils/Block";
+import  {Validator,ValidatorTypes} from '../../utils/Validator';
+import Block from '../../utils/Block';
 import template from './input.hbs';
 
 type types = 'text' | 'email' | 'password' | 'tel';

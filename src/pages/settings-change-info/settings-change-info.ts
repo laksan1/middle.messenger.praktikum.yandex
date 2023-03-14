@@ -1,10 +1,10 @@
-import {SettingsUserAvatar} from "../../components/settings-user-avatar/settings-user-avatar";
-import {Button} from "../../components/button/button";
-import {SettingsChangeInfoBlock} from "../../blocks/settings-change-info-block/settings-change-info-block";
-import {Input} from "../../components/input/input";
-import {SettingsLayout} from "../../layouts/settings/settings-layout";
-import {FloatButton} from "../../components/float-button/float-button";
-import {SettingsSideBar} from "../../components/settings-sidebar/settings-sidebar";
+import {SettingsUserAvatar} from '../../components/settings-user-avatar/settings-user-avatar';
+import {Button} from '../../components/button/button';
+import {SettingsChangeInfoBlock} from '../../blocks/settings-change-info-block/settings-change-info-block';
+import {Input} from '../../components/input/input';
+import {SettingsLayout} from '../../layouts/settings/settings-layout';
+import {FloatButton} from '../../components/float-button/float-button';
+import {SettingsSideBar} from '../../components/settings-sidebar/settings-sidebar';
 
 const user = {
 	displayName: 'Властелин',

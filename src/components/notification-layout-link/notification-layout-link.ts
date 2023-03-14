@@ -1,6 +1,6 @@
 import Block from '../../utils/Block';
 import template from './notification-layout-link.hbs';
-import * as styles from "../auth-layout-link/auth-layout-link.module.scss";
+import * as styles from '../auth-layout-link/auth-layout-link.module.scss';
 
 type NotificationLayoutLinkProps = {
 	label: string;

@@ -1,12 +1,12 @@
 import './styles/styles.scss';
 import errorPage from './pages/error/error'
-import notFoundPage from "./pages/not-found/not-found";
-import loginPage from "./pages/login/login";
-import registrationPage from "./pages/registration/registration";
-import settingsPage from "./pages/settings/settings";
-import settingsChangeInfoPage from "./pages/settings-change-info/settings-change-info";
-import chatPage from "./pages/chat/chat";
-import {MainBlock} from "./blocks/main-block/main-block";
+import notFoundPage from './pages/not-found/not-found';
+import loginPage from './pages/login/login';
+import registrationPage from './pages/registration/registration';
+import settingsPage from './pages/settings/settings';
+import settingsChangeInfoPage from './pages/settings-change-info/settings-change-info';
+import chatPage from './pages/chat/chat';
+import {MainBlock} from './blocks/main-block/main-block';
 
 declare const window: any;
 

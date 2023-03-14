@@ -1,5 +1,5 @@
-import Block from "../../../utils/Block";
-import template from "./chat-message-input.hbs";
+import Block from '../../../utils/Block';
+import template from './chat-message-input.hbs';
 
 type ChatMessageInputProps = {
 	placeholder: string;

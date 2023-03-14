@@ -1,4 +1,4 @@
-import Validator, {ValidatorTypes} from "./Validator";
+import Validator, {ValidatorTypes} from './Validator';
 
 export default function submit(e?: Event): void {
 	if (!e) return;

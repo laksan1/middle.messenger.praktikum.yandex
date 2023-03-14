@@ -1,5 +1,5 @@
-import Block from "../../utils/Block";
-import template from "../notification-layout-link/notification-layout-link.hbs";
+import Block from '../../utils/Block';
+import template from '../notification-layout-link/notification-layout-link.hbs';
 
 type LogoutButtonProps = {
 	label: string;

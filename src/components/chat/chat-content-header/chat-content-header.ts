@@ -1,7 +1,7 @@
-import Block from "../../../utils/Block";
-import template from "./chat-content-header.hbs";
-import {SettingsUserAvatar} from "../../settings-user-avatar/settings-user-avatar";
-import {DotsMenu} from "../../dots-menu/dots-menu";
+import Block from '../../../utils/Block';
+import template from './chat-content-header.hbs';
+import {SettingsUserAvatar} from '../../settings-user-avatar/settings-user-avatar';
+import {DotsMenu} from '../../dots-menu/dots-menu';
 
 type ChatContentHeaderProps = {
 	avatar: SettingsUserAvatar;
