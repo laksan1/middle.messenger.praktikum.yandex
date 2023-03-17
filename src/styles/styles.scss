@@ -10,6 +10,7 @@
 @import '../blocks/settings-change-password-block/settings-change-password-block.module';
 @import '../blocks/registration-block/registration-block.module';
 @import '../blocks/login-block/login-block.module';
+@import '../blocks/chat-add-new-chat-block/chat-add-new-chat-block.module';
 
 @import '../blocks/main-block/main-block.module';
 
@@ -36,6 +37,7 @@
 @import '../components/chat/chat-message-input/chat-message-input';
 @import '../components/chat/chat-send-button/chat-send-button';
 @import '../components/chat/chat-messages/chat-messages.module';
+@import '../components/chat/chat-new-chat/chat-new-chat-button.module';
 
 
 

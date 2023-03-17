@@ -3,7 +3,7 @@ import template from './settings-sidebar.hbs';
 import {FloatButton} from '../float-button/float-button';
 
 type SettingsSideBarProps = {
-	floatButton: FloatButton
+	floatButton: FloatButton;
 	events?: Record<string, (e?: Event) => void>;
 }
 

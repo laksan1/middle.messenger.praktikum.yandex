@@ -11,6 +11,9 @@ import { SettingsUserAvatar } from '../../components/settings-user-avatar/settin
 import { DotsMenu } from '../../components/dots-menu/dots-menu'
 import { ChatMessages } from '../../components/chat/chat-messages/chat-messages'
 import { SettingsLayout } from '../../layouts/settings/settings-layout'
+import { Routes } from '../../enums/routes.enum'
+import { ChatNewChatButton } from '../../components/chat/chat-new-chat/chat-new-chat-button'
+import { SettingsActionLink } from '../../components/settings-action-link/settings-action-link'
 
 const chatsData = [
 	{
@@ -78,9 +81,20 @@ const chatsData = [
 const searchInput = new SearchInput({
 	name: 'chat-search',
 	placeholder: 'Поиск'
+});
+
+const chatNewChatButton = new ChatNewChatButton({
+	label: '+',
+})
+
+const settingsLink = new SettingsActionLink({
+	label: 'Настройки',
+	href: Routes.Settings
 })
 
 const chatSidebar = new ChatSidebar({
+	settingsLink,
+	chatNewChatButton,
 	chatsData,
 	searchInput
 })
@@ -112,7 +126,7 @@ const avatar = new SettingsUserAvatar({
 })
 
 const dotsMenu = new DotsMenu({
-	href: '#'
+	href: Routes.Settings
 })
 
 const chatContentHeader = new ChatContentHeader({

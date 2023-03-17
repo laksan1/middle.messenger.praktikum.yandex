@@ -1,4 +1,4 @@
-type ValidatorTypes = 'name' | 'login' | 'email' | 'password' | 'phone' | 'message'
+type ValidatorTypes =   'name' | 'login' | 'email' | 'password' | 'phone' | 'message' | 'default'
 
 type RuleType<P> = {
 	message?: string;
@@ -84,6 +84,11 @@ class Validator {
 			},
 			minlength: {
 				value: 8,
+			},
+		},
+		default: {
+			required: {
+				value: true,
 			},
 		},
 

@@ -31,18 +31,18 @@ type SettingsChangeInfoBlockProps = {
 	}
 
 	async init() {
-		console.log('SettingsChangeInfoBlock this.props.user_data', this.props.user_data)
+		console.log('ChatAddNewChatBlock this.props.user_data', this.props.user_data)
 		if (this.props.user_data) {
 			this.updateUserData();
 		}
 	}
 
 	async sendForm(e: Event) {
-		console.log('SettingsChangeInfoBlock sendForm')
+		console.log('ChatAddNewChatBlock sendForm')
 		e.preventDefault();
 
 		const isFormReady = checkForm(e);
-		console.log('SettingsChangeInfoBlock isFormReady 222', isFormReady)
+		console.log('ChatAddNewChatBlock isFormReady 222', isFormReady)
 		if (isFormReady) {
 
 			const avatarValue = this.getPhotoInput().getValue();

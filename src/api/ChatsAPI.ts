@@ -16,7 +16,7 @@ export class ChatsAPI extends BaseAPI {
 	}
 
 	create(data: Record<'title', string>) {
-		return this.http.post('/', { data });
+		return this.http.post('/', data);
 	}
 
 	async getToken(identifier: number): Promise<string> {

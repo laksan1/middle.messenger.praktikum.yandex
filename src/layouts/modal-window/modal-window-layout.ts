@@ -1,6 +1,5 @@
 import Block from '../../utils/Block';
 import template from './modal-window-layout.hbs';
-import { closeModalWindow } from '../../utils/ModalWindow'
 
 type modalProps = {
 	modal: Partial<Block>;

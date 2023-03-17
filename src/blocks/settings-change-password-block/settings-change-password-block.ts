@@ -55,7 +55,6 @@ export class SettingsChangePasswordBlock extends Block<SettingsChangePasswordBlo
 				(this.children.oldPasswordInput as Input).setError(response.reason);
 				return;
 			}
-
 			closeModalWindow();
 		}
 	}

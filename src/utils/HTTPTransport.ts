@@ -1,4 +1,5 @@
 import { log } from 'handlebars'
+import { queryString } from './helpers'
 
 export enum Method {
 	Get = 'Get',
@@ -21,8 +22,12 @@ export default class HTTPTransport {
 		this.endpoint = `${HTTPTransport.API_URL}${endpoint}`
 	}
 
-	public get<Response>(path = '/'): Promise<Response> {
-		return this.request<Response>(this.endpoint + path)
+	public get<Response>(path = '/', search: Record<string, unknown> ): Promise<Response> {
+		let queriedUrl = path;
+		if(search) {
+			queriedUrl += queryString(search);
+		}
+		return this.request<Response>(this.endpoint + queriedUrl)
 	}
 
 	public post<Response = void>(path: string, data?: unknown): Promise<Response> {
