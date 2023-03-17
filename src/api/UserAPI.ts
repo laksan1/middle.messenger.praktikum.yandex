@@ -18,7 +18,7 @@ export class UserAPI extends BaseAPI {
 	}
 
 	update(data: UserData): Promise<User> {
-		return this.http.put<User>('/profile', { data });
+		return this.http.put<User>('/profile',  data );
 	}
 
 	read(identifier: string): Promise<User> {
@@ -26,15 +26,26 @@ export class UserAPI extends BaseAPI {
 	}
 
 	search(data: Record<'login', string>): Promise<User[]> {
-		return this.http.post('/search', { data });
+		return this.http.post('/search', data);
 	}
 
 	updateAvatar(data: UserAvatar): Promise<User> {
-		return this.http.put<User>('/profile/avatar', { data, withFile: true });
+		const formData = new FormData();
+		const file = data.avatar;
+
+		if (file instanceof Blob) {
+			console.log('Blob', file)
+			formData.append('avatar', file, file.name);
+		}else {
+			formData.append('avatar', JSON.stringify(file));
+		}
+		console.log('formData  check',...formData.entries());
+
+		return this.http.put<User>('/profile/avatar', formData );
 	}
 
 	updatePassword(data: UserPassword): Promise<User> {
-		return this.http.put<User>('/password', { data });
+		return this.http.put<User>('/password',  data);
 	}
 
 	create = undefined;

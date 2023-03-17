@@ -1,8 +1,8 @@
 <div class="avatar-container">
-    <label class="avatar-container__label" for="file">
+    <label class="avatar-container__label"  for="file">
         <span>{{label}}</span>
     </label>
-    <input name="{{name}}" id="file" type="file" onchange="alert('Вы поменяли аватар')"/>
-    <img src="{{src}}" id="output" />
+    <input name="{{name}}" 	{{#if disabled}}disabled{{/if}} id="file" type="file" accept="{{ accept }}"/>
+    <img src="{{src}}" alt="{{ imageAlt }}" id="output" />
 </div>
 

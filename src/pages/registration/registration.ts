@@ -3,7 +3,7 @@ import {AuthLayoutLink} from '../../components/auth-layout-link/auth-layout-link
 import {AuthLayout} from '../../layouts/auth/auth-layout';
 import {Input} from '../../components/input/input';
 import {RegistrationBlock} from '../../blocks/registration-block/registration-block';
-import submit from '../../utils/FormActions';
+import { Routes } from '../../enums/routes.enum'
 
 const emailInput = new Input({
 	label: 'Почта',
@@ -72,7 +72,7 @@ const submitButton = new Button({
 
 const authLayoutLink = new AuthLayoutLink({
 	label: 'Войти',
-	href: '#',
+	href: Routes.Login,
 });
 
 const registrationBlock = new RegistrationBlock({
@@ -85,23 +85,15 @@ const registrationBlock = new RegistrationBlock({
 	repeatPasswordInput,
 	submitButton,
 	authLayoutLink,
-	events: {
-		submit: () => submit,
-		reset: () => {
-			loginInput.setProps({ value: '' });
-			firstNameInput.setProps({ value: '' });
-			secondNameInput.setProps({ value: '' });
-			emailInput.setProps({ value: '' });
-			phoneInput.setProps({ value: '' });
-			passwordInput.setProps({ value: '' });
-			repeatPasswordInput.setProps({ value: '' });
-		},
-	},
 });
 
 
+export default class registrationPage extends AuthLayout {
+	constructor() {
+		super({
+			component: registrationBlock,
+		});
+	}
+}
 
-const registrationPage = new AuthLayout({
-	component: registrationBlock,
-});
-export default registrationPage;
+

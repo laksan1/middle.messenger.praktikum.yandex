@@ -16,15 +16,15 @@ export class AuthAPI extends BaseAPI {
 
 		AuthAPI.instance = this;
 	}
-	signup(data: RegistrationData) {
-		return this.http.post<RegistrationData>('/signup', { data });
-	}
-
 	signin(data: LoginData) {
-		return this.http.post<LoginData>('/signin', { data });
+		return this.http.post<LoginData>('/signin',  data );
 	}
 
-	fetchUser(): Promise<User> {
+	signup(data: RegistrationData) {
+		return this.http.post<RegistrationData>('/signup',  data );
+	}
+
+	read(): Promise<User> {
 		return this.http.get<User>('/user');
 	}
 
@@ -33,8 +33,6 @@ export class AuthAPI extends BaseAPI {
 	}
 
 	create = undefined;
-
-	read = undefined;
 
 	update = undefined;
 

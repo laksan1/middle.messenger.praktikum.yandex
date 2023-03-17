@@ -1,4 +1,4 @@
-import  {Validator,ValidatorTypes} from '../../utils/Validator';
+import  Validator, {ValidatorTypes} from '../../utils/Validator';
 import Block from '../../utils/Block';
 import template from './input.hbs';
 
@@ -41,6 +41,17 @@ export class Input extends Block<InputProps> {
 		}, {once: true});
 	}
 
+	getName() {
+		return this.props.name;
+	}
+
+	getValue() {
+		return this.props.value;
+	}
+
+	setError(errorMessage: string) {
+		this.setProps({ error: errorMessage });
+	}
 
 
 	protected render(): DocumentFragment {

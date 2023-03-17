@@ -4,6 +4,6 @@ export enum Routes {
 	Settings = '/settings',
 	SettingsEdit = '/settings-edit',
 	Messenger = '/messenger',
-	ServiceError = '/503',
+	ServiceError = '/500',
 	PageNotFound = '/404'
 }

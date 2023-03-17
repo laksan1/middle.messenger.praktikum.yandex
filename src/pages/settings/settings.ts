@@ -1,101 +1,118 @@
-import {SettingsUserAvatar} from '../../components/settings-user-avatar/settings-user-avatar';
-import {SettingsUserItem} from '../../components/settings-user-item/settings-user-item';
-import {LogoutButton} from '../../components/logout-button/logout-button';
-import {SettingsActionLink} from '../../components/settings-action-link/settings-action-link';
-import {Button} from '../../components/button/button';
-import {SettingsBlock} from '../../blocks/settings-block/settings-block';
-import {SettingsLayout} from '../../layouts/settings/settings-layout';
-import {SettingsSideBar} from '../../components/settings-sidebar/settings-sidebar';
-import {FloatButton} from '../../components/float-button/float-button';
-import settingsChangePasswordModal from '../../modal-windows/settings-change-password/settings-change-password';
-import {openModalWindow} from '../../utils/ModalWindow';
-
-const user = {
-	displayName: 'Властелин',
-	login: 'Иванчик',
-	firstName: 'Иван',
-	secondName: 'Иванов',
-	src: '../img/avatar.png',
-	phone: '+7(909) 967 30 30',
-	email: 'potcha@yandex.ru',
-};
-
-
+import { SettingsUserAvatar } from '../../components/settings-user-avatar/settings-user-avatar'
+import { LogoutButton } from '../../components/logout-button/logout-button'
+import { SettingsActionLink } from '../../components/settings-action-link/settings-action-link'
+import { Button } from '../../components/button/button'
+import { SettingsBlock } from '../../blocks/settings-block/settings-block'
+import { SettingsLayout } from '../../layouts/settings/settings-layout'
+import { SettingsSideBar } from '../../components/settings-sidebar/settings-sidebar'
+import { FloatButton } from '../../components/float-button/float-button'
+import settingsChangePasswordModal from '../../modal-windows/settings-change-password/settings-change-password'
+import { openModalWindow } from '../../utils/ModalWindow'
+import AuthController from '../../controllers/AuthController'
+import { Routes } from '../../enums/routes.enum'
+import { Input } from '../../components/input/input'
 
 const avatar = new SettingsUserAvatar({
 	name: 'avatar',
 	disabled: true,
-	src: user.src,
-	label: 'Поменять аватар',
-	accept: 'image/*',
+	src: 'img/avatar.png',
+	imageAlt: 'user photo',
+	accept: 'image/*'
 
-});
+})
 
-const email = new SettingsUserItem({
+const email = new Input({
 	label: 'Почта',
-	value: user.email,
-});
+	type: 'email',
+	placeholder: 'pochta@yandex.ru',
+	name: 'email',
+	validationType: 'email',
+	disabled: true,
+})
 
-const login = new SettingsUserItem({
+const login = new Input({
 	label: 'Логин',
-	value: user.login,
-});
+	type: 'text',
+	placeholder: 'Иван',
+	name: 'login',
+	validationType: 'login',
+	disabled: true,
+})
 
 
-const firstName = new SettingsUserItem({
+const firstName = new Input({
 	label: 'Имя',
-	value: user.firstName,
-});
+	type: 'text',
+	placeholder: 'Иван',
+	name: 'first_name',
+	validationType: 'name',
+	disabled: true,
+})
 
 
-const secondName = new SettingsUserItem({
+const secondName = new Input({
 	label: 'Фамилия',
-	value: user.secondName,
-});
+	type: 'text',
+	placeholder: 'Иванов',
+	name: 'second_name',
+	validationType: 'name',
+	disabled: true,
+})
 
-const displayName = new SettingsUserItem({
+const displayName = new Input({
 	label: 'Имя в чате',
-	value: user.displayName,
-});
+	type: 'text',
+	placeholder: '...',
+	name: 'display_name',
+	validationType: 'name',
+	disabled: true,
+})
 
-const phone = new SettingsUserItem({
-	label: 'Имя в чате',
-	value: user.phone,
-});
+const phone = new Input({
+	label: 'Телефон',
+	type: 'tel',
+	placeholder: 'телефон',
+	name: 'phone',
+	validationType: 'phone',
+})
 
 const settingsChangeInfoButton = new SettingsActionLink({
 	label: 'Изменить данные',
-	href: 'settingsChangeInfoPage',
-});
+	href: Routes.SettingsEdit
+})
 
 const modals = {
-	settingsChangePasswordModal,
-};
+	settingsChangePasswordModal
+}
 
 
 const settingsChangePasswordButton = new Button({
 	label: 'Изменить пароль',
 	events: {
-		click: () => openModalWindow(modals.settingsChangePasswordModal),
-	},
-});
+		click: () => openModalWindow(modals.settingsChangePasswordModal)
+	}
+})
 
 const logoutButton = new LogoutButton({
 	label: 'Выйти',
 	href: '#',
-});
+	events: {
+		click: async (e) => {
+			e!.preventDefault()
+			await AuthController.logout()
+		}
+	}
+})
 
-const floatButton =  new FloatButton({
-	href: '#',
+const floatButton = new FloatButton({
+	href: Routes.Messenger,
 })
 
 const sidebar = new SettingsSideBar({
 	floatButton
 })
 
-
 const settingsBlock = new SettingsBlock({
-	user,
 	avatar,
 	email,
 	login,
@@ -105,13 +122,18 @@ const settingsBlock = new SettingsBlock({
 	phone,
 	settingsChangeInfoButton,
 	settingsChangePasswordButton,
-	logoutButton,
+	logoutButton
 });
 
+export default class settingsPage extends SettingsLayout {
+	constructor() {
+		super({
+			sidebar,
+			component: settingsBlock
+		})
+	}
 
-const settingsPage = new SettingsLayout({
-	sidebar,
-	component: settingsBlock,
-});
-
-export default settingsPage;
+	componentDidMount() {
+		this.children.component.dispatchComponentDidMount()
+	}
+}

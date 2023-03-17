@@ -28,7 +28,7 @@ class UserController {
 	async updateAvatar(data: UserAvatar) {
 		try {
 			await this.api.updateAvatar(data);
-			// store.set('user.user_data.avatar', newUserData.avatar);
+			store.set('user.user_data.avatar', data.avatar);
 		} catch (e: any) {
 			console.error(e);
 			return e;

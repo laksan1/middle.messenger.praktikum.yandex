@@ -54,6 +54,7 @@ class Store extends EventBus<StoreEventsType> {
 	}
 
 	public getState() {
+		console.log('this.state', this.state)
 		return this.state;
 	}
 }
@@ -61,7 +62,7 @@ export default new Store();
 
 const withUser = withStore((state) => {
 	return {
-		user_data: state.user.user_data,
+		user_data : state.user.user_data,
 	}
 });
 

@@ -12,8 +12,12 @@ const notFoundBlock = new NotFoundBlock({
 	link
 })
 
-const notFoundPage = new NotificationLayout({
-	component:  notFoundBlock,
-})
-export default notFoundPage;
+export default class notFoundPage extends NotificationLayout {
+	constructor() {
+		super({
+			component: notFoundBlock,
+		});
+	}
+}
+
 

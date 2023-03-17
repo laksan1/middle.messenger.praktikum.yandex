@@ -12,8 +12,10 @@ const errorBlock = new ErrorBlock({
 	link
 })
 
-const errorPage = new NotificationLayout({
-	component:  errorBlock,
-})
-export default errorPage;
-
+export default class errorPage extends NotificationLayout {
+	constructor() {
+		super({
+			component: errorBlock,
+		});
+	}
+}
