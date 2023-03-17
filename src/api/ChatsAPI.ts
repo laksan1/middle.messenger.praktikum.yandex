@@ -26,7 +26,7 @@ export class ChatsAPI extends BaseAPI {
 	}
 
 	loadChats(data: Record<'title', string>): Promise<Chat[]> {
-		return this.http.get('/', { data });
+		return this.http.get('/',  data );
 	}
 
 	delete(identifier: number) {

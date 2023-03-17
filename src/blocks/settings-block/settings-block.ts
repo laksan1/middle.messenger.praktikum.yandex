@@ -23,7 +23,7 @@ interface SettingsBlockProps {
 	user_data: User;
 }
 
-export class SettingsBlock extends Block<SettingsBlockProps> {
+ class SettingsBlockWithoutUser extends Block<SettingsBlockProps> {
 	constructor(props: SettingsBlockProps) {
 		super('section', props);
 
@@ -77,4 +77,4 @@ export class SettingsBlock extends Block<SettingsBlockProps> {
 	}
 }
 
-export const Settings = withUser(SettingsBlock as unknown as typeof Block);
+export const SettingsBlock = withUser(SettingsBlockWithoutUser as unknown as typeof Block);

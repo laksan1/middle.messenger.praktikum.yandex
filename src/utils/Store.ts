@@ -49,12 +49,10 @@ class Store extends EventBus<StoreEventsType> {
 
 	public set(keyPath: string, data: unknown) {
 		set(this.state, keyPath, data);
-
 		this.emit(StoreEvents.Updated, this.getState());
 	}
 
 	public getState() {
-		console.log('this.state', this.state)
 		return this.state;
 	}
 }

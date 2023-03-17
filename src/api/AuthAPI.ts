@@ -5,6 +5,7 @@ import { RegistrationData } from '../interfaces/auth/registration-data.interface
 
 export class AuthAPI extends BaseAPI {
 
+
 	private static instance: AuthAPI;
 
 	constructor() {
@@ -24,7 +25,7 @@ export class AuthAPI extends BaseAPI {
 		return this.http.post<RegistrationData>('/signup',  data );
 	}
 
-	read(): Promise<User> {
+	fetchUser(): Promise<User> {
 		return this.http.get<User>('/user');
 	}
 
@@ -33,6 +34,8 @@ export class AuthAPI extends BaseAPI {
 	}
 
 	create = undefined;
+
+	read = undefined;
 
 	update = undefined;
 

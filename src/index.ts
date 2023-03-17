@@ -25,7 +25,8 @@ window.addEventListener('DOMContentLoaded', async () => {
 		.use(Routes.SettingsEdit, settingsChangeInfoPage as unknown as typeof Block)
 		.use(Routes.Messenger, chatPage as typeof Block)
 		.use(Routes.ServiceError, errorPage as typeof Block)
-/*		.onBeforeRouterGo(async (to) => {
+
+		.onBeforeRouterGo(async (to) => {
 			console.log('onBeforeRouterGo to', to)
 			let isProtectedRoute = true
 			switch (to.getPathname()) {
@@ -36,11 +37,11 @@ window.addEventListener('DOMContentLoaded', async () => {
 			}
 
 			if (isProtectedRoute) {
+
 				if (store.getState().user.user_data) {
 					return true
 				} else {
 					try {
-						console.log('isProtectedRoute await AuthController.fetchUser()', store.getState().user.user_data)
 						await AuthController.fetchUser()
 						return true
 					} catch (e) {
@@ -62,7 +63,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 					}
 				}
 			}
-		})*/
+		})
 
 	Router.start()
 })

@@ -2,10 +2,12 @@ import {Button} from '../../components/button/button';
 import Block from '../../utils/Block';
 import template from './settings-change-password-block.hbs';
 import {Input} from '../../components/input/input';
-import {SettingsUserAvatar} from '../../components/settings-user-avatar/settings-user-avatar';
+import checkForm from '../../utils/FormActions'
+import { closeModalWindow } from '../../utils/ModalWindow'
+import UserController from '../../controllers/UserController'
+import { UserPassword } from '../../interfaces/user/user-password.interface'
 
 type SettingsChangePasswordBlockProps = {
-	avatar: SettingsUserAvatar;
 	oldPasswordInput: Input;
 	newPasswordInput: Input;
 	submitButton: Button;
@@ -16,14 +18,46 @@ type SettingsChangePasswordBlockProps = {
 export class SettingsChangePasswordBlock extends Block<SettingsChangePasswordBlockProps> {
 	constructor(props: SettingsChangePasswordBlockProps) {
 		super('form', props);
-		this.element!.addEventListener('focusin', this.validatePasswords.bind(this));
+		this.element!.addEventListener('submit', this.sendForm.bind(this));
 	}
 
-	validatePasswords() {
-		console.log('this.element', this.element!);
+	async sendForm(e: Event) {
 
-		//this.setProps({error: 'Пароли не совпадают', value: ''});
+		const isFormReady = checkForm(e);
+		console.log('SettingsChangePasswordBlock isFormReady', isFormReady)
+		if (isFormReady) {
+			const oldPassword = (this.children.oldPasswordInput as Input).getValue();
+			const newPassword = (this.children.newPasswordInput as Input).getValue();
 
+			console.log('oldPassword', oldPassword);
+			console.log('newPassword', newPassword);
+
+
+			if(!oldPassword || !newPassword){
+				console.log('One of passwords is Empty')
+				return;
+			}
+
+			if(oldPassword !== newPassword){
+				console.log('Passwords are not the same')
+				return;
+			}
+
+			const data: UserPassword = {
+				oldPassword,
+				newPassword
+			};
+			// alert(1111);
+
+			const response = await UserController.updatePassword(data);
+
+			if (response?.reason) {
+				(this.children.oldPasswordInput as Input).setError(response.reason);
+				return;
+			}
+
+			closeModalWindow();
+		}
 	}
 
 	protected render() {

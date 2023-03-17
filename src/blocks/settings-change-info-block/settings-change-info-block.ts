@@ -24,7 +24,7 @@ type SettingsChangeInfoBlockProps = {
 	events?: Record<string, (e?: Event) => void>;
 };
 
-export class SettingsChangeInfoBlock extends Block<SettingsChangeInfoBlockProps> {
+ class SettingsChangeInfoBlockWithoutUser extends Block<SettingsChangeInfoBlockProps> {
 	constructor(props: SettingsChangeInfoBlockProps) {
 		super('div', props);
 		this.element!.addEventListener('submit', this.sendForm.bind(this));
@@ -42,7 +42,7 @@ export class SettingsChangeInfoBlock extends Block<SettingsChangeInfoBlockProps>
 		e.preventDefault();
 
 		const isFormReady = checkForm(e);
-		console.log('SettingsChangeInfoBlock isFormReady', isFormReady)
+		console.log('SettingsChangeInfoBlock isFormReady 222', isFormReady)
 		if (isFormReady) {
 
 			const avatarValue = this.getPhotoInput().getValue();
@@ -53,8 +53,8 @@ export class SettingsChangeInfoBlock extends Block<SettingsChangeInfoBlockProps>
 			const fieldsValues = this.getInputs()
 				.map((child) => ([child.getName(), child.getValue()]));
 
-			const data = Object.fromEntries(fieldsValues);
-			const response = await UserController.update(data as UserData);
+			const data: UserData = Object.fromEntries(fieldsValues);
+			const response = await UserController.update(data);
 
 			if (response?.reason) {
 				this.getInputs()
@@ -69,9 +69,7 @@ export class SettingsChangeInfoBlock extends Block<SettingsChangeInfoBlockProps>
 
 
 	updateUserData() {
-		console.log('updateUserData', this.props.user_data)
 		if (!this.props.user_data) return;
-
 		[...this.getInputs(), this.getPhotoInput()]
 			.forEach((child: Input | SettingsUserAvatar) => {
 				const dataItem = this.props.user_data[child.getName()];
@@ -104,4 +102,4 @@ export class SettingsChangeInfoBlock extends Block<SettingsChangeInfoBlockProps>
 	}
 }
 
-export const SettingsEdit = withUser(SettingsChangeInfoBlock as unknown as typeof Block);
+export const SettingsChangeInfoBlock = withUser(SettingsChangeInfoBlockWithoutUser as unknown as typeof Block);

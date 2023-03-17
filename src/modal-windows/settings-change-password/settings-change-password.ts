@@ -6,15 +6,6 @@ import {SettingsUserAvatar} from '../../components/settings-user-avatar/settings
 import {ModalWindowLayout} from '../../layouts/modal-window/modal-window-layout';
 import {closeModalWindow} from '../../utils/ModalWindow';
 
-const avatar = new SettingsUserAvatar({
-	name: 'avatar',
-	disabled: true,
-	src: '../img/avatar.png',
-	label: 'Поменять аватар',
-	accept: 'image/*',
-
-});
-
 const oldPasswordInput = new Input({
 	type: 'password',
 	label: 'Старый пароль',
@@ -44,14 +35,10 @@ const cancelButton = new Button ({
 });
 
 const  settingsChangePasswordBlock = new SettingsChangePasswordBlock({
-	avatar,
 	oldPasswordInput,
 	newPasswordInput,
 	submitButton,
 	cancelButton,
-	events: {
-		submit: () => submit,
-	},
 
 })
 

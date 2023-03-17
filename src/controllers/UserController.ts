@@ -8,60 +8,58 @@ import router from '../utils/Router'
 import { Routes } from '../enums/routes.enum'
 
 class UserController {
-	private readonly api: UserAPI;
+	private readonly api: UserAPI
 
 	constructor() {
-		this.api = API;
+		this.api = API
 	}
 
 	async update(data: UserData) {
 		try {
-			const newUserData = await this.api.update(data);
-			store.set('user.user_data', newUserData);
-			router.go(Routes.Settings);
+			const newUserData = await this.api.update(data)
+			store.set('user.user_data', newUserData)
+			router.go(Routes.Settings)
 		} catch (e: any) {
-			console.error(e);
-			return e;
+			console.error(e)
+			return e
 		}
 	}
 
 	async updateAvatar(data: UserAvatar) {
 		try {
-			await this.api.updateAvatar(data);
-			store.set('user.user_data.avatar', data.avatar);
+			await this.api.updateAvatar(data)
+			store.set('user.user_data.avatar', data.avatar)
 		} catch (e: any) {
-			console.error(e);
-			return e;
+			console.error(e)
+			return e
 		}
 	}
 
 	async updatePassword(data: UserPassword) {
 		try {
-			await this.api.updatePassword(data);
-			return true;
+			return await this.api.updatePassword(data);
 		} catch (e: any) {
-			console.error(e);
-			return e;
+			console.error(e)
 		}
 	}
 
 	async fetchUser(id: string) {
 		try {
-			return await this.api.read(id);
+			return await this.api.read(id)
 		} catch (e: any) {
-			console.error(e);
-			return e;
+			console.error(e)
+			return e
 		}
 	}
 
 	async findUser(data: Record<'login', string>): Promise<User[]> {
 		try {
-			return await this.api.search(data);
+			return await this.api.search(data)
 		} catch (e: any) {
-			console.error(e);
-			return e;
+			console.error(e)
+			return e
 		}
 	}
 }
 
-export default new UserController();
+export default new UserController()

@@ -1,14 +1,21 @@
 import Block from '../../utils/Block';
 import template from '../notification-layout-link/notification-layout-link.hbs';
+import { PropsWithRouter, withRouter } from '../../hocs/withRouter'
 
-type FloatButtonProps = {
+export interface FloatButtonProps  extends PropsWithRouter{
 	href: string;
 	events?: Record<string, (e?: Event) => void>;
 }
-export class  FloatButton extends Block<FloatButtonProps> {
+class  FloatButtonWithoutRouter extends Block<FloatButtonProps> {
 	constructor(props: FloatButtonProps) {
-		super('button', props);
+		super('a', props);
 		this.element!.classList.add('float-button');
+		this.element!.addEventListener('click', this.navigate.bind(this));
+	}
+
+	navigate(e: Event) {
+		e.preventDefault();
+		this.props.router.go(this.props.href);
 	}
 
 	protected render(): DocumentFragment {
@@ -16,3 +23,5 @@ export class  FloatButton extends Block<FloatButtonProps> {
 		return this.compile(template, {...this.props})
 	}
 }
+
+export const FloatButton = withRouter(FloatButtonWithoutRouter as unknown as typeof Block);

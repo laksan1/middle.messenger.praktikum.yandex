@@ -81,15 +81,11 @@ const settingsChangeInfoButton = new SettingsActionLink({
 	href: Routes.SettingsEdit
 })
 
-const modals = {
-	settingsChangePasswordModal
-}
-
 
 const settingsChangePasswordButton = new Button({
 	label: 'Изменить пароль',
 	events: {
-		click: () => openModalWindow(modals.settingsChangePasswordModal)
+		click: () => openModalWindow(settingsChangePasswordModal)
 	}
 })
 

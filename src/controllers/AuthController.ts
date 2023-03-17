@@ -14,13 +14,9 @@ class AuthController {
 
 	async signin(data: LoginData) {
 		try {
-			console.log('signin', data)
 			await this.api.signin(data)
-			console.log('signin this.state getState', store.getState())
 			await this.fetchUser()
 			router.go(Routes.Settings)
-			console.log('signin Before router.go(Routes.Settings)')
-
 			return
 		} catch (e: any) {
 			console.error(e)
@@ -30,13 +26,8 @@ class AuthController {
 
 	async signup(data: RegistrationData) {
 		try {
-			console.log('signup 1111')
-
 			await this.api.signup(data)
-			console.log('signup 2222')
-
 			await this.fetchUser()
-			console.log('signup 3333')
 			router.go(Routes.Settings)
 			return
 		} catch (e: any) {
@@ -47,7 +38,7 @@ class AuthController {
 
 	async fetchUser() {
 		try {
-			const user = await this.api.read()
+			const user = await this.api.fetchUser()
 			store.set('user.user_data', user)
 		} catch (e: any) {
 			console.error('fetchUser', e)

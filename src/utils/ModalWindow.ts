@@ -1,7 +1,8 @@
 import {ModalWindowLayout} from '../layouts/modal-window/modal-window-layout';
 
 function openModalWindow(modal: ModalWindowLayout): void {
-	const root = document.querySelector('#main');
+	console.log('openModalWindow', modal)
+	const root = document.querySelector('#app');
 	if (!root) return;
 
 	let modalsContainer = root.querySelector('.modal-container');

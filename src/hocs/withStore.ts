@@ -16,6 +16,8 @@ export function withStore(mapStateToProps: (state: any) => any) {
 				store.on(StoreEvents.Updated, () => {
 					const stateProps = mapStateToProps(store.getState());
 
+					console.log('withStore stateProps', stateProps)
+
 					previousState = stateProps;
 
 					this.setProps({ ...stateProps });

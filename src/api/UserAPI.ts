@@ -39,8 +39,6 @@ export class UserAPI extends BaseAPI {
 		}else {
 			formData.append('avatar', JSON.stringify(file));
 		}
-		console.log('formData  check',...formData.entries());
-
 		return this.http.put<User>('/profile/avatar', formData );
 	}
 
