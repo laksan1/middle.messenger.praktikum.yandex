@@ -26,8 +26,6 @@ interface SettingsBlockProps {
  class SettingsBlockWithoutUser extends Block<SettingsBlockProps> {
 	constructor(props: SettingsBlockProps) {
 		super('section', props);
-
-
 	}
 
 	async init() {

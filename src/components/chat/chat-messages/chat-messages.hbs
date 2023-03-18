@@ -1,3 +1,4 @@
+<!--
 <ol class="chat">
     <li class="other">
         <div class="msg">
@@ -24,7 +25,7 @@
     </li>
     <li class="self">
         <div class="msg">
-            <p>Что ты собираешься есть?</p>
+            <p>Что ты собираешься есть? </p>
             <time>18:03</time>
         </div>
     </li>
@@ -35,4 +36,31 @@
             <time>18:07</time>
         </div>
     </li>
+</ol>
+-->
+<ol class="chat">
+	1111
+	{{#each messages}}
+		{{#ifCond this.type '===' 'message'}}
+			<li class="self">
+				<div class="msg">
+					<div class="user">Иван</div>
+					<p>
+						<emoji class="scream"></emoji>
+					</p>
+					<p>
+						{{ this.content }}
+						<emoji class="please"></emoji>
+					</p>
+					<time>{{ this.human_time }}</time>
+
+					<div class="{{#if this.is_read}}is-read{{else}}dialog-timeline__status_unread{{/if}}"></div>
+
+				</div>
+			</li>
+		{{/ifCond}}
+		{{#if this.file}}
+			Сделать заготовку для файла
+		{{/if}}
+	{{/each}}
 </ol>

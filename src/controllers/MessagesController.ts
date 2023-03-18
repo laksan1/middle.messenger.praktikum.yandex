@@ -24,10 +24,12 @@ class MessagesController {
 
 	sendMessage(id: number, message: string) {
 		const socket = this.sockets.get(id);
-
+		console.log('socket', socket)
 		if (!socket) {
 			throw new Error(`Chat ${id} is not connected`);
 		}
+
+		console.log('sendMessage message', message)
 
 		socket.send({
 			type: 'message',

@@ -32,6 +32,7 @@ class ChatsController {
 	}
 
 	selectChat(id: number) {
+		console.log('selectChat id', id)
 		store.set('currentChatId', id);
 	}
 
@@ -52,6 +53,8 @@ class ChatsController {
 	}
 
 	getChatData(id: number) {
+		console.log('id', id)
+		console.log('store.getState()', store.getState())
 		const chatData = (store.getState().chats as Chat[]).find((chat) => chat.id === id);
 		if (!chatData) {
 			throw Error('Chat not found in the list of your chats');

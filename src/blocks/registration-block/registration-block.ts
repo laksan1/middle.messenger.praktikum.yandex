@@ -5,7 +5,6 @@ import {Button} from '../../components/button/button';
 import {Input} from '../../components/input/input';
 import checkForm from '../../utils/FormActions'
 import AuthController from '../../controllers/AuthController'
-import { SignupStub } from '../../stubs/signup.stub'
 
 
 type RegistrationBlockProps = {

@@ -6,6 +6,8 @@ import { withChats } from '../../../utils/Store'
 import { Chat, LastMessage } from '../../../interfaces/chat/chat.interface'
 import ChatsController from '../../../controllers/ChatsController'
 import { SettingsActionLink } from '../../settings-action-link/settings-action-link'
+import { openModalWindow } from '../../../utils/ModalWindow'
+import ChatAddNewChatModal from '../../../modal-windows/chat/chat-add-new-chat-modal'
 
 type ChatSidebarProps = {
 	chats: Chat[];
@@ -30,12 +32,27 @@ class ChatSidebarWithoutChats extends Block<ChatSidebarProps> {
 
 	constructor(props: ChatSidebarProps) {
 		super('section', props)
+		this.element?.addEventListener('click', this.click.bind(this))
 
 		this.children.searchInput.setProps({
 			events: {
 				input: this.findUsers.bind(this)
 			}
 		})
+	}
+
+	click(e: Event) {
+		if (e.target instanceof HTMLElement) {
+			if (e.target.classList.contains('chats-item_empty') || e.target.closest('.chats-item_empty')) {
+				openModalWindow(ChatAddNewChatModal)
+			}
+			const hasChatId = e.target.hasAttribute('data-chat-id');
+			if (hasChatId) {
+				ChatsController.selectChat(Number(e.target.getAttribute('data-chat-id')));
+			} else if (e.target.closest('.chats-item')?.hasAttribute('data-chat-id')) {
+				ChatsController.selectChat(Number(e.target.closest('.chats-item')?.getAttribute('data-chat-id')));
+			}
+		}
 	}
 
 
@@ -48,7 +65,7 @@ class ChatSidebarWithoutChats extends Block<ChatSidebarProps> {
 	}
 
 	async findUsers(e: Event) {
-		e.preventDefault();
+		e.preventDefault()
 		if (e.target instanceof HTMLInputElement) {
 			const target = e.target
 			console.log('target', target)
@@ -66,7 +83,7 @@ class ChatSidebarWithoutChats extends Block<ChatSidebarProps> {
 	}
 
 	updateChatsList() {
-		ChatsController.loadChats().then(data => console.log('Chats Loaded', data));
+		ChatsController.loadChats().then(data => console.log('Chats Loaded', data))
 	}
 
 	protected render(): DocumentFragment {

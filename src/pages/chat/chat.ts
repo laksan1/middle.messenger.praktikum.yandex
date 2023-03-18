@@ -10,73 +10,12 @@ import { ChatContentHeader } from '../../components/chat/chat-content-header/cha
 import { SettingsUserAvatar } from '../../components/settings-user-avatar/settings-user-avatar'
 import { DotsMenu } from '../../components/dots-menu/dots-menu'
 import { ChatMessages } from '../../components/chat/chat-messages/chat-messages'
-import { SettingsLayout } from '../../layouts/settings/settings-layout'
 import { Routes } from '../../enums/routes.enum'
 import { ChatNewChatButton } from '../../components/chat/chat-new-chat/chat-new-chat-button'
 import { SettingsActionLink } from '../../components/settings-action-link/settings-action-link'
 
-const chatsData = [
-	{
-		id: 1,
-		user: {
-			id: 11,
-			displayName: 'Рустам',
-			avatar: '../../img/avatar.png'
-		},
-		unreadMessages: 25,
-		lastMessage: {
-			value: 'Как дела?',
-			date: '2022-12-04T11:10:34.368Z',
-			createdDate: '15:10',
-			senderId: 34
-		}
-	},
-	{
-		id: 2,
-		user: {
-			id: 22,
-			displayName: 'Александр',
-			avatar: '../../img/avatar.png'
-		},
-		unreadMessages: 0,
-		lastMessage: {
-			value: 'Все отлчино.',
-			date: '2022-12-04T04:10:34.368Z',
-			createdDate: '09:10',
-			senderId: 12
-		}
-	},
-	{
-		id: 3,
-		user: {
-			id: 33,
-			displayName: 'Илон Маск',
-			avatar: '../../img/elon.png'
-		},
-		unreadMessages: 10,
-		lastMessage: {
-			value: 'Запускаем',
-			date: '2022-12-04T04:10:34.368Z',
-			createdDate: '09:10',
-			senderId: 2
-		}
-	},
-	{
-		id: 4,
-		user: {
-			id: 44,
-			displayName: 'Jeff bezos',
-			avatar: '../../img/bezos.png'
-		},
-		unreadMessages: 10,
-		lastMessage: {
-			value: 'Покупаем',
-			date: '2022-12-04T04:10:34.368Z',
-			createdDate: '09:10',
-			senderId: 2
-		}
-	}
-]
+
+
 
 const searchInput = new SearchInput({
 	name: 'chat-search',
@@ -95,58 +34,15 @@ const settingsLink = new SettingsActionLink({
 const chatSidebar = new ChatSidebar({
 	settingsLink,
 	chatNewChatButton,
-	chatsData,
 	searchInput
 })
 
-const chatAttachButton = new ChatAttachButton({
-	src: '../img/scrap.svg'
-})
 
-const chatSendButton = new ChatSendButton({
-	label: 'Отправить'
-})
-
-const chatMessageInput = new ChatMessageInput({
-	placeholder: 'Введите новое сообщение',
-	name: 'message'
-})
-
-const chatConsole = new ChatConsole({
-	chatAttachButton,
-	chatSendButton,
-	chatMessageInput
-})
-
-const avatar = new SettingsUserAvatar({
-	name: 'avatar',
-	disabled: true,
-	src: '../img/avatar.png',
-	accept: 'image/*'
-})
-
-const dotsMenu = new DotsMenu({
-	href: Routes.Settings
-})
-
-const chatContentHeader = new ChatContentHeader({
-	avatar,
-	dotsMenu
-})
-
-const chatMessages = new ChatMessages({})
-
-const chatContent = new ChatContent({
-	chatConsole,
-	chatContentHeader,
-	chatMessages
-})
 
 export default class chatPage extends ChatLayout {
 	constructor() {
 		super({
 			chatSidebar,
-			chatContent
 		})
 	}
 }

@@ -71,4 +71,12 @@ const withChats = withStore((state) => {
 	}
 });
 
-export { withUser, withChats };
+const withUserAndMessages = withStore((state) => {
+	return {
+		user_data: state.user.user_data,
+		messages: state.messages[state.currentChatId] || [],
+
+	}
+});
+
+export { withUser, withChats, withUserAndMessages};
