@@ -101,7 +101,13 @@ type ChatLayoutProps = {
 				chatMessageInput
 			})
 
+			const dotsMenu = new DotsMenu({
+				label: 'Настройки чата',
+				chatId: this.props.currentChatId
+			});
+
 			const chatContent = new ChatContent({
+				dotsMenu,
 				chatId: this.props.currentChatId,
 				chatConsole
 			});

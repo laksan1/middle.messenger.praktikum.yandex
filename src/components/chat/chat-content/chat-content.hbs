@@ -6,16 +6,20 @@
 		<p class="dialog__user">{{ chatData.title }}</p>
 	</div>
 	{{#if actionsList}}
+
+
 		<div class="dialog__actions actions">
 			<div class="actions__icon"></div>
 			<div class="actions__tooltip">
 				<ul class="actions__list">
+
 					{{#each actionsList}}
-						<li data-action="{{ this.action }}" class="actions__item link link_base">{{ this.name }}</li>
+							<button data-action="{{ this.action }}" class="button-arounder actions-link">{{ this.name }}</button>
 					{{/each}}
 				</ul>
 			</div>
 		</div>
+
 	{{/if}}
 </div>
 <div class="dialog__body">
@@ -39,6 +43,3 @@
 		{{{chatConsole}}}
 	</div>
 </div>
-
-
-

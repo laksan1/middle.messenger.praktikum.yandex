@@ -1,29 +1,58 @@
 import Block from '../../utils/Block'
 import template from './dots-menu.hbs'
-import { PropsWithRouter, withRouter } from '../../hocs/withRouter'
+import { PropsWithRouter } from '../../hocs/withRouter'
+import { withUserAndMessages } from '../../utils/Store'
+import { User } from '../../interfaces/auth/user.interface'
+import { Chat } from '../../interfaces/chat/chat.interface'
+import ChatsController from '../../controllers/ChatsController'
 
 interface DotsMenuProps extends PropsWithRouter {
-	href: string;
+	chatId: number;
+	label: string;
+	user_data: User;
 	events?: Record<string, (e?: Event) => void>;
-
 }
 
-class DotsMenuWithoutRouter extends Block<DotsMenuProps> {
+const ownerActionsList = [
+	{
+		action: 'viewUsers',
+		name: 'View participants',
+	},
+	{
+		action: 'removeChat',
+		name: 'Delete chat',
+	}
+];
+
+const baseActionsList = [
+	{
+		action: 'viewUsers',
+		name: 'View participants',
+	}
+];
+
+class DotsMenuWithout extends Block<DotsMenuProps> {
+	actionsList: Record<string, string>[] | undefined;
+	chatData: Chat | undefined;
+
 	constructor(props: DotsMenuProps) {
-		super('a', props)
-		this.element!.classList.add('dots')
-		this.element!.addEventListener('click', this.navigate.bind(this))
+		super('div', props)
+		this.element!.classList.add('actions')
 	}
 
-	navigate(e: Event) {
-		e.preventDefault()
-		this.props.router.go(this.props.href)
+	init() {
+		this.chatData = ChatsController.getChatData(this.props.chatId);
+		if (this.props.user_data.id === this.chatData.created_by) {
+			this.actionsList = ownerActionsList
+		} else {
+			this.actionsList = baseActionsList
+		}
 	}
+
 
 	protected render() {
-		this.element!.setAttribute('href', this.props.href)
-		return this.compile(template, { ...this.props })
+		return this.compile(template, { ...this.props, userId: this.props.user_data?.id, actionsList: this.actionsList, chatData: this.chatData });
 	}
 }
 
-export const DotsMenu = withRouter(DotsMenuWithoutRouter as unknown as typeof Block)
+export const DotsMenu = withUserAndMessages(DotsMenuWithout as unknown as typeof Block)

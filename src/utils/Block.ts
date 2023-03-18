@@ -1,5 +1,6 @@
 import { nanoid } from 'nanoid';
 import { TemplateDelegate } from 'handlebars';
+import './HandlebarsHelpers'
 import EventBus from './EventBus';
 import { isEqual } from './helpers'
 

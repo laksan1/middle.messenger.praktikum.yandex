@@ -23,12 +23,8 @@ export class ChatMessageInput extends Block<ChatMessageInputProps> {
 	}
 
 	set() {
-
 		const inputField = this.element!.querySelector('.chat-message-input');
-
-
 		if (!inputField) return;
-
 		inputField.addEventListener('change', (e) => {
 			const target = e.target as HTMLInputElement;
 
@@ -37,11 +33,9 @@ export class ChatMessageInput extends Block<ChatMessageInputProps> {
 			const validator = new Validator(target, this.props.validationType);
 			console.log('validator', validator)
 			validator.check();
-
 			this.setProps({error: validator.getError(), value: target!.value});
 
 		}, {once: true});
-
 	}
 
 
