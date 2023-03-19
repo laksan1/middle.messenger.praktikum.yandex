@@ -1,37 +1,35 @@
-<div class="dialog__top">
-	<div class="dialog__info">
-		<div class="dialog__avatar avatar">
+<div class="chat-content__top">
+	<div class="chat-content__info">
+		<div class="chat-content__avatar avatar">
 			<img class="avatar__image" src="{{#if chatData.avatar}}https://ya-praktikum.tech/api/v2/resources{{/if}}{{ chatData.avatar }}" onerror="this.style.display = 'none'" alt="{{ chatData.title }} avatar">
 		</div>
-		<p class="dialog__user">{{ chatData.title }}</p>
+		<p class="chat-content__user">{{ chatData.title }}</p>
 	</div>
+
 	{{#if actionsList}}
-
-
-		<div class="dialog__actions actions">
+		<div class="chat-content__actions">
 			<div class="actions__icon"></div>
 			<div class="actions__tooltip">
 				<ul class="actions__list">
-
 					{{#each actionsList}}
 							<button data-action="{{ this.action }}" class="button-arounder actions-link">{{ this.name }}</button>
 					{{/each}}
 				</ul>
 			</div>
 		</div>
-
 	{{/if}}
+
 </div>
-<div class="dialog__body">
-	<section class="dialog__timeline dialog-timeline">
-		<div class="dialog-timeline__wrapper">
+<div class="chat-content__body">
+	<section class="chat-content__timeline chat-content-timeline">
+		<div class="chat-content-timeline__wrapper">
 			{{#each messages}}
 				{{#ifCond this.type '===' 'message'}}
-					<div class="dialog-timeline__item dialog-message {{#ifCond this.user_id '!==' ../user_data.id }}dialog-timeline__item_incoming dialog-message_incoming{{/ifCond}}">
-						<p class="dialog-message__body">{{ this.content }}</p>
-						<div class="dialog-message__bottom">
-							<span class="dialog-timeline__time">{{ this.human_time }}</span>
-							<div class="dialog-timeline__status {{#if this.is_read}}dialog-timeline__status_read{{else}}dialog-timeline__status_unread{{/if}}"></div>
+					<div class="chat-content-timeline__item chat-content-message {{#ifCond this.user_id '!==' ../user_data.id }}chat-content-timeline__item_incoming chat-content-message__incoming{{/ifCond}}">
+						<p class="chat-content-message__body">{{ this.content }}</p>
+						<div class="chat-content-message__bottom">
+							<span class="chat-content-timeline__time">{{ this.human_time }}</span>
+							<div class="chat-content-timeline__status {{#if this.is_read}}chat-content-timeline__status_read{{else}}chat-content-timeline__status_unread{{/if}}"></div>
 						</div>
 					</div>
 				{{/ifCond}}
@@ -39,7 +37,7 @@
 
 		</div>
 	</section>
-	<div class="dialog__toolbar">
+	<div class="chat-content__console">
 		{{{chatConsole}}}
 	</div>
 </div>

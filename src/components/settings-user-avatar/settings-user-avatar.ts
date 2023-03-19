@@ -14,7 +14,13 @@ type SettingsUserAvatarProps = {
 export class SettingsUserAvatar extends Block<SettingsUserAvatarProps> {
 	constructor(props: SettingsUserAvatarProps) {
 		super('div', props);
-		this.element!.addEventListener('change', this.setValue.bind(this));
+
+		this.setProps({
+			events: {
+				...this.props.events,
+				change: this.setValue.bind(this)
+			}
+		});
 	}
 	getName() {
 		return this.props.name;

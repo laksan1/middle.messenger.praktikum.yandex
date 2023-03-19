@@ -11,6 +11,8 @@
 @import '../blocks/registration-block/registration-block.module';
 @import '../blocks/login-block/login-block.module';
 @import '../blocks/chat-add-new-chat-block/chat-add-new-chat-block.module';
+@import '../blocks/chat-show-users-block/chat-show-users-block.module';
+@import '../blocks/chat-delete-chat-block/chat-delete-chat-block.module';
 
 @import '../blocks/main-block/main-block.module';
 
@@ -22,7 +24,6 @@
 @import '../components/settings-action-link/settings-action-link.module';
 @import '../components/logout-button/logout-button.module';
 @import '../components/search-input/search-input.module';
-@import '../components/dots-menu/dots-menu.module';
 @import '../components/settings-sidebar/settings-sidebar.module';
 @import '../components/float-button/float-button.module';
 @import '../components/auth-layout-link/auth-layout-link.module';

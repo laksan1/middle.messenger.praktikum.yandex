@@ -22,7 +22,7 @@ export default class HTTPTransport {
 		this.endpoint = `${HTTPTransport.API_URL}${endpoint}`
 	}
 
-	public get<Response>(path = '/', search: Record<string, unknown> ): Promise<Response> {
+	public get<Response>(path = '/', search: Record<string, unknown>): Promise<Response> {
 		let queriedUrl = path;
 		if(search) {
 			queriedUrl += queryString(search);
@@ -83,7 +83,6 @@ export default class HTTPTransport {
 
 			xhr.withCredentials = true
 			xhr.responseType = 'json'
-			console.log('data', data)
 			if (method === Method.Get || !data) {
 				xhr.send()
 			} else {

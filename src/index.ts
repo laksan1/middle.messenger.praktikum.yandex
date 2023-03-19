@@ -25,18 +25,15 @@ window.addEventListener('DOMContentLoaded', async () => {
 		.use(Routes.SettingsEdit, settingsChangeInfoPage as unknown as typeof Block)
 		.use(Routes.Messenger, chatPage as typeof Block)
 		.use(Routes.ServiceError, errorPage as typeof Block)
-
 		.onBeforeRouterGo(async (to) => {
-			console.log('onBeforeRouterGo to', to)
-			let isProtectedRoute = true
+			let isProtected = true
 			switch (to.getPathname()) {
 				case Routes.Login:
 				case Routes.Register:
-					isProtectedRoute = false
+					isProtected = false
 					break
 			}
-
-			if (isProtectedRoute) {
+			if (isProtected) {
 
 				if (store.getState().user.user_data) {
 					return true

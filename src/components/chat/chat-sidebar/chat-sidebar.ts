@@ -43,14 +43,14 @@ class ChatSidebarWithoutChats extends Block<ChatSidebarProps> {
 
 	click(e: Event) {
 		if (e.target instanceof HTMLElement) {
-			if (e.target.classList.contains('chats-item_empty') || e.target.closest('.chats-item_empty')) {
+			if (e.target.classList.contains('chat-sidebar-item_empty') || e.target.closest('.chat-sidebar-item_empty')) {
 				openModalWindow(ChatAddNewChatModal)
 			}
 			const hasChatId = e.target.hasAttribute('data-chat-id');
 			if (hasChatId) {
 				ChatsController.selectChat(Number(e.target.getAttribute('data-chat-id')));
-			} else if (e.target.closest('.chats-item')?.hasAttribute('data-chat-id')) {
-				ChatsController.selectChat(Number(e.target.closest('.chats-item')?.getAttribute('data-chat-id')));
+			} else if (e.target.closest('.chat-sidebar-item')?.hasAttribute('data-chat-id')) {
+				ChatsController.selectChat(Number(e.target.closest('.chat-sidebar-item')?.getAttribute('data-chat-id')));
 			}
 		}
 	}
@@ -83,7 +83,7 @@ class ChatSidebarWithoutChats extends Block<ChatSidebarProps> {
 	}
 
 	updateChatsList() {
-		ChatsController.loadChats().then(data => console.log('Chats Loaded', data))
+		ChatsController.loadChats();
 	}
 
 	protected render(): DocumentFragment {

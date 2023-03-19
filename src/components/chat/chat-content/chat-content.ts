@@ -1,35 +1,23 @@
 import Block from '../../../utils/Block'
 import template from './chat-content.hbs'
-import { ChatContentHeader } from '../chat-content-header/chat-content-header'
-import { ChatMessages } from '../chat-messages/chat-messages'
-import { ChatConsole } from '../chat-console/chat-console'
+
 import { withUserAndMessages } from '../../../utils/Store'
 import { User } from '../../../interfaces/auth/user.interface'
 import { Message } from '../../../interfaces/chat/message.interface'
 import { openModalWindow } from '../../../utils/ModalWindow'
-import settingsChangePasswordModal from '../../../modal-windows/settings-change-password/settings-change-password-modal'
 import { Chat } from '../../../interfaces/chat/chat.interface'
 import ChatsController from '../../../controllers/ChatsController'
-import { LogoutButton } from '../../logout-button/logout-button'
-import loginPage from '../../../pages/login/login'
-import { DotsMenu } from '../../dots-menu/dots-menu'
-
-/*type ChatContentProps = {
-	chatContentHeader: ChatContentHeader;
-	ChatMessages: Block;
-	ChatConsole: Block;
-	events?: Record<string, (e?: Event) => void>;
-}*/
+import ChatShowUsersModal from '../../../modal-windows/chat/chat-show-users-modal'
+import ChatDeleteChatModal from '../../../modal-windows/chat/chat-delete-chat-modal'
 
 type ChatContentProps = {
 	chatId: number;
 	user_data: User;
 	chatConsole: Block;
-	dotsMenu: Block;
 	messages: Message[];
 };
 
-enum  Actions {
+enum Actions {
 	SHOW_USERS = 'showusers',
 	REMOVE_CHAT = 'removechat',
 }
@@ -37,28 +25,28 @@ enum  Actions {
 const ownerActionsList = [
 	{
 		action: Actions.SHOW_USERS,
-		name: 'View participants'
+		name: 'Посмотреть пользователей'
 	},
 	{
 		action: Actions.REMOVE_CHAT,
-		name: 'Delete chat'
+		name: 'Удалить чат'
 	}
 ]
 
 const baseActionsList = [
 	{
-		action: 'viewUsers',
-		name: 'View participants'
+		action: Actions.SHOW_USERS,
+		name: 'Посмотреть пользователей'
 	}
 ]
 
-export class ChatContentNoUserAndMessages extends Block<ChatContentProps> {
+ class ChatContentNoUserAndMessages extends Block<ChatContentProps> {
 	chatData: Chat | undefined
 	actionsList: Record<string, string>[] | undefined
 
 	constructor(props: ChatContentProps) {
 		super('section', props)
-		this.element!.classList.add('dialog')
+		this.element!.classList.add('chat-content')
 
 		this.element!.addEventListener('click', (e) => {
 			const target = e.target as HTMLElement
@@ -70,21 +58,19 @@ export class ChatContentNoUserAndMessages extends Block<ChatContentProps> {
 
 				switch (action) {
 					case Actions.SHOW_USERS: {
-						openModalWindow(settingsChangePasswordModal)
+						openModalWindow(ChatShowUsersModal)
 						break
 					}
 					case Actions.REMOVE_CHAT: {
-						openModalWindow(settingsChangePasswordModal)
+						openModalWindow(ChatDeleteChatModal)
 						break
 					}
 				}
 			}
 		})
-
 	}
 
 	init() {
-		console.log('messages', this.props.messages)
 		this.chatData = ChatsController.getChatData(this.props.chatId)
 		if (this.props.user_data.id === this.chatData.created_by) {
 			this.actionsList = ownerActionsList
