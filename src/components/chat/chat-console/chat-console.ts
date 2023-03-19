@@ -19,7 +19,12 @@ export class ChatConsoleWithoutChat extends Block<ChatConsoleProps> {
 	constructor(props: ChatConsoleProps) {
 		super('form', props)
 		this.element!.classList.add('chat-console')
-		this.element!.addEventListener('submit', this.sendForm.bind(this))
+		this.setProps({
+			events: {
+				...this.props.events,
+				submit:  this.sendForm.bind(this)
+			}
+		});
 	}
 
 	async sendForm(e: Event) {

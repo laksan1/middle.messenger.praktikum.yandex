@@ -31,7 +31,6 @@ type SettingsChangeInfoBlockProps = {
 	}
 
 	async init() {
-		console.log('ChatAddNewChatBlock this.props.user_data', this.props.user_data)
 		if (this.props.user_data) {
 			this.updateUserData();
 		}

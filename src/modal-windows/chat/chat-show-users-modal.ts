@@ -7,9 +7,7 @@ import { ChatShowUsersBlock } from '../../blocks/chat-show-users-block/chat-show
 const searchInput = new SearchInput({
 	name: 'users-search',
 	placeholder: 'Введите имя пользователя',
-
 });
-
 
 const cancelButton = new Button ({
 	label: 'Закрыть',
@@ -21,8 +19,8 @@ const cancelButton = new Button ({
 const chatShowUsersBlock = new ChatShowUsersBlock({
 	searchInput,
 	cancelButton,
-	users: [],
 	currentChatMembers: [],
+	users: [],
 })
 
 const ChatShowUsersModal = new ModalWindowLayout({

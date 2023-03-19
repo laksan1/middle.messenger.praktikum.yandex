@@ -54,8 +54,6 @@ const baseActionsList = [
 			if (target.hasAttribute('data-action')) {
 				e.preventDefault()
 				const action = target.getAttribute('data-action')
-				console.log('action', action)
-
 				switch (action) {
 					case Actions.SHOW_USERS: {
 						openModalWindow(ChatShowUsersModal)

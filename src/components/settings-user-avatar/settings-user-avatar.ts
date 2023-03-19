@@ -14,7 +14,6 @@ type SettingsUserAvatarProps = {
 export class SettingsUserAvatar extends Block<SettingsUserAvatarProps> {
 	constructor(props: SettingsUserAvatarProps) {
 		super('div', props);
-
 		this.setProps({
 			events: {
 				...this.props.events,

@@ -23,8 +23,13 @@ type RegistrationBlockProps = {
 export class RegistrationBlock extends Block<RegistrationBlockProps> {
 	constructor(props: RegistrationBlockProps) {
 		super('div', props);
-		this.element!.addEventListener('submit',  this.sendForm.bind(this));
-		this.element!.addEventListener('reset',  this.resetForm.bind(this));
+		this.setProps({
+			events: {
+				...this.props.events,
+				submit: this.sendForm.bind(this),
+				reset:  this.resetForm.bind(this),
+			}
+		});
 	}
 
 	async sendForm(e: Event) {

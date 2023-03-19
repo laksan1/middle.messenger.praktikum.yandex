@@ -1,9 +1,8 @@
 import Block from '../../utils/Block';
 import template from './settings-sidebar.hbs';
-import {FloatButton} from '../float-button/float-button';
 
 type SettingsSideBarProps = {
-	floatButton: FloatButton;
+	floatButton: Block;
 	events?: Record<string, (e?: Event) => void>;
 }
 

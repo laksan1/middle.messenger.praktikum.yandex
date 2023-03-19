@@ -32,11 +32,16 @@ class ChatSidebarWithoutChats extends Block<ChatSidebarProps> {
 
 	constructor(props: ChatSidebarProps) {
 		super('section', props)
-		this.element?.addEventListener('click', this.click.bind(this))
+		this.setProps({
+			events: {
+				...this.props.events,
+				click: this.click.bind(this),
+			}
+		});
 
 		this.children.searchInput.setProps({
 			events: {
-				input: this.findUsers.bind(this)
+				input: this.findUsers.bind(this),
 			}
 		})
 	}

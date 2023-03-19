@@ -28,10 +28,7 @@ export class ChatMessageInput extends Block<ChatMessageInputProps> {
 		inputField.addEventListener('change', (e) => {
 			const target = e.target as HTMLInputElement;
 
-			console.log('target', target)
-
 			const validator = new Validator(target, this.props.validationType);
-			console.log('validator', validator)
 			validator.check();
 			this.setProps({error: validator.getError(), value: target!.value});
 

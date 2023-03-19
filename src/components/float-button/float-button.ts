@@ -10,7 +10,12 @@ class  FloatButtonWithoutRouter extends Block<FloatButtonProps> {
 	constructor(props: FloatButtonProps) {
 		super('a', props);
 		this.element!.classList.add('float-button');
-		this.element!.addEventListener('click', this.navigate.bind(this));
+		this.setProps({
+			events: {
+				...this.props.events,
+				click: this.navigate.bind(this)
+			}
+		});
 	}
 
 	navigate(e: Event) {

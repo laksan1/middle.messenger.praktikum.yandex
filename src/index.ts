@@ -60,7 +60,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 					}
 				}
 			}
-		})
+		});
 
 	Router.start()
 })

@@ -18,7 +18,12 @@ type SettingsChangePasswordBlockProps = {
 export class SettingsChangePasswordBlock extends Block<SettingsChangePasswordBlockProps> {
 	constructor(props: SettingsChangePasswordBlockProps) {
 		super('form', props);
-		this.element!.addEventListener('submit', this.sendForm.bind(this));
+		this.setProps({
+			events: {
+				...this.props.events,
+				submit:  this.sendForm.bind(this)
+			}
+		});
 	}
 
 	async sendForm(e: Event) {

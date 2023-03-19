@@ -17,14 +17,18 @@ type LoginBlockProps = {
 export class LoginBlock extends Block<LoginBlockProps> {
 	constructor(props: LoginBlockProps) {
 		super('div', props);
-		this.element!.addEventListener('submit', this.sendForm.bind(this));
+		this.setProps({
+			events: {
+				...this.props.events,
+				submit:  this.sendForm.bind(this)
+			}
+		});
 	}
 
 	async sendForm(e: Event) {
 		e.preventDefault();
 		//AuthController.logout();
 		const isFormReady = checkForm(e);
-		console.log('LoginBlock isFormReady', isFormReady)
 		if (isFormReady) {
 			const values = Object
 				.values(this.children)
@@ -33,8 +37,6 @@ export class LoginBlock extends Block<LoginBlockProps> {
 
 			const data =  Object.fromEntries(values); // SigninStub
 			const response = await AuthController.signin(data);
-
-			console.log('LoginBlock response', response)
 
 			if (response?.reason) {
 				Object.values(this.children)
