@@ -1,8 +1,11 @@
-<div class="avatar-container">
-    <label class="avatar-container__label"  for="file">
-        <span>{{label}}</span>
-    </label>
-    <input name="{{name}}" 	{{#if disabled}}disabled{{/if}} id="file" type="file" accept="{{ accept }}"/>
-    <img src="{{src}}" alt="{{ imageAlt }}" id="output" />
-</div>
-
+<img class="settings-user-avatar__image" onerror="this.style.display='none'" src="{{ src }}" alt="{{ imageAlt }}">
+<label class="settings-user-avatar__file {{#if disabled}}settings-user-avatar__file_disabled{{/if}}">
+	<span class="settings-user-avatar__text">Click to change photo</span>
+	<input
+		type="file"
+		{{#if disabled}}disabled{{/if}}
+		class="settings-user-avatar__input"
+		name="{{ name }}"
+		accept="{{ accept }}"
+	>
+</label>
