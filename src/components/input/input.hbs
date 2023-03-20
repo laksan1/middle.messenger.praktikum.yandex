@@ -4,7 +4,8 @@
 		   name="{{name}}"
 		   id={{name}}
 		   type="{{type}}"
-		   placeholder={{placeholder}}
+		   placeholder="{{placeholder}}"
+		   {{#if disabled}}disabled{{/if}}
 		   value="{{value}}">
 	<span class="initial-input__error">{{error}}</span>
 </div>

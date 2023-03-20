@@ -1,27 +1,17 @@
-import {SettingsUserAvatar} from "../../components/settings-user-avatar/settings-user-avatar";
-import {Button} from "../../components/button/button";
-import {SettingsChangeInfoBlock} from "../../blocks/settings-change-info-block/settings-change-info-block";
-import {Input} from "../../components/input/input";
-import {SettingsLayout} from "../../layouts/settings/settings-layout";
-import {FloatButton} from "../../components/float-button/float-button";
-import {SettingsSideBar} from "../../components/settings-sidebar/settings-sidebar";
-
-const user = {
-	displayName: 'Властелин',
-	login: 'Иванчик',
-	firstName: 'Иван',
-	secondName: 'Иванов',
-	src: '../img/avatar.png',
-	phone: '+7(909) 967 30 30',
-	email: 'potcha@yandex.ru',
-};
-
+import { SettingsUserAvatar } from '../../components/settings-user-avatar/settings-user-avatar';
+import { Button } from '../../components/button/button';
+import { Input } from '../../components/input/input';
+import { SettingsLayout } from '../../layouts/settings/settings-layout';
+import { FloatButton } from '../../components/float-button/float-button';
+import { SettingsSideBar } from '../../components/settings-sidebar/settings-sidebar';
+import { Routes } from '../../enums/routes.enum';
+import { SettingsChangeInfoBlock } from '../../blocks/settings-change-info-block/settings-change-info-block';
+import { UserFields } from '../../enums/userFields.enum';
 
 const avatar = new SettingsUserAvatar({
 	name: 'avatar',
-	disabled: true,
-	src: user.src,
-	label: 'Поменять аватар',
+	disabled: false,
+	imageAlt: 'user photo',
 	accept: 'image/*',
 });
 
@@ -29,8 +19,7 @@ const email = new Input({
 	label: 'Почта',
 	type: 'email',
 	placeholder: 'Введите вашу почту',
-	name: 'email',
-	value: user.email,
+	name: UserFields.email,
 	validationType: 'email',
 });
 
@@ -38,8 +27,7 @@ const login = new Input({
 	label: 'Логин',
 	type: 'text',
 	placeholder: 'Введите ваш логин',
-	name: 'login',
-	value: user.login,
+	name: UserFields.login,
 	validationType: 'login',
 });
 
@@ -47,8 +35,7 @@ const firstName = new Input({
 	label: 'Имя',
 	type: 'text',
 	placeholder: 'Иван',
-	name: 'first_name',
-	value: user.firstName,
+	name: UserFields.first_name,
 	validationType: 'name',
 });
 
@@ -56,8 +43,7 @@ const secondName = new Input({
 	label: 'Фамилия',
 	type: 'text',
 	placeholder: 'Иванов',
-	name: 'second_name',
-	value: user.secondName,
+	name: UserFields.second_name,
 	validationType: 'name',
 });
 
@@ -65,8 +51,7 @@ const displayName = new Input({
 	label: 'Имя в чате',
 	type: 'text',
 	placeholder: 'Горшок',
-	name: 'display_name',
-	value: user.displayName,
+	name: UserFields.display_name,
 	validationType: 'name',
 });
 
@@ -74,11 +59,9 @@ const phone = new Input({
 	label: 'Телефон',
 	type: 'tel',
 	placeholder: '+7(909)9673030',
-	name: 'phone',
-	value: user.phone,
+	name: UserFields.phone,
 	validationType: 'phone',
 });
-
 
 const submitButton = new Button({
 	label: 'Сохранить',
@@ -99,19 +82,21 @@ const settingsChangeInfoBlock = new SettingsChangeInfoBlock({
 	displayName,
 	submitButton,
 	cancelButton,
-	user,
 });
 
 const floatButton = new FloatButton({
-	href: '#'
-})
+	href: Routes.Messenger,
+});
 
 const sidebar = new SettingsSideBar({
-	floatButton
-})
-
-const settingsChangeInfoPage = new SettingsLayout({
-	component: settingsChangeInfoBlock,
-	sidebar
+	floatButton,
 });
-export default settingsChangeInfoPage;
+
+export default class settingsChangeInfoPage extends SettingsLayout {
+	constructor() {
+		super({
+			sidebar,
+			component: settingsChangeInfoBlock,
+		});
+	}
+}

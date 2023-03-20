@@ -1,0 +1,15 @@
+.chat-new-chat{
+	margin: 10px;
+	width: 70px;
+	height: 60px;
+	background: var(--app-base-01);
+	border-radius: 50%;
+	color: var(--app-base-02);
+	line-height: 60px;
+	text-align: center;
+	font-size: 23px;
+	box-shadow: 0 10px 25px -5px var(--app-base-03);
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}

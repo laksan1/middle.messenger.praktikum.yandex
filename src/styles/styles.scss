@@ -10,6 +10,9 @@
 @import '../blocks/settings-change-password-block/settings-change-password-block.module';
 @import '../blocks/registration-block/registration-block.module';
 @import '../blocks/login-block/login-block.module';
+@import '../blocks/chat-add-new-chat-block/chat-add-new-chat-block.module';
+@import '../blocks/chat-show-users-block/chat-show-users-block.module';
+@import '../blocks/chat-delete-chat-block/chat-delete-chat-block.module';
 
 @import '../blocks/main-block/main-block.module';
 
@@ -17,25 +20,21 @@
 @import '../components/button/button.module';
 @import '../components/settings-user-item/settings-user-item';
 @import '../components/settings-user-avatar/settings-user-avatar.module';
-@import '../components/chat/chat-user-avatar/chat-user-avatar';
 @import '../components/settings-action-link/settings-action-link.module';
 @import '../components/logout-button/logout-button.module';
 @import '../components/search-input/search-input.module';
-@import '../components/dots-menu/dots-menu.module';
 @import '../components/settings-sidebar/settings-sidebar.module';
 @import '../components/float-button/float-button.module';
 @import '../components/auth-layout-link/auth-layout-link.module';
 
 
-@import '../components/chat/chat-dialog/chat-dialog';
 @import '../components/chat/chat-sidebar/chat-sidebar.module';
 @import '../components/chat/chat-content/chat-content.module';
-@import '../components/chat/chat-content-header/chat-content-header';
 @import '../components/chat/chat-console/chat-console.module';
 @import '../components/chat/chat-attach-button/chat-attach-button';
 @import '../components/chat/chat-message-input/chat-message-input';
 @import '../components/chat/chat-send-button/chat-send-button';
-@import '../components/chat/chat-messages/chat-messages.module';
+@import '../components/chat/chat-new-chat/chat-new-chat-button.module';
 
 
 

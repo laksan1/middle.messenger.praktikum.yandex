@@ -1,38 +1,34 @@
-import Validator, {ValidatorTypes} from "./Validator";
+import Validator, { ValidatorTypes } from './Validator';
 
-export default function submit(e?: Event): void {
-	if (!e) return;
-	e.preventDefault();
+export default function checkForm(e?: Event): boolean {
+	if (!e) {
+		throw Error('event parameter is not transmitted');
+	}
 
-	if (!(e.target instanceof HTMLFormElement)) return;
+	if (!(e.target instanceof HTMLFormElement)) {
+		throw Error('event target is not HTMLFormElement');
+	}
 
 	const form = e.target;
-	let isFormValid = true;
+	let result = true;
 
 	Array.from(form.elements).forEach((elem) => {
 		if (elem instanceof HTMLInputElement || elem instanceof HTMLTextAreaElement) {
 			const validationType = elem.getAttribute('data-validation-type');
 			if (!validationType) return;
 
-			const validity = new Validator(elem, validationType as ValidatorTypes);
+			const validator = new Validator(elem, validationType as ValidatorTypes);
 
-			const isInputValid = validity.check();
+			const isInputValid = validator.check();
 			if (!isInputValid) {
-				isFormValid = false;
+				result = false;
 			}
 		}
 	});
 
-	if (!isFormValid) {
+	if (!result) {
 		form.reportValidity();
-	} else {
-		const formData = new FormData(form as HTMLFormElement);
-		const formObj: Record<string, unknown> = {};
-
-		formData.forEach((value, key) => {
-			formObj[key] = value;
-		});
-		console.log('Form data',formObj);
-		form.reset();
 	}
+
+	return result;
 }

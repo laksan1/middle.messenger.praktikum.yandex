@@ -1,5 +1,5 @@
-import Block from "../../utils/Block";
-import template from "./settings-user-item.hbs";
+import Block from '../../utils/Block';
+import template from './settings-user-item.hbs';
 
 type SettingsUserItemProps = {
 	label: string;

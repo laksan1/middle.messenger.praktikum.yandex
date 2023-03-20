@@ -1,6 +1,6 @@
-import {NotificationLayout} from "../../layouts/notification/notification-layout";
-import {ErrorBlock} from "../../blocks/error-block/error-block";
-import {NotificationLayoutLink} from "../../components/notification-layout-link/notification-layout-link";
+import {NotificationLayout} from '../../layouts/notification/notification-layout';
+import {ErrorBlock} from '../../blocks/error-block/error-block';
+import {NotificationLayoutLink} from '../../components/notification-layout-link/notification-layout-link';
 
 const link = new NotificationLayoutLink({
 	label: 'Назад к чатам',
@@ -12,8 +12,10 @@ const errorBlock = new ErrorBlock({
 	link
 })
 
-const errorPage = new NotificationLayout({
-	component:  errorBlock,
-})
-export default errorPage;
-
+export default class errorPage extends NotificationLayout {
+	constructor() {
+		super({
+			component: errorBlock,
+		});
+	}
+}

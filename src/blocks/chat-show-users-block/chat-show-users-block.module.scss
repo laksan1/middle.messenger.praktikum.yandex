@@ -1,0 +1,75 @@
+.form{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+
+	&_block {
+		max-width: 480px;
+		padding: 32px 48px;
+		background: var( --app-base-03);;
+		border-radius: 20px;
+	}
+
+	&__title {
+		margin: 0 0 24px;
+		font-weight: 700;
+		font-size: 32px;
+		line-height: 1.2;
+		color: var( --app-base-03);
+	}
+
+	&__subtitle{
+		margin: 0 0 24px;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 1.2;
+		color: var( --app-base-01);
+	}
+
+	&__text{
+		margin: 0 0 32px;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 1.44;
+		color: var( --app-base-01);
+	}
+
+	&__items{
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-gap: 16px 24px;
+
+	}
+
+	&__item{
+		grid-column: 1/-1;
+		color: var( --app-base-03);
+
+		&_cut{
+			grid-column: auto;
+		}
+
+	}
+
+	&__bottom{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 24px 0 0;
+	}
+	&__bottom-notion{
+		margin: 0 0 8px;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 1.2;
+	}
+
+}
+
+.avatar__image{
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+}
+
+

@@ -1,0 +1,71 @@
+<h3 class="form__title">Список пользователей</h3>
+<p class="form__text">Пригласите пользователя в чат</p>
+<div class="form__items">
+	<div class="form__item">
+		{{{ searchInput }}}
+	</div>
+	<div class="form__item">
+		<ul class="users-list">
+			{{#if isSearching}}
+				{{#if users}}
+					{{#each users}}
+						<li class="users-list__item user-item">
+							<div class="user-item__avatar avatar">
+								<img class="avatar__image" src="{{#if this.avatar}}https://ya-praktikum.tech/api/v2/resources{{/if}}{{ this.avatar }}" onerror="this.style.display = 'none'" alt="{{ this.login }} avatar">
+							</div>
+							<div class="user-item__info">
+								<p class="user-item__name">{{ this.first_name }} {{ this.second_name }}</p>
+								<span class="user-item__login">@{{ this.login }}</span>
+							</div>
+							{{#if this.isMember }}
+								{{#if ../isAdmin}}
+									<button data-expel="{{ this.id }}" class="btn btn_red user-item__invite">Kick</button>
+								{{/if}}
+							{{else}}
+								<button data-invite="{{ this.id }}" class="button-arounder">Пригласить</button>
+							{{/if}}
+						</li>
+					{{/each}}
+				{{else}}
+					<li class="users-list__item user-item">
+						<div class="user-item__avatar avatar"></div>
+						<div class="user-item__info">
+							<p class="user-item__name">Ничего не найдено</p>
+							<span class="user-item__login">Попробуйте снова</span>
+						</div>
+					</li>
+				{{/if}}
+			{{else}}
+				{{#if users}}
+					{{#each users}}
+						<li class="users-list__item user-item">
+							<div class="user-item__avatar avatar">
+								<img class="avatar__image" src="{{#if this.avatar}}https://ya-praktikum.tech/api/v2/resources{{/if}}{{ this.avatar }}" onerror="this.style.display = 'none'" alt="{{ this.login }} avatar">
+							</div>
+							<div class="user-item__info">
+								<p class="user-item__name">{{ this.first_name }} {{ this.second_name }}</p>
+								<span class="user-item__login">{{ this.role }}  @{{ this.login }}</span>
+							</div>
+							{{#unless this.isAdmin }}
+								{{#if ../isAdmin}}
+									<button data-expel="{{ this.id }}" class="btn btn_red user-item__invite">Удалить</button>
+								{{/if}}
+							{{/unless}}
+						</li>
+					{{/each}}
+				{{else}}
+					<li class="users-list__item user-item">
+						<div class="user-item__avatar avatar"></div>
+						<div class="user-item__info">
+							<p class="user-item__name">Нет пользователей</p>
+							<span class="user-item__login">Введите текст, чтобы найти пользователей</span>
+						</div>
+					</li>
+				{{/if}}
+			{{/if}}
+		</ul>
+	</div>
+</div>
+<div class="form__submit">
+	{{{ cancelButton }}}
+</div>

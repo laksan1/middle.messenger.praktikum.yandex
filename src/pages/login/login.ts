@@ -1,15 +1,16 @@
-import { Button } from "../../components/button/button";
-import { LoginBlock } from "../../blocks/login-block/login-block";
-import {AuthLayoutLink} from "../../components/auth-layout-link/auth-layout-link";
-import {AuthLayout} from "../../layouts/auth/auth-layout";
-import {Input} from "../../components/input/input";
-import submit from "../../utils/FormActions";
+import { Button } from '../../components/button/button';
+import { LoginBlock } from '../../blocks/login-block/login-block';
+import { AuthLayoutLink } from '../../components/auth-layout-link/auth-layout-link';
+import { AuthLayout } from '../../layouts/auth/auth-layout';
+import { Input } from '../../components/input/input';
+import { Routes } from '../../enums/routes.enum';
+import { UserFields } from '../../enums/userFields.enum';
 
 const loginInput = new Input({
 	label: 'Логин',
 	type: 'text',
 	placeholder: 'Введите ваш логин',
-	name: 'login',
+	name: UserFields.login,
 	validationType: 'login',
 });
 
@@ -28,7 +29,7 @@ const submitButton = new Button({
 
 const registrationLink = new AuthLayoutLink({
 	label: 'Регистрация',
-	href: '#',
+	href: Routes.Register,
 });
 
 const loginBlock = new LoginBlock({
@@ -36,16 +37,12 @@ const loginBlock = new LoginBlock({
 	passwordInput,
 	submitButton,
 	registrationLink,
-	events: {
-		submit: () => submit,
-		reset: () => {
-			passwordInput.setProps({value: ''});
-			loginInput.setProps({value: ''});
-		},
-	},
 });
 
-const loginPage = new AuthLayout({
-	component: loginBlock,
-});
-export default loginPage;
+export default class loginPage extends AuthLayout {
+	constructor() {
+		super({
+			component: loginBlock,
+		});
+	}
+}

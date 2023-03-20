@@ -1,10 +1,10 @@
-import Block from "../../../utils/Block";
-import template from "./chat-attach-button.hbs";
+import Block from '../../../utils/Block';
+import template from './chat-attach-button.hbs';
 
 type ChatAttachButtonProps = {
 	src: string;
 	events?: Record<string, (e?: Event) => void>;
-}
+};
 export class ChatAttachButton extends Block<ChatAttachButtonProps> {
 	constructor(props: ChatAttachButtonProps) {
 		super('button', props);
@@ -12,6 +12,6 @@ export class ChatAttachButton extends Block<ChatAttachButtonProps> {
 	}
 
 	protected render(): DocumentFragment {
-		return this.compile(template, {...this.props})
+		return this.compile(template, { ...this.props });
 	}
 }

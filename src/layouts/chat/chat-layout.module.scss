@@ -1,5 +1,4 @@
 .chat-layout {
-
 	flex: 1 1 auto;
 	width: 100%;
 	min-height: 100vh;
@@ -11,21 +10,13 @@
 		height: 100%;
 		overflow: hidden;
 		border-right: var(--app-base-01) solid 3px;
-
-		img {
-			position: absolute;
-			bottom: 10px;
-		}
 	}
 
 	&__content {
-		position: relative;
-		z-index: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 100%;
-		overflow: hidden
+		img {
+			vertical-align: middle;
+			text-align: center;
+		}
 	}
 
 	&__notion {
@@ -44,3 +35,19 @@
 		background-color: #993d46;
 	}
 }
+.content-label{
+	text-align: center;
+	color: var(--app-base-03);
+	margin-top: 100px;
+	display: block;
+	font-size: 32px;
+}
+.backround-image {
+	width: 50%;
+	height: 50%;
+	object-fit: cover;
+	margin: auto;
+	display: block;
+}
+
+

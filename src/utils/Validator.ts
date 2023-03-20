@@ -1,4 +1,4 @@
-type ValidatorTypes = 'name' | 'login' | 'email' | 'password' | 'phone' | 'message'
+type ValidatorTypes = 'name' | 'login' | 'email' | 'password' | 'phone' | 'message' | 'default';
 
 type RuleType<P> = {
 	message?: string;
@@ -20,7 +20,8 @@ class Validator {
 		name: {
 			pattern: {
 				value: '^[A-Z-А-ЯЁ][а-яА-ЯёЁa-zA-Z-]*$',
-				message: 'Латиница или кириллица, первая буква должна быть заглавной, без пробелов и без цифр, нет спецсимволов (допустим только дефис)',
+				message:
+					'Латиница или кириллица, первая буква должна быть заглавной, без пробелов и без цифр, нет спецсимволов (допустим только дефис)',
 			},
 			required: {
 				value: true,
@@ -43,8 +44,8 @@ class Validator {
 		},
 		password: {
 			pattern: {
-				value: '(?=.*\\d)(?=.*[A-ZА-ЯЁ]).{6,25}',
-				message: 'От 6 до 25 символов, обязательно хотя бы одна заглавная буква и цифра',
+				value: '(?=.*\\d)(?=.*[A-ZА-ЯЁ]).{8,40}',
+				message: 'От 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра',
 			},
 			required: {
 				value: true,
@@ -63,7 +64,7 @@ class Validator {
 		},
 		email: {
 			pattern: {
-				value: '^[a-zA-Z0-9.!#$%&\' * +/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$',
+				value: "^[a-zA-Z0-9.!#$%&' * +/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$",
 				message: 'Неверный формат e-mail',
 			},
 			required: {
@@ -73,8 +74,8 @@ class Validator {
 
 		phone: {
 			pattern: {
-				value: '^[0-9+][0-9]{8,15}$',
-				message: 'От 8 до 15 символов, может начинается с плюса',
+				value: '^[0-9+][0-9]{10,15}$',
+				message: 'От 10 до 15 символов, может начинается с плюса',
 			},
 			required: {
 				value: true,
@@ -86,7 +87,11 @@ class Validator {
 				value: 8,
 			},
 		},
-
+		default: {
+			required: {
+				value: true,
+			},
+		},
 	};
 
 	private element: HTMLInputElement | HTMLTextAreaElement;
@@ -102,7 +107,7 @@ class Validator {
 		return this.rules[this.type];
 	}
 
-	private _setRules():void {
+	private _setRules(): void {
 		const rules = this._getRules();
 
 		Object.entries(rules).forEach(([ruleName, value]) => {
@@ -116,7 +121,6 @@ class Validator {
 		const { validity } = this.element;
 		const rules = this._getRules();
 
-
 		if (validity.tooLong) {
 			this._addInvalidity('Превышено максимальное кол-во символов');
 			if (rules.maxlength) {
@@ -124,7 +128,9 @@ class Validator {
 					this.element.setCustomValidity(rules.maxlength.message);
 					this.element.title = rules.maxlength.message;
 				} else if (rules.maxlength.value) {
-					this.element.setCustomValidity(`Превышено максимальное кол-во символов на ${this.element.value.length - rules.maxlength.value}`);
+					this.element.setCustomValidity(
+						`Превышено максимальное кол-во символов на ${this.element.value.length - rules.maxlength.value}`
+					);
 				}
 			}
 			isValid = false;
@@ -161,9 +167,13 @@ class Validator {
 			isValid = false;
 		}
 
-		this.element.addEventListener('input', () => {
-			this.element.setCustomValidity('');
-		}, { once: true });
+		this.element.addEventListener(
+			'input',
+			() => {
+				this.element.setCustomValidity('');
+			},
+			{ once: true }
+		);
 
 		return isValid;
 	}
