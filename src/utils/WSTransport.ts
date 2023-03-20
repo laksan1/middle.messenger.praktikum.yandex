@@ -75,7 +75,7 @@ export default class WSTransport extends EventBus<any> {
 		socket.addEventListener('message', (message) => {
 			const data = JSON.parse(message.data);
 
-			if (data.type && data.type === 'ping') {
+			if (data.type && data.type === 'pong') {
 				return;
 			}
 
