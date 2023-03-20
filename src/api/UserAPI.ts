@@ -1,8 +1,8 @@
-import BaseAPI from '../utils/BaseAPI'
-import { User } from '../interfaces/auth/user.interface'
-import { UserData } from '../interfaces/user/user-data.interface'
-import { UserAvatar } from '../interfaces/user/user-avatar.interface'
-import { UserPassword } from '../interfaces/user/user-password.interface'
+import { User } from '../interfaces/auth/user.interface';
+import { UserData } from '../interfaces/user/user-data.interface';
+import { UserAvatar } from '../interfaces/user/user-avatar.interface';
+import { UserPassword } from '../interfaces/user/user-password.interface';
+import { BaseAPI } from '../utils/BaseAPI';
 
 export class UserAPI extends BaseAPI {
 	private static __instance: UserAPI;
@@ -18,7 +18,7 @@ export class UserAPI extends BaseAPI {
 	}
 
 	update(data: UserData): Promise<User> {
-		return this.http.put<User>('/profile',  data );
+		return this.http.put<User>('/profile', data);
 	}
 
 	read(identifier: string): Promise<User> {
@@ -34,16 +34,16 @@ export class UserAPI extends BaseAPI {
 		const file = data.avatar;
 
 		if (file instanceof Blob) {
-			console.log('Blob', file)
+			console.log('Blob', file);
 			formData.append('avatar', file, file.name);
-		}else {
+		} else {
 			formData.append('avatar', JSON.stringify(file));
 		}
-		return this.http.put<User>('/profile/avatar', formData );
+		return this.http.put<User>('/profile/avatar', formData);
 	}
 
 	updatePassword(data: UserPassword): Promise<User> {
-		return this.http.put<User>('/password',  data);
+		return this.http.put<User>('/password', data);
 	}
 
 	create = undefined;

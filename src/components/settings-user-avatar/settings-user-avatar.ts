@@ -17,10 +17,25 @@ export class SettingsUserAvatar extends Block<SettingsUserAvatarProps> {
 		this.setProps({
 			events: {
 				...this.props.events,
-				change: this.setValue.bind(this)
-			}
+				change: this.setValue.bind(this),
+			},
 		});
 	}
+
+	setValue(e?: Event) {
+		if (!e) {
+			return;
+		}
+
+		if (e.target instanceof HTMLInputElement) {
+			const target = e.target as HTMLInputElement;
+
+			if (target.files && target.files.length) {
+				this.setProps({ file: target.files[0], src: URL.createObjectURL(target.files[0]) });
+			}
+		}
+	}
+
 	getName() {
 		return this.props.name;
 	}
@@ -30,16 +45,6 @@ export class SettingsUserAvatar extends Block<SettingsUserAvatarProps> {
 	}
 
 	render() {
-		return this.compile(template, { ...this.props })
-	}
-
-	setValue(e: Event) {
-		if (e.target instanceof HTMLInputElement) {
-			const target = e.target as HTMLInputElement;
-
-			if (target.files && target.files.length) {
-				this.setProps({ file: target.files[0], src: URL.createObjectURL(target.files[0])})
-			}
-		}
+		return this.compile(template, { ...this.props });
 	}
 }

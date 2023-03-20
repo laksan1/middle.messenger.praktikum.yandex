@@ -1,9 +1,8 @@
-import API, { ChatsAPI } from '../api/ChatsAPI'
-import store from '../utils/Store'
-import MessagesController from './MessagesController'
-import { Chat } from '../interfaces/chat/chat.interface'
-import { set } from '../utils/helpers'
-
+import API, { ChatsAPI } from '../api/ChatsAPI';
+import store from '../utils/Store';
+import MessagesController from './MessagesController';
+import { Chat } from '../interfaces/chat/chat.interface';
+import { set } from '../utils/helpers';
 
 class ChatsController {
 	private readonly api: ChatsAPI;
@@ -16,7 +15,6 @@ class ChatsController {
 		try {
 			await this.api.create({ title });
 			await this.loadChats();
-
 		} catch (e: any) {
 			console.error(e);
 			return e;
@@ -32,7 +30,7 @@ class ChatsController {
 	}
 
 	selectChat(id: number) {
-		console.log('selectChat id', id)
+		console.log('selectChat id', id);
 		store.set('currentChatId', id);
 	}
 
@@ -45,7 +43,6 @@ class ChatsController {
 
 				await MessagesController.connect(chat.id, token);
 			});
-			console.log('ChatsController chats',  chats)
 			store.set('chats', chats);
 		} catch (e: any) {
 			console.error(e);
@@ -78,18 +75,17 @@ class ChatsController {
 		}
 	}
 
-	deleteUsersFromChat(data: {users: number[], chatId: number}) {
+	deleteUsersFromChat(data: { users: number[]; chatId: number }) {
 		return this.api.deleteUsersFromChat(data);
 	}
 
-	addUsersToChat(data: {users: number[], chatId: number}) {
+	addUsersToChat(data: { users: number[]; chatId: number }) {
 		return this.api.addUsersToChat(data);
 	}
 
 	getToken(id: number) {
 		return this.api.getToken(id);
 	}
-
 }
 
 export default new ChatsController();

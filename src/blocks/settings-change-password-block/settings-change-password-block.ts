@@ -1,11 +1,11 @@
-import {Button} from '../../components/button/button';
+import { Button } from '../../components/button/button';
 import Block from '../../utils/Block';
 import template from './settings-change-password-block.hbs';
-import {Input} from '../../components/input/input';
-import checkForm from '../../utils/FormActions'
-import { closeModalWindow } from '../../utils/ModalWindow'
-import UserController from '../../controllers/UserController'
-import { UserPassword } from '../../interfaces/user/user-password.interface'
+import { Input } from '../../components/input/input';
+import checkForm from '../../utils/FormActions';
+import { closeModalWindow } from '../../utils/ModalWindow';
+import UserController from '../../controllers/UserController';
+import { UserPassword } from '../../interfaces/user/user-password.interface';
 
 type SettingsChangePasswordBlockProps = {
 	oldPasswordInput: Input;
@@ -21,15 +21,17 @@ export class SettingsChangePasswordBlock extends Block<SettingsChangePasswordBlo
 		this.setProps({
 			events: {
 				...this.props.events,
-				submit:  this.sendForm.bind(this)
-			}
+				submit: this.sendForm.bind(this),
+			},
 		});
 	}
 
-	async sendForm(e: Event) {
-
+	async sendForm(e?: Event) {
+		if (!e) {
+			return;
+		}
 		const isFormReady = checkForm(e);
-		console.log('SettingsChangePasswordBlock isFormReady', isFormReady)
+		console.log('SettingsChangePasswordBlock isFormReady', isFormReady);
 		if (isFormReady) {
 			const oldPassword = (this.children.oldPasswordInput as Input).getValue();
 			const newPassword = (this.children.newPasswordInput as Input).getValue();
@@ -37,22 +39,20 @@ export class SettingsChangePasswordBlock extends Block<SettingsChangePasswordBlo
 			console.log('oldPassword', oldPassword);
 			console.log('newPassword', newPassword);
 
-
-			if(!oldPassword || !newPassword){
-				console.log('One of passwords is Empty')
+			if (!oldPassword || !newPassword) {
+				console.log('One of passwords is Empty');
 				return;
 			}
 
-			if(oldPassword !== newPassword){
-				console.log('Passwords are not the same')
+			if (oldPassword !== newPassword) {
+				console.log('Passwords are not the same');
 				return;
 			}
 
 			const data: UserPassword = {
 				oldPassword,
-				newPassword
+				newPassword,
 			};
-			// alert(1111);
 
 			const response = await UserController.updatePassword(data);
 
@@ -65,6 +65,6 @@ export class SettingsChangePasswordBlock extends Block<SettingsChangePasswordBlo
 	}
 
 	protected render() {
-		return this.compile(template, {...this.props})
+		return this.compile(template, { ...this.props });
 	}
 }

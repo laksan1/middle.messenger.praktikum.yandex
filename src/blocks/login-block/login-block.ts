@@ -1,18 +1,19 @@
 import Block from '../../utils/Block';
 import template from './login-block.hbs';
-import {AuthLayoutLink} from '../../components/auth-layout-link/auth-layout-link';
-import {Button} from '../../components/button/button';
-import {Input} from '../../components/input/input';
-import AuthController from '../../controllers/AuthController'
-import checkForm from '../../utils/FormActions'
+import { AuthLayoutLink } from '../../components/auth-layout-link/auth-layout-link';
+import { Button } from '../../components/button/button';
+import { Input } from '../../components/input/input';
+import AuthController from '../../controllers/AuthController';
+import checkForm from '../../utils/FormActions';
+import { UserFields } from '../../enums/userFields.enum';
 
 type LoginBlockProps = {
 	loginInput: Input;
 	passwordInput: Input;
 	submitButton: Button;
 	registrationLink: AuthLayoutLink;
-	events?: Record<string, (e?: Event) => void>;
-}
+	events: Record<string, (e?: Event) => void | Promise<void>>;
+};
 
 export class LoginBlock extends Block<LoginBlockProps> {
 	constructor(props: LoginBlockProps) {
@@ -20,41 +21,43 @@ export class LoginBlock extends Block<LoginBlockProps> {
 		this.setProps({
 			events: {
 				...this.props.events,
-				submit:  this.sendForm.bind(this)
-			}
+				submit: this.sendForm.bind(this),
+			},
 		});
 	}
 
-	async sendForm(e: Event) {
+	async sendForm(e?: Event) {
+		if (!e) {
+			return;
+		}
 		e.preventDefault();
 		//AuthController.logout();
 		const isFormReady = checkForm(e);
 		if (isFormReady) {
-			const values = Object
-				.values(this.children)
-				.filter(child => child instanceof Input)
-				.map((child) => ([(child as Input).getName(), (child as Input).getValue()]));
+			const values = Object.values(this.children)
+				.filter((child) => child instanceof Input)
+				.map((child) => [(child as Input).getName(), (child as Input).getValue()]);
 
-			const data =  Object.fromEntries(values); // SigninStub
+			const data = Object.fromEntries(values); // SigninStub
 			const response = await AuthController.signin(data);
 
 			if (response?.reason) {
 				Object.values(this.children)
-					.filter(child => child instanceof Input)
+					.filter((child) => child instanceof Input)
 					.forEach((child) => {
-						if ((child as Input).getName() === 'login') {
+						if ((child as Input).getName() === UserFields.login) {
 							(child as Input).setError(response.reason);
 						}
 					});
 			} else {
 				Object.values(this.children)
-					.filter(child => child instanceof Input)
-					.forEach((child) => ((child as Input).setProps({ value: ''})));
+					.filter((child) => child instanceof Input)
+					.forEach((child) => (child as Input).setProps({ value: '' }));
 			}
 		}
 	}
 
 	render() {
-		return this.compile(template, { ...this.props })
+		return this.compile(template, { ...this.props });
 	}
 }

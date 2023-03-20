@@ -1,25 +1,34 @@
 {
-  "root": true,
-  "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint"
-  ],
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "rules": {
-	  "quotes": [2, "single", { "avoidEscape": true }],
-    "filenames/no-index": "error",
-    "filenames/match-exported": ["error", "kebab"],
-    "prettier/prettier": [
-      "error",
-      {
-        "semi": false,
-        "tabWidth": 4,
-        "singleQuote": true
-      }
-    ]
-  }
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"plugins": [
+		"@typescript-eslint",
+		"filenames"
+	],
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"rules": {
+		"quotes": [
+			2,
+			"single",
+			{
+				"avoidEscape": true
+			}
+		],
+		"filenames/match-exported": [
+			"error",
+			"kebab"
+		],
+		"no-use-before-define": ["warn", {
+			"functions": true,
+			"classes": false,
+			"variables": true,
+			"allowNamedExports": false
+		}],
+		"no-param-reassign": ["warn"]
+	}
+
 }

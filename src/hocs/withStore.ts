@@ -2,12 +2,10 @@ import store, { StoreEvents } from '../utils/Store';
 import Block from '../utils/Block';
 
 export function withStore(mapStateToProps: (state: any) => any) {
-
 	return function wrap(Component: typeof Block) {
 		let previousState: any;
 
 		return class WithStore extends Component {
-
 			constructor(props: any) {
 				previousState = mapStateToProps(store.getState());
 
@@ -19,7 +17,6 @@ export function withStore(mapStateToProps: (state: any) => any) {
 					this.setProps({ ...stateProps });
 				});
 			}
-		}
-	}
-
+		};
+	};
 }

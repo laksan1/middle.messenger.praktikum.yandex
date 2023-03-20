@@ -69,9 +69,10 @@
 }
 
 .chat-content-message{
-	padding: 16px;
+	padding: 10px;
 	background-color: var( --app-base-01);
 	border-radius: 16px 16px 0;
+	margin: 10px 5px;
 	&__body {
 		font-weight: 500;
 		margin: 0;

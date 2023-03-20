@@ -3,10 +3,12 @@ type PlainObject<T = unknown> = {
 };
 
 function isPlainObject(value: unknown): value is PlainObject {
-	return typeof value === 'object'
-		&& value !== null
-		&& value.constructor === Object
-		&& Object.prototype.toString.call(value) === '[object Object]';
+	return (
+		typeof value === 'object' &&
+		value !== null &&
+		value.constructor === Object &&
+		Object.prototype.toString.call(value) === '[object Object]'
+	);
 }
 
 function isArray(value: unknown): value is [] {
@@ -18,12 +20,11 @@ function isFunction(value: unknown): value is Function {
 	return typeof value === 'function';
 }
 
-function isArrayOrObject(value: unknown): value is ([] | PlainObject) {
+function isArrayOrObject(value: unknown): value is [] | PlainObject {
 	return isPlainObject(value) || isArray(value);
 }
 
 function isEqual(lhs: PlainObject, rhs: PlainObject) {
-
 	if (!lhs && !rhs) {
 		return true;
 	}
@@ -44,7 +45,6 @@ function isEqual(lhs: PlainObject, rhs: PlainObject) {
 		const rightValue = rhs[key];
 
 		if (isArrayOrObject(value) && isArrayOrObject(rightValue)) {
-
 			if (isPlainObject(value) && isPlainObject(rightValue)) {
 				if (isEqual(value, rightValue)) {
 					continue;
@@ -58,7 +58,6 @@ function isEqual(lhs: PlainObject, rhs: PlainObject) {
 
 				return false;
 			} else {
-
 				return false;
 			}
 		}
@@ -83,8 +82,6 @@ function isEqual(lhs: PlainObject, rhs: PlainObject) {
 	return true;
 }
 
-
-
 function queryString(data: PlainObject) {
 	if (!isPlainObject(data)) {
 		throw new Error('input must be an object');
@@ -97,7 +94,7 @@ function queryString(data: PlainObject) {
 	function getParams(data: PlainObject | [], parentKey?: string) {
 		const result: [string, string][] = [];
 
-		for(const [key, value] of Object.entries(data)) {
+		for (const [key, value] of Object.entries(data)) {
 			if (isArrayOrObject(value)) {
 				result.push(...getParams(value, getKey(key, parentKey)));
 			} else {
@@ -108,7 +105,12 @@ function queryString(data: PlainObject) {
 		return result;
 	}
 
-	return '?' + getParams(data).map(arr => arr.join('=')).join('&');
+	return (
+		'?' +
+		getParams(data)
+			.map((arr) => arr.join('='))
+			.join('&')
+	);
 }
 
 function merge(lhs: PlainObject, rhs: PlainObject): PlainObject {
@@ -124,7 +126,7 @@ function merge(lhs: PlainObject, rhs: PlainObject): PlainObject {
 			} else {
 				lhs[p] = rhs[p];
 			}
-		} catch(e) {
+		} catch (e) {
 			lhs[p] = rhs[p];
 		}
 	}
@@ -141,11 +143,14 @@ function set(object: PlainObject | unknown, path: string, value: unknown): Plain
 		return object;
 	}
 
-	const result = path.split('.').reduceRight<PlainObject>((acc, key) => ({
-		[key]: acc,
-	}), value as any);
+	const result = path.split('.').reduceRight<PlainObject>(
+		(acc, key) => ({
+			[key]: acc,
+		}),
+		value as any
+	);
 
 	return merge(object as PlainObject, result);
 }
 
-export {isPlainObject, isArray, isArrayOrObject, isFunction, isEqual, isEqualPrimitive, queryString, merge, set};
+export { isPlainObject, isArray, isArrayOrObject, isFunction, isEqual, isEqualPrimitive, queryString, merge, set };

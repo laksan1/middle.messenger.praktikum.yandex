@@ -5,23 +5,23 @@ import EventBus from './EventBus';
 import { set } from './helpers';
 import { withStore } from '../hocs/withStore';
 
-export enum StoreEvents{
-	Updated = 'updated'
+export enum StoreEvents {
+	Updated = 'updated',
 }
 
 type StoreEventsType = {
 	updated: [IStore];
-}
+};
 
 interface IStore {
 	user: {
-		user_data: User | null,
-	},
-	chats: Chat[],
-	currentChatId: number | null,
+		user_data: User | null;
+	};
+	chats: Chat[];
+	currentChatId: number | null;
 	messages: {
 		[propName: string]: Message[];
-	},
+	};
 	error: string;
 }
 class Store extends EventBus<StoreEventsType> {
@@ -34,7 +34,7 @@ class Store extends EventBus<StoreEventsType> {
 		chats: [],
 		currentChatId: null,
 		messages: {},
-		error: ''
+		error: '',
 	};
 
 	constructor() {
@@ -60,23 +60,22 @@ export default new Store();
 
 const withUser = withStore((state) => {
 	return {
-		user_data : state.user.user_data,
-	}
+		user_data: state.user.user_data,
+	};
 });
 
 const withChats = withStore((state) => {
 	return {
 		chats: state.chats,
 		currentChatId: state.currentChatId,
-	}
+	};
 });
 
 const withUserAndMessages = withStore((state) => {
 	return {
 		user_data: state.user.user_data,
 		messages: state.messages[state.currentChatId] || [],
-
-	}
+	};
 });
 
-export { withUser, withChats, withUserAndMessages};
+export { withUser, withChats, withUserAndMessages };

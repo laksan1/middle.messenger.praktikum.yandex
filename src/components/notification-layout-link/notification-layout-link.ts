@@ -8,8 +8,8 @@ type NotificationLayoutLinkProps = {
 	additionalClasses?: string[];
 	styleClasses?: string[];
 	events?: Record<string, (e?: Event) => void>;
-}
-export class  NotificationLayoutLink extends Block<NotificationLayoutLinkProps> {
+};
+export class NotificationLayoutLink extends Block<NotificationLayoutLinkProps> {
 	constructor(props: NotificationLayoutLinkProps) {
 		super('a', props);
 		this.element!.classList.add(styles.prompt);
@@ -17,6 +17,6 @@ export class  NotificationLayoutLink extends Block<NotificationLayoutLinkProps> 
 
 	protected render(): DocumentFragment {
 		this.element!.setAttribute('href', this.props.href);
-		return this.compile(template, {...this.props})
+		return this.compile(template, { ...this.props });
 	}
 }

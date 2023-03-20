@@ -7,7 +7,7 @@ import ChatsController from '../../controllers/ChatsController';
 import { Chat } from '../../interfaces/chat/chat.interface';
 import UserController from '../../controllers/UserController';
 import template from './chat-show-users-block.hbs';
-import { withStore } from '../../hocs/withStore'
+import { withStore } from '../../hocs/withStore';
 
 interface ChatShowUsersBlockProps {
 	searchInput: SearchInput;
@@ -32,18 +32,21 @@ class ChatShowUsersBlockBase extends Block<ChatShowUsersBlockProps> {
 		this.setProps({
 			events: {
 				...this.props.events,
-				click: this.click.bind(this)
-			}
+				click: this.click.bind(this),
+			},
 		});
 
-		this.children.searchInput.setProps({events: {
-				// @ts-ignore
-				input: this.findUsers.bind(this)
-			}
-		})
+		this.children.searchInput.setProps({
+			events: {
+				input: this.findUsers.bind(this),
+			},
+		});
 	}
 
-	async click(e: Event) {
+	async click(e?: Event) {
+		if (!e) {
+			return;
+		}
 		const target = e.target as HTMLElement;
 
 		if (target.hasAttribute('data-expel')) {
@@ -51,7 +54,7 @@ class ChatShowUsersBlockBase extends Block<ChatShowUsersBlockProps> {
 			const userId = target.getAttribute('data-expel');
 
 			try {
-				await ChatsController.deleteUsersFromChat({ users: [Number(userId)], chatId: this.props.currentChatId })
+				await ChatsController.deleteUsersFromChat({ users: [Number(userId)], chatId: this.props.currentChatId });
 				target.setAttribute('data-invite', String(userId));
 				target.removeAttribute('data-expel');
 				target.textContent = 'Invite';
@@ -60,7 +63,7 @@ class ChatShowUsersBlockBase extends Block<ChatShowUsersBlockProps> {
 			} catch (e) {
 				console.error(e);
 				target.setAttribute('disabled', 'true');
-				target.textContent = 'Error'
+				target.textContent = 'Error';
 			}
 		}
 
@@ -77,35 +80,35 @@ class ChatShowUsersBlockBase extends Block<ChatShowUsersBlockProps> {
 			} catch (e) {
 				console.error(e);
 				target.setAttribute('disabled', 'true');
-				target.textContent = 'Error';
+				target.textContent = 'Ошибка';
 			}
 		}
-
 	}
 	async loadChatMembers() {
 		const chatMembers = await ChatsController.getChatUsers(this.props.currentChatId);
 		chatMembers.forEach((member) => {
 			member.isMember = true;
 			if (member.role === 'admin') {
-				member.isAdmin = true
+				member.isAdmin = true;
 			}
 		});
-		this.setProps({ currentChatMembers: chatMembers, users: chatMembers })
+		this.setProps({ currentChatMembers: chatMembers, users: chatMembers });
 	}
 
 	componentDidMount() {
-		if(this.props.currentChatId){
+		if (this.props.currentChatId) {
 			this.setProps({ isSearching: false, currentChatMembers: [], users: [] });
-			console.log('this.props.currentChatId', this.props.currentChatId)
+			console.log('this.props.currentChatId', this.props.currentChatId);
 			this.chatData = ChatsController.getChatData(this.props.currentChatId);
 			this.isAdmin = this.chatData.created_by === this.props.user_data?.id;
 			this.loadChatMembers();
 		}
 	}
 
-
-
-	findUsers(e: Event) {
+	findUsers(e?: Event) {
+		if (!e) {
+			return;
+		}
 		if (e.target instanceof HTMLInputElement) {
 			const target = e.target;
 			clearTimeout(this.searchBouncer);
@@ -113,14 +116,14 @@ class ChatShowUsersBlockBase extends Block<ChatShowUsersBlockProps> {
 				if (target.value) {
 					const users = await UserController.findUser({ login: target.value });
 					users.forEach((user) => {
-						user.isMember = this.props.currentChatMembers.findIndex(i => i.id === user.id) !== -1
+						user.isMember = this.props.currentChatMembers.findIndex((i) => i.id === user.id) !== -1;
 					});
 					this.setProps({ isSearching: true, users });
 				} else {
 					await this.loadChatMembers();
 					this.setProps({ isSearching: false });
 				}
-			}, 700)
+			}, 700);
 		}
 	}
 
@@ -133,8 +136,8 @@ const withState = withStore((state) => {
 	return {
 		currentChatId: state.currentChatId,
 		user_data: state.user.user_data,
-	}
+	};
 });
 
-console.log('ChatShowUsersBlock withState', withState)
+console.log('ChatShowUsersBlock withState', withState);
 export const ChatShowUsersBlock = withState(ChatShowUsersBlockBase as unknown as typeof Block);

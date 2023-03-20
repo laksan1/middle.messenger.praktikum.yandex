@@ -1,4 +1,4 @@
-import EventBus from './EventBus'
+import EventBus from './EventBus';
 
 export enum WSTransportEvents {
 	Connected = 'connected',
@@ -20,7 +20,7 @@ export default class WSTransport extends EventBus<any> {
 			throw new Error('Socket is not connected');
 		}
 
-		this.socket.send(JSON.stringify(data))
+		this.socket.send(JSON.stringify(data));
 	}
 
 	public connect(): Promise<void> {
@@ -44,42 +44,42 @@ export default class WSTransport extends EventBus<any> {
 	private setupPing() {
 		this.pingInterval = setInterval(() => {
 			this.send({ type: 'ping' });
-		}, 5000)
+		}, 5000);
 
 		this.on(WSTransportEvents.Close, () => {
 			clearInterval(this.pingInterval);
 
 			this.pingInterval = 0;
-		})
+		});
 	}
 
 	private subscribe(socket: WebSocket) {
 		socket.addEventListener('open', () => {
-			this.emit(WSTransportEvents.Connected)
+			this.emit(WSTransportEvents.Connected);
 		});
 
 		socket.addEventListener('close', (e) => {
 			if (e.wasClean) {
 				console.warn(`[close] Соединение закрыто чисто, код: ${e.code} причина: ${e.reason}`);
-				this.emit(WSTransportEvents.Close)
+				this.emit(WSTransportEvents.Close);
 			} else {
 				console.error(`[close] Соединение прервано, код=${e.code}`);
-				setTimeout(() => this.connect(), 5000)
+				setTimeout(() => this.connect(), 5000);
 			}
 		});
 
 		socket.addEventListener('error', (e) => {
-			this.emit(WSTransportEvents.Error, e)
+			this.emit(WSTransportEvents.Error, e);
 		});
 
 		socket.addEventListener('message', (message) => {
 			const data = JSON.parse(message.data);
 
-			if (data.type && data.type === 'pong') {
+			if (data.type && data.type === 'ping') {
 				return;
 			}
 
-			this.emit(WSTransportEvents.Message, data)
+			this.emit(WSTransportEvents.Message, data);
 		});
 	}
 }

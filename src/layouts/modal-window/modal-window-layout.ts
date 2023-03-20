@@ -8,15 +8,9 @@ type modalProps = {
 export class ModalWindowLayout extends Block<modalProps> {
 	constructor(props: modalProps) {
 		super('section', props);
-		// this.element?.addEventListener('mousedown', this.close.bind(this))
-	}
-
-	close(e: Event){
-		if (!e.target) return;
 	}
 
 	render() {
-		return this.compile(template, { ...this.props })
+		return this.compile(template, { ...this.props });
 	}
 }
-

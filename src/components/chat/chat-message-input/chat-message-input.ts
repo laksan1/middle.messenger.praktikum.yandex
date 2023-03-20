@@ -1,6 +1,6 @@
 import Block from '../../../utils/Block';
 import template from './chat-message-input.hbs';
-import Validator, { ValidatorTypes } from '../../../utils/Validator'
+import { ValidatorTypes } from '../../../utils/Validator';
 
 type ChatMessageInputProps = {
 	placeholder: string;
@@ -9,39 +9,34 @@ type ChatMessageInputProps = {
 	value?: string;
 	validationType: ValidatorTypes;
 	events?: Record<string, (e?: Event) => void>;
-}
+};
 export class ChatMessageInput extends Block<ChatMessageInputProps> {
 	constructor(props: ChatMessageInputProps) {
-		super('label', props);
+		super('input', props);
 		this.element!.classList.add('chat-message-input');
 		this.setProps({
 			events: {
 				...this.props.events,
-				change: this.set.bind(this)
-			}
+				blur: this.set.bind(this),
+			},
 		});
 	}
 
-	set() {
-		const inputField = this.element!.querySelector('.chat-message-input');
-		if (!inputField) return;
-		inputField.addEventListener('change', (e) => {
+	async set() {
+		this.element!.addEventListener('blur', (e) => {
 			const target = e.target as HTMLInputElement;
-
-			const validator = new Validator(target, this.props.validationType);
-			validator.check();
-			this.setProps({error: validator.getError(), value: target!.value});
-
-		}, {once: true});
+			this.setProps({ value: target.value });
+		});
 	}
-
 
 	getValue() {
 		return this.props?.value;
 	}
 
 	protected render(): DocumentFragment {
-		return this.compile(template, {...this.props})
+		this.element!.setAttribute('placeholder', this.props.placeholder);
+		this.element!.setAttribute('name', this.props.name);
+		this.element!.setAttribute('type', 'text');
+		return this.compile(template, { ...this.props });
 	}
-
 }

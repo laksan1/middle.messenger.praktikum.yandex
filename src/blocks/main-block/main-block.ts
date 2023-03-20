@@ -3,7 +3,7 @@ import template from './main-block.hbs';
 
 type MainBlockProps = {
 	events?: Record<string, (e?: Event) => void>;
-}
+};
 
 export class MainBlock extends Block<MainBlockProps> {
 	constructor(props: MainBlockProps) {
@@ -12,6 +12,6 @@ export class MainBlock extends Block<MainBlockProps> {
 	}
 
 	render() {
-		return this.compile(template, { ...this.props })
+		return this.compile(template, { ...this.props });
 	}
 }

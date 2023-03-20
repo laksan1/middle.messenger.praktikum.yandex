@@ -7,28 +7,28 @@ import { SettingsActionLink } from '../../components/settings-action-link/settin
 
 const searchInput = new SearchInput({
 	name: 'chat-search',
-	placeholder: 'Поиск'
+	placeholder: 'Поиск',
 });
 
 const chatNewChatButton = new ChatNewChatButton({
 	label: '+',
-})
+});
 
 const settingsLink = new SettingsActionLink({
 	label: 'Настройки',
-	href: Routes.Settings
-})
+	href: Routes.Settings,
+});
 
 const chatSidebar = new ChatSidebar({
 	settingsLink,
 	chatNewChatButton,
-	searchInput
-})
+	searchInput,
+});
 
 export default class chatPage extends ChatLayout {
 	constructor() {
 		super({
 			chatSidebar,
-		})
+		});
 	}
 }

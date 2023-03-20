@@ -1,6 +1,7 @@
-import WSTransport, { WSTransportEvents } from '../utils/WSTransport'
-import store from '../utils/Store'
-import { Message } from '../interfaces/chat/message.interface'
+import WSTransport, { WSTransportEvents } from '../utils/WSTransport';
+import store from '../utils/Store';
+import { Message } from '../interfaces/chat/message.interface';
+import { BACKEND_URLS } from '../enums/routes.enum';
 
 class MessagesController {
 	private sockets: Map<number, WSTransport> = new Map();
@@ -12,7 +13,7 @@ class MessagesController {
 
 		const userId = store.getState().user.user_data?.id;
 
-		const wsTransport = new WSTransport(`wss://ya-praktikum.tech/ws/chats/${userId}/${id}/${token}`);
+		const wsTransport = new WSTransport(`${BACKEND_URLS.WS_CHATS}${userId}/${id}/${token}`);
 
 		this.sockets.set(id, wsTransport);
 
@@ -24,12 +25,9 @@ class MessagesController {
 
 	sendMessage(id: number, message: string) {
 		const socket = this.sockets.get(id);
-		console.log('socket', socket)
 		if (!socket) {
 			throw new Error(`Chat ${id} is not connected`);
 		}
-
-		console.log('sendMessage message', message)
 
 		socket.send({
 			type: 'message',
@@ -48,11 +46,12 @@ class MessagesController {
 	}
 
 	closeAll() {
-		Array.from(this.sockets.values()).forEach(socket => socket.close());
+		Array.from(this.sockets.values()).forEach((socket) => socket.close());
 	}
 
 	private onMessage(id: number, messages: Message | Message[]) {
 		let messagesToAdd: Message[] = [];
+		const storeKey = `messages.${id}`;
 
 		if (Array.isArray(messages)) {
 			messagesToAdd = messages.reverse();
@@ -70,7 +69,7 @@ class MessagesController {
 
 		messagesToAdd = [...currentMessages, ...messagesToAdd];
 
-		store.set(`messages.${id}`, messagesToAdd);
+		store.set(storeKey, messagesToAdd);
 	}
 
 	private onClose(id: number) {
@@ -83,5 +82,4 @@ class MessagesController {
 	}
 }
 
-export default  new MessagesController();
-
+export default new MessagesController();

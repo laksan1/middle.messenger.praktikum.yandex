@@ -1,4 +1,4 @@
-import Validator, {ValidatorTypes} from './Validator';
+import Validator, { ValidatorTypes } from './Validator';
 
 export default function checkForm(e?: Event): boolean {
 	if (!e) {

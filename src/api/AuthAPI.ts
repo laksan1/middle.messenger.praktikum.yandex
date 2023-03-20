@@ -1,11 +1,9 @@
-import BaseAPI from '../utils/BaseAPI'
-import { User } from '../interfaces/auth/user.interface'
-import { LoginData } from '../interfaces/auth/login-data.interface'
-import { RegistrationData } from '../interfaces/auth/registration-data.interface'
+import { User } from '../interfaces/auth/user.interface';
+import { LoginData } from '../interfaces/auth/login-data.interface';
+import { RegistrationData } from '../interfaces/auth/registration-data.interface';
+import { BaseAPI } from '../utils/BaseAPI';
 
 export class AuthAPI extends BaseAPI {
-
-
 	private static instance: AuthAPI;
 
 	constructor() {
@@ -18,11 +16,11 @@ export class AuthAPI extends BaseAPI {
 		AuthAPI.instance = this;
 	}
 	signin(data: LoginData) {
-		return this.http.post<LoginData>('/signin',  data );
+		return this.http.post<LoginData>('/signin', data);
 	}
 
 	signup(data: RegistrationData) {
-		return this.http.post<RegistrationData>('/signup',  data );
+		return this.http.post<RegistrationData>('/signup', data);
 	}
 
 	fetchUser(): Promise<User> {

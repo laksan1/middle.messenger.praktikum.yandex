@@ -1,18 +1,17 @@
 import { nanoid } from 'nanoid';
 import { TemplateDelegate } from 'handlebars';
-import './HandlebarsHelpers'
+import './HandlebarsHelpers';
 import EventBus from './EventBus';
-import { isEqual } from './helpers'
-
+import { isEqual } from './helpers';
 
 type BlockEvents<P> = {
 	init: [];
 	'flow:component-did-mount': [];
 	'flow:component-did-update': [P, P];
 	'flow:render': [];
-}
+};
 
-type Props<P extends object = {}> = {events?: Record<string, (e?: Event) => void>} & P;
+type Props<P extends object = {}> = { events?: Record<string, (e?: Event) => void> } & P;
 
 export default class Block<P extends object = {}> {
 	static EVENTS = {
@@ -32,9 +31,9 @@ export default class Block<P extends object = {}> {
 
 	private _element: HTMLElement | null = null;
 
-	private readonly _meta: {tagName: string, props: any};
+	private readonly _meta: { tagName: string; props: any };
 
-	protected constructor(tagName: string = 'div', propsWithChildren: Props<P> = {} as Props<P>) {
+	protected constructor(tagName = 'div', propsWithChildren: Props<P> = {} as Props<P>) {
 		const eventBus = new EventBus<BlockEvents<Props<P>>>();
 		this.eventBus = () => eventBus;
 
@@ -54,7 +53,7 @@ export default class Block<P extends object = {}> {
 		eventBus.emit(Block.EVENTS.INIT);
 	}
 
-	private _getChildrenAndProps(propsWithChildren: Props<P>): {props: Props<P>, children: Record<string, Block>} {
+	private _getChildrenAndProps(propsWithChildren: Props<P>): { props: Props<P>; children: Record<string, Block> } {
 		const props = {} as Record<string, unknown>;
 		const children: Record<string, Block> = {};
 

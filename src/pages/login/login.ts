@@ -1,15 +1,16 @@
 import { Button } from '../../components/button/button';
 import { LoginBlock } from '../../blocks/login-block/login-block';
-import {AuthLayoutLink} from '../../components/auth-layout-link/auth-layout-link';
-import {AuthLayout} from '../../layouts/auth/auth-layout';
-import {Input} from '../../components/input/input';
-import { Routes } from '../../enums/routes.enum'
+import { AuthLayoutLink } from '../../components/auth-layout-link/auth-layout-link';
+import { AuthLayout } from '../../layouts/auth/auth-layout';
+import { Input } from '../../components/input/input';
+import { Routes } from '../../enums/routes.enum';
+import { UserFields } from '../../enums/userFields.enum';
 
 const loginInput = new Input({
 	label: 'Логин',
 	type: 'text',
 	placeholder: 'Введите ваш логин',
-	name: 'login',
+	name: UserFields.login,
 	validationType: 'login',
 });
 

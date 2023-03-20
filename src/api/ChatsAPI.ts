@@ -1,6 +1,6 @@
-import BaseAPI from '../utils/BaseAPI'
-import { Chat } from '../interfaces/chat/chat.interface'
-import { ChatMember } from '../interfaces/chat/chat-member.interface'
+import { Chat } from '../interfaces/chat/chat.interface';
+import { ChatMember } from '../interfaces/chat/chat-member.interface';
+import { BaseAPI } from '../utils/BaseAPI';
 
 export class ChatsAPI extends BaseAPI {
 	private static __instance: ChatsAPI;
@@ -26,22 +26,22 @@ export class ChatsAPI extends BaseAPI {
 	}
 
 	loadChats(data: Record<'title', string>): Promise<Chat[]> {
-		return this.http.get('/',  data );
+		return this.http.get('/', data);
 	}
 
 	delete(id: number) {
-		return this.http.delete('/',  { chatId: id } );
+		return this.http.delete('/', { chatId: id });
 	}
 
 	getChatUsers(id: number): Promise<ChatMember[]> {
 		return this.http.get(`/${id}/users`);
 	}
 
-	addUsersToChat(data: {users: number[], chatId: number}) {
+	addUsersToChat(data: { users: number[]; chatId: number }) {
 		return this.http.put('/users', { data });
 	}
 
-	deleteUsersFromChat(data: {users: number[], chatId: number}) {
+	deleteUsersFromChat(data: { users: number[]; chatId: number }) {
 		return this.http.delete('/users', { data });
 	}
 

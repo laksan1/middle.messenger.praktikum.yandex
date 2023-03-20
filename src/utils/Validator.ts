@@ -1,4 +1,4 @@
-type ValidatorTypes =   'name' | 'login' | 'email' | 'password' | 'phone' | 'message' | 'default'
+type ValidatorTypes = 'name' | 'login' | 'email' | 'password' | 'phone' | 'message' | 'default';
 
 type RuleType<P> = {
 	message?: string;
@@ -20,7 +20,8 @@ class Validator {
 		name: {
 			pattern: {
 				value: '^[A-Z-А-ЯЁ][а-яА-ЯёЁa-zA-Z-]*$',
-				message: 'Латиница или кириллица, первая буква должна быть заглавной, без пробелов и без цифр, нет спецсимволов (допустим только дефис)',
+				message:
+					'Латиница или кириллица, первая буква должна быть заглавной, без пробелов и без цифр, нет спецсимволов (допустим только дефис)',
 			},
 			required: {
 				value: true,
@@ -63,7 +64,7 @@ class Validator {
 		},
 		email: {
 			pattern: {
-				value: '^[a-zA-Z0-9.!#$%&\' * +/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$',
+				value: "^[a-zA-Z0-9.!#$%&' * +/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$",
 				message: 'Неверный формат e-mail',
 			},
 			required: {
@@ -91,7 +92,6 @@ class Validator {
 				value: true,
 			},
 		},
-
 	};
 
 	private element: HTMLInputElement | HTMLTextAreaElement;
@@ -107,7 +107,7 @@ class Validator {
 		return this.rules[this.type];
 	}
 
-	private _setRules():void {
+	private _setRules(): void {
 		const rules = this._getRules();
 
 		Object.entries(rules).forEach(([ruleName, value]) => {
@@ -121,7 +121,6 @@ class Validator {
 		const { validity } = this.element;
 		const rules = this._getRules();
 
-
 		if (validity.tooLong) {
 			this._addInvalidity('Превышено максимальное кол-во символов');
 			if (rules.maxlength) {
@@ -129,7 +128,9 @@ class Validator {
 					this.element.setCustomValidity(rules.maxlength.message);
 					this.element.title = rules.maxlength.message;
 				} else if (rules.maxlength.value) {
-					this.element.setCustomValidity(`Превышено максимальное кол-во символов на ${this.element.value.length - rules.maxlength.value}`);
+					this.element.setCustomValidity(
+						`Превышено максимальное кол-во символов на ${this.element.value.length - rules.maxlength.value}`
+					);
 				}
 			}
 			isValid = false;
@@ -166,9 +167,13 @@ class Validator {
 			isValid = false;
 		}
 
-		this.element.addEventListener('input', () => {
-			this.element.setCustomValidity('');
-		}, { once: true });
+		this.element.addEventListener(
+			'input',
+			() => {
+				this.element.setCustomValidity('');
+			},
+			{ once: true }
+		);
 
 		return isValid;
 	}
