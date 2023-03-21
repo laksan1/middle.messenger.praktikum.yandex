@@ -1,12 +1,14 @@
 <div class="chat-layout__sidebar">
 	{{{ chatSidebar }}}
-	<img src="../img/no_messages.svg"/>
 </div>
 <div class="chat-layout__content">
+
 	{{#if chatContent}}
 		{{{ chatContent }}}
 	{{else}}
-		<img src="../img/no_messages.svg"/>
+			<span class="content-label">Начните новый чат</span>
+			<img class="backround-image" src="../img/no_messages.svg"alt="mountains">
 	{{/if}}
 </div>
+
 

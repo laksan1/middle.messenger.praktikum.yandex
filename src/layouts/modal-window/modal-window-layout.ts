@@ -1,5 +1,5 @@
-import Block from "../../utils/Block";
-import template from "./modal-window-layout.hbs";
+import Block from '../../utils/Block';
+import template from './modal-window-layout.hbs';
 
 type modalProps = {
 	modal: Partial<Block>;
@@ -11,7 +11,6 @@ export class ModalWindowLayout extends Block<modalProps> {
 	}
 
 	render() {
-		return this.compile(template, { ...this.props })
+		return this.compile(template, { ...this.props });
 	}
 }
-

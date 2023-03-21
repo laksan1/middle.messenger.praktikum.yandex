@@ -1,7 +1,7 @@
-import {ModalWindowLayout} from "../layouts/modal-window/modal-window-layout";
+import { ModalWindowLayout } from '../layouts/modal-window/modal-window-layout';
 
 function openModalWindow(modal: ModalWindowLayout): void {
-	const root = document.querySelector('#main');
+	const root = document.querySelector('#app');
 	if (!root) return;
 
 	let modalsContainer = root.querySelector('.modal-container');
@@ -15,9 +15,8 @@ function openModalWindow(modal: ModalWindowLayout): void {
 }
 
 function closeModalWindow() {
-
 	const modalsContainer = document.querySelector('.modal-container');
-	console.log('CLose modal', modalsContainer)
+	console.log('CLose modal', modalsContainer);
 	if (!modalsContainer) return;
 
 	modalsContainer.innerHTML = '';

@@ -1,4 +1,43 @@
-{{{chatContentHeader}}}
-{{{chatMessages}}}
-{{{chatConsole}}}
+<div class="chat-content__top">
+	<div class="chat-content__info">
+		<div class="chat-content__avatar avatar">
+			<img class="avatar__image" src="{{#if chatData.avatar}}https://ya-praktikum.tech/api/v2/resources{{/if}}{{ chatData.avatar }}" onerror="this.style.display = 'none'" alt="{{ chatData.title }} avatar">
+		</div>
+		<p class="chat-content__user">{{ chatData.title }}</p>
+	</div>
 
+	{{#if actionsList}}
+		<div class="chat-content__actions">
+			<div class="actions__icon"></div>
+			<div class="actions__tooltip">
+				<ul class="actions__list">
+					{{#each actionsList}}
+							<button data-action="{{ this.action }}" class="button-arounder actions-link">{{ this.name }}</button>
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+	{{/if}}
+
+</div>
+<div class="chat-content__body">
+	<section class="chat-content__timeline chat-content-timeline">
+		<div class="chat-content-timeline__wrapper">
+			{{#each messages}}
+				{{#ifCond this.type '===' 'message'}}
+					<div class="chat-content-timeline__item chat-content-message {{#ifCond this.user_id '!==' ../user_data.id }}chat-content-timeline__item_incoming chat-content-message__incoming{{/ifCond}}">
+						<p class="chat-content-message__body">{{ this.content }}</p>
+						<div class="chat-content-message__bottom">
+							<span class="chat-content-timeline__time">{{ this.human_time }}</span>
+							<div class="chat-content-timeline__status {{#if this.is_read}}chat-content-timeline__status_read{{else}}chat-content-timeline__status_unread{{/if}}"></div>
+						</div>
+					</div>
+				{{/ifCond}}
+			{{/each}}
+
+		</div>
+	</section>
+	<div class="chat-content__console">
+		{{{chatConsole}}}
+	</div>
+</div>
