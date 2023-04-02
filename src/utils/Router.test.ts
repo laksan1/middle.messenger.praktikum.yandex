@@ -68,17 +68,28 @@ describe('Router', () => {
 		expect(notFoundRoute?.getPathname()).to.equal('/404');
 	});
 
-	// Счетчик  contentFake.callCount не меняется
 	it.only('should render home page on history back', () => {
-		Router.use('/', BlockMock).back();
-		Router.go('/505');
-		Router.go('/404');
-		console.log('contentFake.callCount test', contentFake.callCount);
-		expect(contentFake.callCount).to.eq(300);
+		const contentFake = sandbox.fake.returns(document.createElement('ul'));
+
+		const BlockMock = class {
+			getContent = contentFake;
+			dispatchComponentDidMount = () => {};
+		} as unknown as BlockConstructable;
+
+		Router.start();
+		Router.use('/', BlockMock);
+		Router.use('/404', BlockMock);
+		Router.use('/505', BlockMock);
+		Router.back();
+		console.log('contentFake.callCount back INFO', contentFake.callCount);
+		expect(contentFake.callCount).to.eq(2);
 	});
 
 	it('should render home page on history forward', () => {
-		Router.use('/', BlockMock).start();
+		Router.start();
+		Router.use('/', BlockMock);
+
+		Router.start();
 		Router.back();
 		Router.forward();
 		expect(contentFake.callCount).to.eq(3);

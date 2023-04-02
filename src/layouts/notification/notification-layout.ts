@@ -10,7 +10,7 @@ type NotificationLayoutProps = {
 export class NotificationLayout extends Block<NotificationLayoutProps> {
 	constructor(props: NotificationLayoutProps) {
 		super('article', props);
-		this.element?.classList.add(styles.notification__container);
+		this.element?.classList.add('notification__container');
 	}
 
 	protected render(): DocumentFragment {

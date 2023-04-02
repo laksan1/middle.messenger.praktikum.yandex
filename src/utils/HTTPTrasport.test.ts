@@ -55,21 +55,14 @@ describe('HTTPTransport', () => {
 		expect((request as any).timeout).to.eq(5000);
 	});
 
-	it.skip('should set Data for request', () => {
+	it('should set Data for request', () => {
 		const data = {
 			name: 'Ivan',
 			lastName: 'Ivanov',
 			isAdmin: false,
 		};
-		// FormData is not defined
 		transport.post('/user', data);
-
 		const [request] = requests;
-		console.log('request.requestBody', request.requestBody);
-
-		// requestBody = null так, как
-		// HTTPTransport 90 строка -  FormData is not defined
-		// Что делать? Без if (data instanceof FormData) { } все работает
 		expect(request.requestBody).to.eq(JSON.stringify(data));
 	});
 });

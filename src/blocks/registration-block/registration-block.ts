@@ -16,7 +16,7 @@ type RegistrationBlockProps = {
 	repeatPasswordInput: Input;
 	submitButton: Button;
 	authLayoutLink: AuthLayoutLink;
-	events: Record<string, (e?: Event) => void | Promise<void>>;
+	events?: Record<string, (e?: Event) => void | Promise<void>>;
 };
 
 export class RegistrationBlock extends Block<RegistrationBlockProps> {

@@ -1,6 +1,5 @@
 import Block from '../../utils/Block';
 import template from './settings-action-link.hbs';
-import * as styles from './settings-action-link.module.scss';
 import { PropsWithRouter, withRouter } from '../../hocs/withRouter';
 
 interface SettingsActionLinkProps extends PropsWithRouter {
@@ -12,7 +11,7 @@ interface SettingsActionLinkProps extends PropsWithRouter {
 export class SettingsActionLinkBase extends Block<SettingsActionLinkProps> {
 	constructor(props: SettingsActionLinkProps) {
 		super('a', props);
-		this.element!.classList.add(styles.action__container);
+		this.element!.classList.add('action__container');
 		this.setProps({
 			events: {
 				...this.props.events,

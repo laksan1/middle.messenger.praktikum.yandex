@@ -41,7 +41,7 @@ module.exports = merge(config, {
 						},
 					},
 					'postcss-loader',
-					'scss-loader',
+					'sass-loader',
 				],
 				exclude: /(\/fonts)/,
 			},

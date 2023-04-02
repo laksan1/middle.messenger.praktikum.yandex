@@ -12,7 +12,7 @@ type LoginBlockProps = {
 	passwordInput: Input;
 	submitButton: Button;
 	registrationLink: AuthLayoutLink;
-	events: Record<string, (e?: Event) => void | Promise<void>>;
+	events?: Record<string, (e?: Event) => void | Promise<void>>;
 };
 
 export class LoginBlock extends Block<LoginBlockProps> {

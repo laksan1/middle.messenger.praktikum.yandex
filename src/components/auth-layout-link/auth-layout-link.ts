@@ -1,6 +1,6 @@
 import Block from '../../utils/Block';
 import template from './auth-layout-link.hbs';
-import * as styles from './auth-layout-link.module.scss';
+// import * as styles from './auth-layout-link.module.scss';
 
 type AuthLayoutLinkProps = {
 	label: string;
@@ -10,7 +10,7 @@ type AuthLayoutLinkProps = {
 export class AuthLayoutLink extends Block<AuthLayoutLinkProps> {
 	constructor(props: AuthLayoutLinkProps) {
 		super('a', props);
-		this.element!.classList.add(styles.prompt);
+		this.element!.classList.add('prompt');
 	}
 
 	protected render(): DocumentFragment {
