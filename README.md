@@ -27,4 +27,4 @@ This is a simple chat for communicating with people you know and your loved ones
     <a href="doc:introduction" target="_blank">Introduction</a>
 - 
 ## Ссылка на YandexCloud
-[Ссылка](https://test.containers.yandexcloud.net/)
+[Ссылка](https://bbaqas5iaphn9nf82ekl.containers.yandexcloud.net/)

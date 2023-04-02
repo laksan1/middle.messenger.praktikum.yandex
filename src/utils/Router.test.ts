@@ -3,7 +3,7 @@ import sinon from 'sinon';
 import { after, beforeEach } from 'mocha';
 import Router, { BlockConstructable } from './Router';
 
-describe('Router', () => {
+describe.only('Router', () => {
 	// https://sinonjs.org/releases/latest/sandbox/
 	const sandbox = sinon.createSandbox();
 	const originalBack = global.window.history.back;
@@ -12,6 +12,8 @@ describe('Router', () => {
 	before(() => {
 		global.window.history.back = () => {
 			if (typeof window.onpopstate === 'function') {
+				// window.location.pathname = '/';
+
 				window.onpopstate({ currentTarget: window } as unknown as PopStateEvent);
 			}
 		};
@@ -68,7 +70,7 @@ describe('Router', () => {
 		expect(notFoundRoute?.getPathname()).to.equal('/404');
 	});
 
-	it.only('should render home page on history back', () => {
+	it('should render home page on history back', () => {
 		const contentFake = sandbox.fake.returns(document.createElement('ul'));
 
 		const BlockMock = class {
@@ -83,6 +85,7 @@ describe('Router', () => {
 
 		Router.go('/500');
 		Router.go('/404');
+		//window.location.pathname = '/';
 		Router.back();
 
 		console.log('callCount', contentFake.callCount);
@@ -93,7 +96,6 @@ describe('Router', () => {
 	it('should render home page on history forward', () => {
 		Router.start();
 		Router.use('/', BlockMock);
-
 		Router.start();
 		Router.back();
 		Router.forward();
