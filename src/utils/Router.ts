@@ -91,7 +91,6 @@ class Router {
 	}
 
 	private _onRoute(pathname: string) {
-		console.log('CALL _onRoute');
 		const route = this.getRoute(pathname);
 		if (!route) {
 			if (this.notFoundRoute) {

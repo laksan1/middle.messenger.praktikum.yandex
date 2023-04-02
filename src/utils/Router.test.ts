@@ -76,13 +76,18 @@ describe('Router', () => {
 			dispatchComponentDidMount = () => {};
 		} as unknown as BlockConstructable;
 
-		Router.start();
 		Router.use('/', BlockMock);
 		Router.use('/404', BlockMock);
-		Router.use('/505', BlockMock);
+		Router.use('/500', BlockMock);
+		Router.start();
+
+		Router.go('/500');
+		Router.go('/404');
 		Router.back();
-		console.log('contentFake.callCount back INFO', contentFake.callCount);
-		expect(contentFake.callCount).to.eq(2);
+
+		console.log('callCount', contentFake.callCount);
+
+		expect(contentFake.callCount).to.eq(3);
 	});
 
 	it('should render home page on history forward', () => {
