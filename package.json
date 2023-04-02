@@ -4,10 +4,18 @@
 	"description": "messenger made on cheats html + scss + js",
 	"scripts": {
 		"dev": "npm run && parcel src/index.html --no-cache",
+		"webpack-dev": "webpack serve --open --config webpack.dev.js",
 		"build": "npm run && parcel build src/index.html --no-cache",
 		"start": "parcel build src/index.html && node server.js",
-		"lint": "eslint src/**/*.ts",
-		"stylelint": " stylelint **/*.scss"
+		"lint:css": "stylelint **/*.scss",
+		"lint:ts": "eslint .",
+		"docker:run": "docker-compose -f ./docker-compose.yml up -d && ng serve start",
+		"docker:stop": "",
+		"format": "prettier --write \"src/**/*.ts\" \" ",
+		"lint": "npm run lint:css & npm run lint:ts",
+		"stylelint": " stylelint **/*.scss",
+		"precommit": "npm test",
+		"test": "mocha --require ts-node/register --require ./mochaSetup.js './src/**/*.test.ts'"
 	},
 	"staticFiles": {
 		"staticPath": "static"
@@ -15,35 +23,65 @@
 	"keywords": [
 		"js"
 	],
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm-run-all test lint:all",
+			"pre-push": "npm run other command"
+		}
+	},
 	"author": "Alexander Laktionov",
 	"license": "ISC",
 	"devDependencies": {
-		"@anikin/parcel-transformer-handlebars": "1.0.9",
+		"@anikin/parcel-transformer-handlebars": "1.0.2",
 		"@anikin/parcel-transformer-handlebars-precompile": "1.0.1",
 		"@parcel/transformer-js": "2.8.3",
 		"@parcel/transformer-sass": "2.8.3",
 		"@types/chai": "4.3.4",
 		"@types/mocha": "10.0.1",
 		"@types/node": "18.15.3",
+		"@types/sinon": "^10.0.13",
 		"@typescript-eslint/eslint-plugin": "5.52.0",
 		"@typescript-eslint/parser": "5.52.0",
 		"chai": "4.3.7",
+		"classnames": "2.3.2",
+		"clean-webpack-plugin": "^4.0.0",
+		"copy-webpack-plugin": "^11.0.0",
+		"css-loader": "^6.7.3",
 		"eslint": "8.34.0",
 		"eslint-config-airbnb": "19.0.4",
 		"eslint-plugin-filenames": "^1.3.2",
+		"file-loader": "^6.2.0",
 		"filenames": "1.2.1",
+		"handlebars-loader": "^1.7.3",
+		"html-webpack-plugin": "^5.5.0",
+		"husky": "^8.0.3",
+		"jsdom": "^21.1.1",
+		"mini-css-extract-plugin": "^2.7.5",
 		"mocha": "10.2.0",
 		"parcel": "2.8.3",
 		"parcel-reporter-static-files-copy": "1.5.0",
+		"postcss-loader": "^7.1.0",
 		"prettier": "^2.8.4",
+		"scss": "^0.2.4",
+		"scss-loader": "^0.0.1",
+		"sinon": "^15.0.3",
 		"stylelint": "15.1.0",
-		"stylelint-scss": "4.4.0",
 		"stylelint-config-standard-scss": "7.0.1",
-		"typescript": "4.9.5"
+		"stylelint-scss": "4.4.0",
+		"take": "^0.1.0",
+		"terser-webpack-plugin": "^5.3.7",
+		"ts-loader": "^9.4.2",
+		"ts-node": "10.9.1",
+		"typescript": "4.9.5",
+		"unzip": "0.1.11",
+		"webpack": "5.76.3",
+		"webpack-cli": "5.0.1",
+		"webpack-dev-server": "4.13.1",
+		"webpack-merge": "^5.8.0"
 	},
 	"dependencies": {
 		"express": "4.18.2",
-		"nanoid": "4.0.1",
-		"handlebars": "4.7.7"
+		"handlebars": "4.7.7",
+		"nanoid": "3"
 	}
 }

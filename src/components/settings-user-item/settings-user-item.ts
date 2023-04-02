@@ -4,7 +4,7 @@ import template from './settings-user-item.hbs';
 type SettingsUserItemProps = {
 	label: string;
 	value: string;
-}
+};
 
 export class SettingsUserItem extends Block<SettingsUserItemProps> {
 	constructor(props: SettingsUserItemProps) {
@@ -12,6 +12,6 @@ export class SettingsUserItem extends Block<SettingsUserItemProps> {
 	}
 
 	render() {
-		return this.compile(template, { ...this.props })
+		return this.compile(template, { ...this.props });
 	}
 }

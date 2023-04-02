@@ -1,4 +1,4 @@
-import { User } from '../auth/user.interface'
+import { User } from '../auth/user.interface';
 
 export interface Chat {
 	id: number;
@@ -6,11 +6,11 @@ export interface Chat {
 	title: string;
 	created_by: number;
 	unread_count: number;
-	last_message: LastMessage
+	last_message: LastMessage;
 }
 
 export interface LastMessage {
-	user: Partial<User>,
+	user: Partial<User>;
 	time: string;
 	content: string;
 }

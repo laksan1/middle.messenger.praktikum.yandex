@@ -1,6 +1,10 @@
 {
+	"ts-node": {
+		"files": true
+	},
 	"compilerOptions": {
 		"moduleResolution": "Node",
+		"esModuleInterop": true,
 		"target": "es2019",
 		"noImplicitAny": true,
 		"noUnusedLocals": true,

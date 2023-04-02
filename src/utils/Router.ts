@@ -15,10 +15,14 @@ function render(query: string, block: Block) {
 	return root;
 }
 
+export interface BlockConstructable<P extends object = any> {
+	new (props?: P): Block<P>;
+}
+
 class Route {
 	private block: Block | null = null;
 
-	constructor(private pathname: string, private readonly blockClass: typeof Block, private readonly query: string) {}
+	constructor(private pathname: string, private readonly BlockClass: BlockConstructable, private readonly query: string) {}
 
 	leave() {
 		this.block = null;
@@ -34,7 +38,7 @@ class Route {
 
 	render() {
 		if (!this.block) {
-			this.block = new this.blockClass();
+			this.block = new this.BlockClass();
 			render(this.query, this.block!);
 			return;
 		}
@@ -59,14 +63,13 @@ class Router {
 		Router.__instance = this;
 	}
 
-	public use(pathname: string, block: typeof Block) {
+	public use(pathname: string, block: BlockConstructable) {
 		const route = new Route(pathname, block, this.rootQuery);
 		this.routes.push(route);
-
 		return this;
 	}
 
-	public setNotFound(pathname: string, block: typeof Block) {
+	public setNotFound(pathname: string, block: BlockConstructable) {
 		this.notFoundRoute = new Route(pathname, block, this.rootQuery);
 		return this;
 	}
@@ -87,7 +90,8 @@ class Router {
 		return this;
 	}
 
-	private async _onRoute(pathname: string) {
+	private _onRoute(pathname: string) {
+		console.log('CALL _onRoute');
 		const route = this.getRoute(pathname);
 		if (!route) {
 			if (this.notFoundRoute) {
@@ -97,7 +101,7 @@ class Router {
 			return;
 		}
 
-		const canResolve = await this.beforeRouterGo(route, this.currentRoute);
+		const canResolve = this.beforeRouterGo(route, this.currentRoute);
 
 		if (!canResolve) {
 			return;
@@ -109,12 +113,6 @@ class Router {
 
 		this.currentRoute = route;
 		route.render();
-
-		/*
-		if (!this.unprotectedPaths.includes(pathname as `/${string}`)) {
-			console.log(`${pathname} is _onRouteCallback`)
-		}
-		 */
 	}
 
 	public go(pathname: string) {
@@ -132,6 +130,11 @@ class Router {
 
 	private getRoute(pathname: string) {
 		return this.routes.find((route) => route.match(pathname));
+	}
+
+	public reset() {
+		this.routes = [];
+		this.currentRoute = null;
 	}
 }
 

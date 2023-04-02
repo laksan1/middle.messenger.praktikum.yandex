@@ -1,8 +1,8 @@
-import {Input} from '../../components/input/input';
-import {Button} from '../../components/button/button';
-import {SettingsChangePasswordBlock} from '../../blocks/settings-change-password-block/settings-change-password-block';
-import {ModalWindowLayout} from '../../layouts/modal-window/modal-window-layout';
-import {closeModalWindow} from '../../utils/ModalWindow';
+import { Input } from '../../components/input/input';
+import { Button } from '../../components/button/button';
+import { SettingsChangePasswordBlock } from '../../blocks/settings-change-password-block/settings-change-password-block';
+import { ModalWindowLayout } from '../../layouts/modal-window/modal-window-layout';
+import { closeModalWindow } from '../../utils/ModalWindow';
 
 const oldPasswordInput = new Input({
 	type: 'password',
@@ -12,7 +12,7 @@ const oldPasswordInput = new Input({
 	validationType: 'password',
 });
 
-const newPasswordInput  = new Input({
+const newPasswordInput = new Input({
 	type: 'password',
 	label: 'Новый пароль',
 	placeholder: 'Придумайте новый пароль',
@@ -20,27 +20,26 @@ const newPasswordInput  = new Input({
 	validationType: 'password',
 });
 
-const submitButton  = new Button ({
+const submitButton = new Button({
 	label: 'Сохранить',
 	type: 'submit',
 });
 
-const cancelButton = new Button ({
+const cancelButton = new Button({
 	label: 'Отмена',
 	events: {
 		click: () => closeModalWindow(),
 	},
 });
 
-const  settingsChangePasswordBlock = new SettingsChangePasswordBlock({
+const settingsChangePasswordBlock = new SettingsChangePasswordBlock({
 	oldPasswordInput,
 	newPasswordInput,
 	submitButton,
 	cancelButton,
-
-})
+});
 
 const settingsChangePasswordModal = new ModalWindowLayout({
-	modal: settingsChangePasswordBlock
-})
+	modal: settingsChangePasswordBlock,
+});
 export default settingsChangePasswordModal;
