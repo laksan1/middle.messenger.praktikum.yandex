@@ -40,4 +40,14 @@ describe('Block', () => {
 		expect(eventBusSpy.emit.calledWith('flow:component-did-update')).to.eq(true);
 		expect(component.getProps().a).is.eq(2);
 	});
+
+	it('should throw error by deleting props', () => {
+		const component = new ComponentMock({ a: 'hello' });
+		const f = () => {
+			// @ts-ignore
+			delete component.props.a;
+		};
+
+		expect(f).to.throw(Error);
+	});
 });

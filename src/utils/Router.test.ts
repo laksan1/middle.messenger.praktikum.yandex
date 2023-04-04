@@ -3,8 +3,7 @@ import sinon from 'sinon';
 import { after, beforeEach } from 'mocha';
 import Router, { BlockConstructable } from './Router';
 
-describe.only('Router', () => {
-	// https://sinonjs.org/releases/latest/sandbox/
+describe('Router', () => {
 	const sandbox = sinon.createSandbox();
 	const originalBack = global.window.history.back;
 	const originalForward = global.window.history.forward;
@@ -13,7 +12,6 @@ describe.only('Router', () => {
 		global.window.history.back = () => {
 			if (typeof window.onpopstate === 'function') {
 				// window.location.pathname = '/';
-
 				window.onpopstate({ currentTarget: window } as unknown as PopStateEvent);
 			}
 		};
@@ -27,6 +25,7 @@ describe.only('Router', () => {
 
 	beforeEach(() => {
 		Router.reset();
+		contentFake.callCount = 0;
 	});
 
 	after(() => {
@@ -46,9 +45,9 @@ describe.only('Router', () => {
 	});
 
 	it('should render home page', () => {
-		Router.use('/', BlockMock).start();
-
-		expect(contentFake).to.be.true;
+		Router.use('/', BlockMock);
+		Router.start();
+		expect(contentFake.callCount).to.eq(1);
 	});
 
 	it('should not render protected page', () => {
@@ -87,10 +86,7 @@ describe.only('Router', () => {
 		Router.go('/404');
 		//window.location.pathname = '/';
 		Router.back();
-
-		console.log('callCount', contentFake.callCount);
-
-		expect(contentFake.callCount).to.eq(3);
+		expect(contentFake.callCount).to.eq(2);
 	});
 
 	it('should render home page on history forward', () => {
@@ -99,7 +95,7 @@ describe.only('Router', () => {
 		Router.start();
 		Router.back();
 		Router.forward();
-		expect(contentFake.callCount).to.eq(3);
+		expect(contentFake.callCount).to.eq(1);
 	});
 
 	it('beforeRouterGo()', () => {
