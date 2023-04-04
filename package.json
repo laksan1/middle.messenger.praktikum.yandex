@@ -25,15 +25,9 @@
 	],
 	"husky": {
 		"hooks": {
-			"pre-commit": "npm run test lint-staged",
+			"pre-commit": "npm run test",
 			"pre-push": "npm run lint"
 		}
-	},
-	"lint-staged": {
-		"*.ts" : [
-			"npm run lint",
-			"git add"
-		]
 	},
 	"author": "Alexander Laktionov",
 	"license": "ISC",
