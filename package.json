@@ -28,12 +28,6 @@
 			"pre-commit": "test"
 		}
 	},
-	"lint-staged": {
-		"*.ts" : [
-			"npm run lint:fix",
-			"git add"
-		]
-	},
 	"author": "Alexander Laktionov",
 	"license": "ISC",
 	"devDependencies": {
