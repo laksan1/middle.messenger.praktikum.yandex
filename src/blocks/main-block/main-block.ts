@@ -1,5 +1,5 @@
-import Block from '../../utils/Block';
-import template from './main-block.hbs";
+import Block from '../../utils/Block";
+import template from './main-block.hbs';
 
 type MainBlockProps = {
 	events?: Record<string, (e?: Event) => void>;

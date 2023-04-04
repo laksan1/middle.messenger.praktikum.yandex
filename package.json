@@ -23,6 +23,18 @@
 	"keywords": [
 		"js,ts,hbs"
 	],
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run test lint-staged",
+			"pre-push": "npm run lint"
+		}
+	},
+	"lint-staged": {
+		"*.ts" : [
+			"npm run lint",
+			"git add"
+		]
+	},
 	"author": "Alexander Laktionov",
 	"license": "ISC",
 	"devDependencies": {
