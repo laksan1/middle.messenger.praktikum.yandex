@@ -1,19 +1,21 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const CleanWebpackPlugin = require('clean-webpack-plugin').CleanWebpackPlugin;
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+//  const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
 	entry: './src/index.ts',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'js/[name]-[fullhash].js',
-		chunkFilename: 'js/[name]-[fullhash].js',
+		chunkFilename: 'js/[name]-[fullhash].js', // or contenthash
 	},
 	resolve: {
-		extensions: ['.ts', '.tsx', '.js'],
+		extensions: ['.ts', '.js'],
 	},
 	module: {
 		rules: [
@@ -45,6 +47,10 @@ module.exports = {
 				{
 					from: 'static',
 					to: './',
+				},
+				{
+					from: path.resolve(__dirname, 'static/img/favicon.png'),
+					to: path.resolve(__dirname, 'dist'),
 				},
 			],
 		}),

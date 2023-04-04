@@ -3,17 +3,18 @@
 	"version": "1.0.0",
 	"description": "messenger made on cheats html + scss + js",
 	"scripts": {
-		"dev": "npm run && parcel src/index.html --no-cache",
-		"webpack-dev": "webpack serve --open --config webpack.dev.js",
-		"build": "npm run && parcel build src/index.html --no-cache",
-		"start": "parcel build src/index.html && node server.js",
+		"dev-parcel": "npm run && parcel src/index.html --no-cache",
+		"dev": "webpack  serve --open --config webpack.dev.js",
+		"build": "webpack --config webpack.prod.js",
+		"start": "webpack-dev-server --config webpack.dev.js --open",
+		"parcel-start": "parcel build src/index.html && node server.js",
 		"lint:css": "stylelint **/*.scss",
 		"lint:ts": "eslint .",
 		"docker:run": "docker-compose -f ./docker-compose.yml up -d && ng serve start",
-		"docker:stop": "",
 		"format": "prettier --write \"src/**/*.ts\" \" ",
 		"lint": "npm run lint:css & npm run lint:ts",
 		"stylelint": " stylelint **/*.scss",
+		"prepare": "husky install",
 		"precommit": "npm test",
 		"test": "mocha --require ts-node/register --require ./mochaSetup.js './src/**/*.test.ts'"
 	},
@@ -21,7 +22,7 @@
 		"staticPath": "static"
 	},
 	"keywords": [
-		"js"
+		"js,ts,hbs"
 	],
 	"husky": {
 		"hooks": {

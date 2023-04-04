@@ -6,28 +6,36 @@ const config = require('./webpack.config.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = merge(config, {
-	mode: 'development',
-	devtool: 'source-map',
-	devServer: {
-		static: 'dist',
-		compress: true,
-		port: 3000,
-		historyApiFallback: {
-			index: '/',
-		},
-	},
+	mode: 'production',
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: 'src/index.html',
 			filename: 'index.html',
-			minify: false,
+			minify: {
+				collapseWhitespace: false,
+				removeComments: true,
+				removeRedundantAttributes: true,
+				useShortDoctype: true,
+			},
 		}),
 		new MiniCssExtractPlugin({
 			filename: 'css/style-[fullhash].css',
 		}),
 	],
+	optimization: {
+		splitChunks: {
+			chunks: 'all',
+		},
+		minimize: true,
+		minimizer: [
+			new TerserPlugin({
+				parallel: true,
+			}),
+		],
+	},
 	module: {
 		rules: [
 			{
