@@ -5,7 +5,7 @@ import { Button } from '../../components/button/button';
 import { Input } from '../../components/input/input';
 import AuthController from '../../controllers/AuthController';
 import checkForm from '../../utils/FormActions';
-import { UserFields } from '../../enums/userFields.enum';
+import { UserFields } from '../../enums/userFields.enum";
 type LoginBlockProps = {
 	loginInput: Input;
 	passwordInput: Input;
