@@ -31,10 +31,11 @@ export default class HTTPTransport {
 	}
 
 	public post<Response = void>(path: string, data?: unknown): Promise<Response> {
-		return this.request<Response>(this.endpoint + path, {
+		const result = this.request<Response>(this.endpoint + path, {
 			method: Method.Post,
 			data,
 		});
+		return result;
 	}
 
 	public put<Response = void>(path: string, data: unknown): Promise<Response> {
@@ -58,7 +59,7 @@ export default class HTTPTransport {
 		});
 	}
 
-	private request<Response>(url: string, options: Options = { method: Method.Get }): Promise<Response> {
+	private request<Response>(url: string, options: Options = { method: Method.Get }, timeout = 5000): Promise<Response> {
 		const { method, data } = options;
 
 		return new Promise((resolve, reject) => {
@@ -81,6 +82,8 @@ export default class HTTPTransport {
 
 			xhr.withCredentials = true;
 			xhr.responseType = 'json';
+			xhr.timeout = timeout;
+
 			if (method === Method.Get || !data) {
 				xhr.send();
 			} else {

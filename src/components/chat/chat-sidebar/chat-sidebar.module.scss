@@ -1,6 +1,6 @@
 .chat-sidebar {
 	background: var(--app-base-02);
-	border-right: #EAEAEA;
+	border-right: #eaeaea;
 	display: flex;
 	flex-direction: column;
 	padding: 21px 10px 0 10px;
@@ -69,14 +69,14 @@
 	display: flex;
 	align-items: center;
 	cursor: pointer;
-	transition: background-color .3s ease;
+	transition: background-color 0.3s ease;
 
 	&:hover {
 		border-bottom: var(--app-base-01) solid 3px;
 	}
 
 	::before {
-		content: "";
+		content: '';
 		position: absolute;
 		top: 0;
 		left: 32px;
@@ -110,14 +110,14 @@
 		font-size: 18px;
 		line-height: 1.33;
 		color: var(--app-base-03);
-		transition: color .3s ease;
+		transition: color 0.3s ease;
 	}
 
 	&__time {
 		font-size: 12px;
 		line-height: 1;
 		color: var(--app-base-03);
-		transition: color .3s ease
+		transition: color 0.3s ease;
 	}
 
 	&__message {
@@ -134,7 +134,7 @@
 		font-size: 16px;
 		line-height: 1.1;
 		color: var(--app-base-04);
-		transition: color .3s ease;
+		transition: color 0.3s ease;
 	}
 
 	&_unread {
@@ -154,7 +154,7 @@
 		color: var(--app-base-03);
 		background-color: var(--app-base-01);
 		border-radius: 50%;
-		transition: color .3s ease, background-color .3s ease;
+		transition: color 0.3s ease, background-color 0.3s ease;
 	}
 
 	img {
@@ -164,10 +164,9 @@
 	}
 }
 
-.avatar__image{
-	background-color: var(--app-base-03);;
+.avatar__image {
+	background-color: var(--app-base-03);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 50%;
 }
-

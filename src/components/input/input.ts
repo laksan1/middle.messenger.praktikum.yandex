@@ -17,6 +17,7 @@ type InputProps = {
 };
 
 export class Input extends Block<InputProps> {
+	//
 	constructor(props: InputProps) {
 		super('label', props);
 		this.setProps({

@@ -6,13 +6,12 @@ import { Input } from '../../components/input/input';
 import AuthController from '../../controllers/AuthController';
 import checkForm from '../../utils/FormActions';
 import { UserFields } from '../../enums/userFields.enum';
-
 type LoginBlockProps = {
 	loginInput: Input;
 	passwordInput: Input;
 	submitButton: Button;
 	registrationLink: AuthLayoutLink;
-	events: Record<string, (e?: Event) => void | Promise<void>>;
+	events?: Record<string, (e?: Event) => void | Promise<void>>;
 };
 
 export class LoginBlock extends Block<LoginBlockProps> {

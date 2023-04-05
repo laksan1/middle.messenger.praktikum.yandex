@@ -1,6 +1,6 @@
-.modal-container{
+.modal-container {
 	background-color: #993d46;
-	&__modal{
+	&__modal {
 		position: fixed;
 		justify-content: center;
 		align-items: flex-start;
@@ -18,6 +18,6 @@
 		padding: 32px 48px;
 
 		background-color: var(--app-base-02);
-		border-radius: 20px
+		border-radius: 20px;
 	}
 }

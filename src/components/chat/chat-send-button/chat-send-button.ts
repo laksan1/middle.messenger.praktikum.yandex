@@ -1,11 +1,10 @@
 import Block from '../../../utils/Block';
 import template from './chat-send-button.hbs';
 
-
 type ChatSendButtonProps = {
 	label: string;
 	events?: Record<string, (e?: Event) => void>;
-}
+};
 
 export class ChatSendButton extends Block<ChatSendButtonProps> {
 	constructor(props: ChatSendButtonProps) {
@@ -14,6 +13,6 @@ export class ChatSendButton extends Block<ChatSendButtonProps> {
 	}
 
 	protected render(): DocumentFragment {
-		return this.compile(template, {...this.props})
+		return this.compile(template, { ...this.props });
 	}
 }

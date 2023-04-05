@@ -1,7 +1,11 @@
 {
+	"ts-node": {
+		"files": true
+	},
 	"compilerOptions": {
 		"moduleResolution": "Node",
-		"target": "es2019",
+		"esModuleInterop": true,
+		"target": "es2022",
 		"noImplicitAny": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,

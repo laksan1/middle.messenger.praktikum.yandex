@@ -3,7 +3,6 @@ import notFoundPage from './pages/not-found/not-found';
 import loginPage from './pages/login/login';
 import Router from './utils/Router';
 import { Routes } from './enums/routes.enum';
-import Block from './utils/Block';
 import registrationPage from './pages/registration/registration';
 import settingsPage from './pages/settings/settings';
 import errorPage from './pages/error/error';
@@ -14,16 +13,14 @@ import chatPage from './pages/chat/chat';
 
 declare const window: any;
 
-// const mainPage = new MainBlock({})
-
 window.addEventListener('DOMContentLoaded', async () => {
-	Router.setNotFound(Routes.PageNotFound, notFoundPage as typeof Block)
-		.use(Routes.Login, loginPage as typeof Block)
-		.use(Routes.Register, registrationPage as typeof Block)
-		.use(Routes.Settings, settingsPage as typeof Block)
-		.use(Routes.SettingsEdit, settingsChangeInfoPage as unknown as typeof Block)
-		.use(Routes.Messenger, chatPage as typeof Block)
-		.use(Routes.ServiceError, errorPage as typeof Block)
+	Router.setNotFound(Routes.PageNotFound, notFoundPage)
+		.use(Routes.Login, loginPage)
+		.use(Routes.Register, registrationPage)
+		.use(Routes.Settings, settingsPage)
+		.use(Routes.SettingsEdit, settingsChangeInfoPage)
+		.use(Routes.Messenger, chatPage)
+		.use(Routes.ServiceError, errorPage)
 		.onBeforeRouterGo(async (to) => {
 			let isProtected = true;
 			switch (to.getPathname()) {

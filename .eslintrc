@@ -1,15 +1,8 @@
 {
 	"root": true,
 	"parser": "@typescript-eslint/parser",
-	"plugins": [
-		"@typescript-eslint",
-		"filenames"
-	],
-	"extends": [
-		"eslint:recommended",
-		"plugin:@typescript-eslint/eslint-recommended",
-		"plugin:@typescript-eslint/recommended"
-	],
+	"plugins": ["@typescript-eslint", "filenames"],
+	"extends": ["eslint:recommended", "plugin:@typescript-eslint/eslint-recommended", "plugin:@typescript-eslint/recommended"],
 	"rules": {
 		"quotes": [
 			2,
@@ -18,17 +11,21 @@
 				"avoidEscape": true
 			}
 		],
-		"filenames/match-exported": [
-			"error",
-			"kebab"
+		"filenames/match-exported": ["", "kebab"],
+		"no-use-before-define": [
+			"warn",
+			{
+				"functions": true,
+				"classes": false,
+				"variables": true,
+				"allowNamedExports": false
+			}
 		],
-		"no-use-before-define": ["warn", {
-			"functions": true,
-			"classes": false,
-			"variables": true,
-			"allowNamedExports": false
-		}],
 		"no-param-reassign": ["warn"]
+	},
+	"env": {
+		"browser": true,
+		"node": true,
+		"jasmine": true
 	}
-
 }
